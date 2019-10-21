@@ -1,0 +1,19 @@
+#topwrap {
+    position: relative;
+    background-color: #fff;
+    font-size: 12px;
+    border-bottom: 1px solid #f1f1f1;
+    z-index: 101;
+}
+
+#top {
+    padding: 8px 0;
+}
+
+#topinner {
+    position: relative;
+}
+
+#topcontent {
+    float: left;
+}
