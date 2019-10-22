@@ -12,3 +12,42 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+#options {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#regulator {
+    margin-top: 3rem;
+    margin-right: 2rem;
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 2rem;
+    padding: 0rem;
+    border: rgb(144, 138, 138);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(78, 235, 57);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#customer {
+    margin-top: 3rem;
+    margin-right: 2rem;
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 2rem;
+    padding: 0rem;
+    border: rgb(144, 138, 138);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(78, 235, 57);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
