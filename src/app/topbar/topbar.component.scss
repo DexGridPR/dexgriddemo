@@ -28,10 +28,38 @@
     background-image: "../../assets/large_logo.PNG";
     background-repeat: no-repeat;
     background-size: contain;
+    overflow: hidden;
+    background-color: rgb(203, 230, 115);
 }
 
 #site-logo-inner {
     display: table-cell;
     vertical-align: middle;
     height: 74px;
+}
+
+.demobuttonbar {
+    // color: rgb(42, 97, 60);
+    float: right;
+    // position: relative;
+}
+
+#demobutton {
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 2rem;
+    padding: 0rem;
+    border: rgb(144, 138, 138);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(78, 235, 57);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#demobutton:hover {
+    width: 12rem;
+    height: 3rem;
+    font-size: 1.1rem;
 }
