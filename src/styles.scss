@@ -56,5 +56,12 @@ $dexgrid-theme: mat-light-theme($dexgrid-primary, $dexgrid-accent, $dexgrid-warn
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+footer{ 
+    // position: absolute; 
+    // left: 0; right: 0; 
+    // display: flex;
+    height: 10rem;
+    // bottom: 0;
+}

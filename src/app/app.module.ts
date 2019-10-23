@@ -9,6 +9,7 @@ import { MarketComponent } from './market/market.component';
 import { RegulatorComponent } from './regulator/regulator.component';
 import { CustomerComponent } from './customer/customer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LandingComponent,
     MarketComponent,
     RegulatorComponent,
-    CustomerComponent
+    CustomerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
