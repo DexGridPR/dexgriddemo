@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./market.component.scss']
 })
 export class MarketComponent implements OnInit {
+  public should_open_reg = false;
+  public should_open_cus = false;
 
   // constructor( private dialog: MatDialog ) { }
 
@@ -20,12 +22,16 @@ export class MarketComponent implements OnInit {
   }
 
   reg() {
+    this.should_open_reg = true;
+    this.should_open_cus = false;
     console.log("Regulator Component")
     // const dialogConfig = new MatDialogConfig();
     // this.dialog.open(RegulatorComponent, dialogConfig);
   }
 
   cus() {
+    this.should_open_cus = true;
+    this.should_open_reg = false;
     console.log("Customer Component")
   }
 

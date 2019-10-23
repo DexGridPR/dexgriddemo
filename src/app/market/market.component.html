@@ -10,4 +10,13 @@
     <button id="customer" (click)="cus()">Customer</button>
   </div>
 
+  <div *ngIf="should_open_reg;">
+    <app-regulator></app-regulator>
+    <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+  </div>
+
+  <div *ngIf="should_open_cus;">
+    <app-customer></app-customer>
+    <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+  </div>
 </div>
