@@ -59,14 +59,14 @@ body {
     }
 
     .rowelement {
-        width: 32%;
+        padding: 1rem;   
+        width: 30%;
         position: relative;
         min-height: 1px;
         display: flex;
     }
 
     .rowcolumn {
-        padding: 30px;    
         width: 100%;
         position: relative;
         display: flex;

@@ -12,4 +12,12 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {
   }
 
+  history() {
+    console.log("Open Bill History");
+  }
+
+  sellrec() {
+    console.log("Open up exchange");
+  }
+
 }

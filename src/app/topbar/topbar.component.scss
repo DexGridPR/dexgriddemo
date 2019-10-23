@@ -4,6 +4,8 @@
     font-size: 12px;
     border-bottom: 1px solid #f1f1f1;
     z-index: 101;
+    margin-left: 1rem;
+    padding-bottom: 0.3rem;
 }
 
 #top {
@@ -60,7 +62,7 @@
     width: 10rem;
     height: 2rem;
     // padding: 0rem;
-    border: rgb(144, 138, 138);
+    border: 0.1rem,rgb(144, 138, 138);
     text-align: center;
     text-decoration: none;
     display: inline-block;

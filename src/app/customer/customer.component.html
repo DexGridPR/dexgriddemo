@@ -1,3 +1,83 @@
-<p>
-  customer works!
-</p>
+<div id="customer">
+  <h2>Welcome to your Customer Dashboard</h2>
+
+  <div class="custitle">
+    <p>A portal for DexGrid customers to check on their status:</p>
+    <ul>
+      <li>Consumption and generation</li>
+      <li>Payment history</li>
+      <li>Track generation, transfer, and consumption of renewable energy credits</li>
+      <li>Source of costs and earnings over each period</li>
+      <li>Generation mixture of electricity you've been consuming</li>
+      <li>Which equipment you have connected to DexGrid and their performance</li>
+    </ul>
+  </div>
+
+  <div id="dashboard">
+    <p class="custitle">Customer Dashboard</p>
+
+    <div id="cus-info">
+      <p>Address- 100 Calle San Francisco, San Juan, Puerto Rico 00901</p>
+      <p>Billing Number- #34920</p>
+      <p>Ethereum Address- 0xtY4....9We4</p>
+    </div>
+
+    <!-- Five total dashboard cards -->
+    <div id="wrap"  multi-col>
+      <div id="bill" class="dashcard">
+        <div class="dashcard-inner">
+            <p class="dashcard-title">Billing</p>
+            <p>Current month expense: $12.45</p>
+            <p>Current month earnings: $9.43</p>
+        </div>
+      </div>
+  
+      <div id="perform" class="dashcard">
+        <div class="dashcard-inner">
+            <p class="dashcard-title">DER Performance, last 30 days:</p>
+            <p>Solar PV: 42 kWh</p>
+            <p>Battery: 64 kWh charged</p>
+        </div>
+      </div>
+  
+      <div id="equipment" class="dashcard">
+        <div class="dashcard-inner">
+          <p class="dashcard-title">Your Equipment:</p>
+          <p>5.2 kW solar PV, rooftop</p>
+          <p>3 kW Lithium Ion battery</p>
+        </div>
+      </div>
+  
+      <div id="consumption" class="dashcard">
+        <div class="dashcard-inner">
+          <p class="dashcard-title">Consumption:</p>
+          <p>Last 30 days: 32 kWh</p>
+          <p>Last 12 months: 354 kWh</p>
+          <p>Sources:</p>
+          <ul>
+            <li>43% Solar PV</li>
+            <li>24% Wind</li>
+            <li>22% Natural Gas</li>
+            <li>11% Petroleum</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div id="der" class="dashcard">
+        <div class="dashcard-inner">
+          <p class="dashcard-title">Renewable Energy Credits</p>
+          <p>Generated, past 12 months: 0.87 RECs</p>
+          <p>Consumed/Purchased: 0.00 RECs</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <div id="buttons">
+        <button (click)="history()" class="dashbutton">Previous Bills</button>
+      
+        <button (click)="sellrec()" class="dashbutton">Sell Your RECs</button>
+    </div>
+
+  </div>
+</div>
