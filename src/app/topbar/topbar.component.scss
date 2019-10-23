@@ -59,7 +59,7 @@
     border-radius: 1.5rem;
     width: 10rem;
     height: 2rem;
-    padding: 0rem;
+    // padding: 0rem;
     border: rgb(144, 138, 138);
     text-align: center;
     text-decoration: none;
@@ -70,7 +70,8 @@
 }
 
 #demobutton:hover {
-    width: 12rem;
-    height: 3rem;
-    font-size: 1.1rem;
+    // padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+    // height: 2.2rem;
+    font-size: 1.0rem;
+    max-width: 12rem;
 }
