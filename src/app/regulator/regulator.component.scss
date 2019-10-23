@@ -1,3 +1,35 @@
 #regulator {
     margin: 0em 1em 0em 1em;
 }
+
+#regtitle {
+    background-color: rgba(145, 179, 233, 0.63);
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 0.5em;
+}
+
+#dashboard {
+    background-color: rgba(168, 164, 164, 0.438);
+    padding: 0.3em;
+
+    #welcome {
+        p {
+            font-size: 1.5em;
+            text-decoration: underline;
+        }
+    }
+
+    #rec {
+        background-color: rgba(87, 168, 91, 0.808);
+        padding: 0.2em;
+        border-radius: 0.4em;
+    }
+
+    #prmap {
+        border: black;
+        img {
+            width: 50%;
+            height: auto;
+        }
+    }
+}

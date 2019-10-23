@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./market.component.scss']
 })
 export class MarketComponent implements OnInit {
-  public should_open_reg = false;
+  public should_open_reg = true;
   public should_open_cus = false;
 
   // constructor( private dialog: MatDialog ) { }
