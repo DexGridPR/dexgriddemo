@@ -1,5 +1,20 @@
 # Dexgrid
 
+## Technical Documentation
+
+See Writeups folder for technical writeups on DexGrid products. Including:
+    1. Customer Onboarding
+    2. Retail Customer Dashboard
+    3. Regulator Dashboard
+    4. Generator Dashboard
+    5. Renewable Energy Credit (REC) Tracking
+    6. Solidity Smart Contracts
+    7. Payment Methods
+    8. Methods of Authorization
+    9. Distributed Energy Resource (DER) Onboarding and Tracking
+    10. Virtual Electric Market
+    11. DexGrid Hardware
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
 
 ## Development server
