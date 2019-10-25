@@ -1,8 +1,8 @@
 {
-  "name": "dexgrid",
-  "short_name": "dexgrid",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "DexGrid Product Demo",
+  "short_name": "DexGrid",
+  "theme_color": "#edede6",
+  "background_color": "#edede6",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
