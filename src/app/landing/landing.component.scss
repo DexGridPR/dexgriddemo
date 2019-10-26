@@ -59,11 +59,15 @@ body {
     }
 
     .rowelement {
-        padding: 1rem;   
-        width: 30%;
+        padding: 0.4rem;   
         position: relative;
         min-height: 1px;
         display: flex;
+
+        @media only screen and (min-width: 600px) {
+            width: 30%;
+
+        }
     }
 
     .rowcolumn {

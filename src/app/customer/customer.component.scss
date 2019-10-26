@@ -33,12 +33,15 @@
     // margin-left: auto;
     position: relative;
     // width: 90%;
-    column-count: 3;
-    // column-fill: auto;
-    column-gap: 0.5rem;
-    // height: 25rem;
     width: 100%;
     // column-span: all;
+
+    @media only screen and (min-width: 600px) {
+        column-count: 3;
+        // column-fill: auto;
+        column-gap: 0.5rem;
+        // height: 25rem;    
+    }
 }
 
 .dashcard {
