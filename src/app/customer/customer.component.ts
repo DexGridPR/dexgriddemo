@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SellrecComponent } from '../sellrec/sellrec.component';
 
 @Component({
   selector: 'app-customer',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer.component.scss']
 })
 export class CustomerComponent implements OnInit {
+  public should_open_sellrec = true;
+  public should_open_history = false;
 
   constructor() { }
 
@@ -17,6 +20,8 @@ export class CustomerComponent implements OnInit {
   }
 
   sellrec() {
+    this.should_open_sellrec = true;
+    this.should_open_history = false;
     console.log("Open up exchange");
   }
 

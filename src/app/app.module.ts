@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SellrecComponent } from './sellrec/sellrec.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { environment } from '../environments/environment';
     MarketComponent,
     RegulatorComponent,
     CustomerComponent,
-    FooterComponent
+    FooterComponent,
+    SellrecComponent
   ],
   imports: [
     BrowserModule,

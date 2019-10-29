@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MarketComponent implements OnInit {
   public should_open_reg = false;
-  public should_open_cus = false;
+  public should_open_cus = true;
 
   // constructor( private dialog: MatDialog ) { }
 

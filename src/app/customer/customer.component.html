@@ -1,5 +1,5 @@
 <div id="customer">
-  <h2>Welcome to your Customer Dashboard</h2>
+  <h1>Welcome to your Customer Dashboard</h1>
 
   <div class="custitle">
     <p>A portal for DexGrid customers to check on their status:</p>
@@ -77,6 +77,11 @@
         <button (click)="history()" class="dashbutton">Previous Bills</button>
       
         <button (click)="sellrec()" class="dashbutton">Sell Your RECs</button>
+    </div>
+
+    <div *ngIf="should_open_sellrec;">
+      <app-sellrec></app-sellrec>
+      <!-- <ng-template #empty>Nothing Opened</ng-template> -->
     </div>
 
   </div>
