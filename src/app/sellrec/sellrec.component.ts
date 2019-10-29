@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Web3Service } from '../service/web3.service';
 
 @Component({
   selector: 'app-sellrec',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellrecComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _web3: Web3Service) { }
 
   ngOnInit() {
   }
 
   transfer() {
     console.log("Transfer RECs");
-    
+    this._web3.Transfer();
   }
 
 }
