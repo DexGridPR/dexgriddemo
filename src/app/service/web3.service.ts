@@ -9,6 +9,7 @@ declare let require: any;
 declare let window: any;
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,8 +21,10 @@ export class Web3Service {
 
   Transfer() {
     console.log("Transfer Web3");
-    const Web3 = require('web3');
-    const web3 = require('web3');
+    // const Web3 = require('web3');
+    console.log(Web3);
+    // const web3 = require('web3');
+    console.log(web3);
     var escrowContract = "0x2ac4a0788FfCc9fb1E50F8BF81535974D8A1b710";
     var src = web3.eth.accounts[0];
     var payee = "0x76c67F724d155bf2725350bDF809460f5636bEc9";
@@ -146,5 +149,18 @@ export class Web3Service {
     payContract.deposit(payee, { gas: 200000, value: B }, console.log);
 
   }
+
+  Metamask() {
+    console.log('Connecting Metamask');
+    web3 = new Web3();
+    console.log(web3);
+    web3.setProvider(new web3.providers.HttpProvider());
+    console.log(web3.setProvider);
+    web3.eth.getAccounts();
+    // .then(function(accounts) {
+    // console.log(accounts);
+    // });
+  };
+
 
 }
