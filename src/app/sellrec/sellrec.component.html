@@ -1,18 +1,22 @@
 
  <p>Sell your Renewable Energy Credits here:</p>
+<hr>
+ <div class="general">
 
- <div>
-   <span>
-      <p>Credits available to transfer:</p>
+    <div class="transfer">
+        <p>Credits to transfer:</p>
+        <input #rec [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?">
+      </div>
+
+   <div class="credits">
+      <p>Renewable Energy Credits available to transfer:</p>
       <p id="creditnumber"></p>
-   </span>
-   <div>
-     <p>Credits to transfer:</p>
-     <input #rec [value]="recs" type="number" name="RECs" id="recs">
+   </div>
+
+
+   <div class="transferb">
+    <button id="transferb" (click) = "transferr(rec.value)" for="rec">Transfer RECs</button>
    </div>
 
  </div>
 
- <div>
-  <button (click) = "transferr(rec.value)" for="rec">Transfer RECs</button>
- </div>
