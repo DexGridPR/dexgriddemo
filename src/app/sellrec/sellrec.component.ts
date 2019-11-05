@@ -10,24 +10,37 @@ export class SellrecComponent implements OnInit {
 
   constructor(private _web3: Web3Service) { }
 
+  name = "one"; 
+
   n: number = 13;
   timesclicked: number = 0;
+  credit: any = document.getElementById("creditnumber");
 
   ngOnInit() {
     // var timesclicked;
     // timesclicked = 0;
     var n = this.n;
-    document.getElementById("creditnumber").innerHTML = n;
+    var number1 = 1;
+    var credit = this.credit;
+    console.log(credit);
+    console.log("'credit' Type:", typeof credit)
+    // var credit: any = document.getElementById("creditnumber");
+    // credit: 12;
+    // credit: number;
+    credit.innerHTML = n;
+    credit.value = n;
+
 
   }
 
   transferr(recs) {
     var n = this.n;
+    var credit = this.credit;
     // var recs;
     // recs = 5;
     console.log("transferring", recs, "RECs")
     n = n - recs;
-    document.getElementById("creditnumber").innerHTML = n;
+    // document.getElementById("creditnumber").innerHTML = n;
 
   }
 
@@ -61,7 +74,7 @@ export class SellrecComponent implements OnInit {
 
     console.log("New n:", n);
 
-    document.getElementById("creditnumber").innerHTML = n;
+    // document.getElementById("creditnumber").innerHTML = n;
   }
 
   transfer() {

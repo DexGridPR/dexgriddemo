@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SellrecComponent } from './sellrec/sellrec.component';
+import { TesterComponent } from './tester/tester.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SellrecComponent } from './sellrec/sellrec.component';
     RegulatorComponent,
     CustomerComponent,
     FooterComponent,
-    SellrecComponent
+    SellrecComponent,
+    TesterComponent
   ],
   imports: [
     BrowserModule,

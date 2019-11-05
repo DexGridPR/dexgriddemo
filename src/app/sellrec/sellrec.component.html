@@ -1,4 +1,4 @@
-
+<h1>{{ SellrecComponent.name }}</h1>
  <p>Sell your Renewable Energy Credits here:</p>
 <hr>
  <div class="general">
@@ -10,13 +10,17 @@
 
    <div class="credits">
       <p>Renewable Energy Credits available to transfer:</p>
-      <p id="creditnumber"></p>
+      <p [innerHTML]="creditnumber" id="creditnumber" type="number"></p>
    </div>
 
 
    <div class="transferb">
     <button id="transferb" (click) = "transferr(rec.value)" for="rec">Transfer RECs</button>
    </div>
+
+   <div style="color:red; height: 2em; width: 15em; background-color: blue;">
+      <p style="color: yellow" [innerHTML]="name">{{ name }}</p>
+  </div>
 
  </div>
 
