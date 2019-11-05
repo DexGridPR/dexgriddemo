@@ -11,6 +11,7 @@ export class SellrecComponent implements OnInit {
   constructor(private _web3: Web3Service) { }
 
   n: number = 13;
+  timesclicked: number = 0;
 
   ngOnInit() {
     // var timesclicked;
@@ -29,19 +30,22 @@ export class SellrecComponent implements OnInit {
     //   timesclicked++;
     // }
 
-    var timesclicked;
     var n = this.n;
-    if (timesclicked > 0 ) {
+    var timesclicked = this.timesclicked;
+
+    if (n < 13 ) {
+      console.log("n > 0")
       timesclicked = timesclicked + 1;
-      n = n - 1;
+      // n = n - timesclicked;
     }
     else {
-      timesclicked = 0;
-      timesclicked = timesclicked + 1;
+      console.log("timesclicked = 0")
+      // timesclicked = 0;
+      timesclicked += timesclicked;
       n = n - 1;
     }
 
-
+    // timesclicked = timesclicked + 1;
 
     console.log("timesclicked:", timesclicked);
 
