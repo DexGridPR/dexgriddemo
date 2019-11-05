@@ -21,6 +21,16 @@ export class SellrecComponent implements OnInit {
 
   }
 
+  transferr(recs) {
+    var n = this.n;
+    // var recs;
+    // recs = 5;
+    console.log("transferring", recs, "RECs")
+    n = n - recs;
+    document.getElementById("creditnumber").innerHTML = n;
+
+  }
+
   changec() {
     // if (timesclicked = 0) {
     //   var timesclicked = this.timesclicked;

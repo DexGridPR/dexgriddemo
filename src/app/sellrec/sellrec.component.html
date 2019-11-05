@@ -3,12 +3,16 @@
 
  <div>
    <span>
-      <p>Credits to transfer:</p>
+      <p>Credits available to transfer:</p>
       <p id="creditnumber"></p>
    </span>
+   <div>
+     <p>Credits to transfer:</p>
+     <input #rec [value]="recs" type="number" name="RECs" id="recs">
+   </div>
 
  </div>
 
  <div>
-  <button (click) = "changec()"  ng-click="timesclicked = timesclicked + 1" ng-init="timesclicked=0">Transfer RECs</button>
+  <button (click) = "transferr(rec.value)" for="rec">Transfer RECs</button>
  </div>
