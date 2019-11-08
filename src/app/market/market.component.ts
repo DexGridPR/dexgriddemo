@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerComponent } from '../customer/customer.component';
 import { RegulatorComponent } from '../regulator/regulator.component';
+import { GoperatorComponent} from '../goperator/goperator.component';
 // import { MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig, MatDialog } from "@angular/material";
 // import { MatDialogConfig, MatDialog } from "@angular/material";
 import { Observable } from 'rxjs';
@@ -32,6 +33,10 @@ export class MarketComponent implements OnInit {
 
   get should_open_cus(): boolean {
     return this._gotodemo.should_open_cus;
+  }
+
+  get should_open_gop(): boolean {
+    return this._gotodemo.should_open_gop;
   }
 
   // get cus(): boolean {

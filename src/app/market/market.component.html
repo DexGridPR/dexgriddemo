@@ -27,5 +27,10 @@
       <app-customer></app-customer>
       <!-- <ng-template #empty>Nothing Opened</ng-template> -->
     </div>
+
+    <div *ngIf="should_open_gop;">
+      <app-goperator></app-goperator>
+      <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+    </div>
   </div>
 </div>

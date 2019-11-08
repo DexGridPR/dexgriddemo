@@ -31,4 +31,9 @@ export class DemotbarComponent implements OnInit {
     this._gotodemo.cus();
   }
 
+  gop() {
+    console.log("Open Grid Operator Portal");
+    this._gotodemo.gop();
+  }
+
 }
