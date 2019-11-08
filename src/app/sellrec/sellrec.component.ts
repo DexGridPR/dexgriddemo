@@ -16,6 +16,7 @@ export class SellrecComponent implements OnInit {
   b = this.n;
   timesclicked: number = 0;
   credit: any = document.getElementById("creditnumber");
+  recs: number;
 
   ngOnInit() {
     // var timesclicked;
