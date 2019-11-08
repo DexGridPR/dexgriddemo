@@ -13,8 +13,8 @@
     <button mat-button [matMenuTriggerFor]="menu">Portals</button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Regulator Portal</button>
-      <button mat-menu-item>Customer Portal</button>
+      <button mat-menu-item (click)="reg()">Regulator Portal</button>
+      <button mat-menu-item (click)="cus()">Customer Portal</button>
       <button mat-menu-item>Grid Operator Portal</button>      
     </mat-menu>
   </div>

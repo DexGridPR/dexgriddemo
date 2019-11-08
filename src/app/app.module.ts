@@ -18,7 +18,6 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { DemotbarComponent } from './demotbar/demotbar.component';
 import { MatMenuModule} from '@angular/material/menu';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +30,7 @@ import { MatMenuModule} from '@angular/material/menu';
     SellrecComponent,
     TesterComponent,
     DrawerComponent,
-    DemotbarComponent
+    DemotbarComponent  
   ],
   imports: [
     BrowserModule,

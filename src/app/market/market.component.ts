@@ -5,6 +5,7 @@ import { RegulatorComponent } from '../regulator/regulator.component';
 // import { MatDialogConfig, MatDialog } from "@angular/material";
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { GotodemoService } from '../service/gotodemo.service';
 
 
 @Component({
@@ -13,26 +14,35 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./market.component.scss']
 })
 export class MarketComponent implements OnInit {
-  public should_open_reg = false;
-  public should_open_cus = true;
+  // public should_open_reg = false;
+  // public should_open_cus = false;
 
   // constructor( private dialog: MatDialog ) { }
+  constructor ( private _gotodemo: GotodemoService ) { }
 
   ngOnInit() {
+  //   this._gotodemo.should_open_reg.subscribe((should_open_reg) => {
+  //     this.should_open_reg = isRunning;
+  //  });
   }
 
-  reg() {
-    this.should_open_reg = true;
-    this.should_open_cus = false;
-    console.log("Regulator Component")
-    // const dialogConfig = new MatDialogConfig();
-    // this.dialog.open(RegulatorComponent, dialogConfig);
+  get should_open_reg(): boolean {
+    return this._gotodemo.should_open_reg;
   }
 
-  cus() {
-    this.should_open_cus = true;
-    this.should_open_reg = false;
-    console.log("Customer Component")
+  get should_open_cus(): boolean {
+    return this._gotodemo.should_open_cus;
   }
+
+  // get cus(): boolean {
+  //   return this._gotodemo.should_open_cus;
+  // }
+
+  set searchText(value: boolean) {
+    this._gotodemo.should_open_reg = value;
+    console.log(value);
+  }
+  
+
 
 }
