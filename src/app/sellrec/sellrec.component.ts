@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Web3Service } from '../service/web3.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-sellrec',
@@ -8,7 +11,7 @@ import { Web3Service } from '../service/web3.service';
 })
 export class SellrecComponent implements OnInit {
 
-  constructor(private _web3: Web3Service) { }
+  constructor( private _web3: Web3Service ) { }
 
   name = "one"; 
 
@@ -31,20 +34,23 @@ export class SellrecComponent implements OnInit {
     // credit: number;
     // credit.innerHTML = n;
     // credit.value = n;
-
-
   }
 
   transferr(recs) {
     var n = this.n;
+    var b = this.b;
     var credit = this.credit;
     // var recs;
     // recs = 5;
     console.log("transferring", recs, "RECs")
     n = n - recs;
+    console.log(n);
+    b = n;
+    console.log(b);
     // document.getElementById("creditnumber").innerHTML = n;
 
   }
+  
 
   changec() {
     // if (timesclicked = 0) {
