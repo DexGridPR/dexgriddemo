@@ -13,6 +13,7 @@ export class SellrecComponent implements OnInit {
   name = "one"; 
 
   n: number = 13;
+  b = this.n;
   timesclicked: number = 0;
   credit: any = document.getElementById("creditnumber");
 

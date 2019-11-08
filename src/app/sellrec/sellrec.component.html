@@ -8,9 +8,9 @@
         <input #rec [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?">
       </div>
 
-   <div class="credits">
+   <div  class="credits">
       <p>Renewable Energy Credits available to transfer:</p>
-      <p [innerHTML]="creditnumber" id="creditnumber" type="number"></p>
+      <p [innerHTML]="creditnumber" id="creditnumber" type="number"> {{ _sell.b }}</p>
    </div>
 
 
