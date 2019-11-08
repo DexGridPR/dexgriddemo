@@ -28,8 +28,8 @@ export class SellrecComponent implements OnInit {
     // var credit: any = document.getElementById("creditnumber");
     // credit: 12;
     // credit: number;
-    credit.innerHTML = n;
-    credit.value = n;
+    // credit.innerHTML = n;
+    // credit.value = n;
 
 
   }

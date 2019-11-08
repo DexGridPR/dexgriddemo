@@ -16,8 +16,8 @@ import { SellrecComponent } from './sellrec/sellrec.component';
 import { TesterComponent } from './tester/tester.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { DemotbarComponent } from './demotbar/demotbar.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-// import { NgbdDropdownBasic } from './dropdown-basic';
+import { MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -35,9 +35,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    MatMenuModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgbModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
