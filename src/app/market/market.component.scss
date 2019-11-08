@@ -2,6 +2,15 @@ h1 {
     margin-left: 1rem;
 }
 
+#drawer {
+    width: 15em;
+    display: flex;
+    grid-row: 2/4;
+    grid-column: 1;
+    z-index: 1;
+    height: 100%;
+}
+
 #cover {
     text-align: center;
     margin-right: auto;

@@ -1,0 +1,80 @@
+#topwrap {
+    position: relative;
+    background-color: #fff;
+    font-size: 12px;
+    border-bottom: 1px solid #f1f1f1;
+    z-index: 101;
+    margin-left: 1rem;
+    padding-bottom: 0.3rem;
+}
+
+#top {
+    padding: 8px 0;
+}
+
+#topinner {
+    position: relative;
+}
+
+#topcontent {
+    float: left;
+}
+
+#siteheader {
+    // position: relative;
+    width: 100%;
+    height: 4rem;
+    background-color: #fff;
+    border-bottom: 1px solid #f1f1f1;
+    z-index: 100;
+    background-image: "../../assets/large_logo.PNG";
+    background-repeat: no-repeat;
+    background-size: contain;
+    overflow: hidden;
+    background-color: rgb(58, 66, 31);
+}
+
+#site-logo {
+    float:right;
+    margin-right: 1em;
+}
+
+#site-logo-inner {
+    display: table-cell;
+    vertical-align: middle;
+    // height: 74px;
+    height: 100%;
+}
+
+#logophoto {
+    height: 4rem;
+}
+
+.demobuttonbar {
+    // color: rgb(42, 97, 60);
+    float: right;
+    // position: relative;
+}
+
+#demobutton {
+    margin-top: 10%;
+    margin-right: 2rem;
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 2rem;
+    // padding: 0rem;
+    border: 0.1rem,rgb(144, 138, 138);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(78, 235, 57);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#demobutton:hover {
+    // padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+    // height: 2.2rem;
+    font-size: 1.0rem;
+    max-width: 12rem;
+}

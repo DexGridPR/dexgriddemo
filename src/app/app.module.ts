@@ -14,6 +14,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SellrecComponent } from './sellrec/sellrec.component';
 import { TesterComponent } from './tester/tester.component';
+import { DrawerComponent } from './drawer/drawer.component';
+import { DemotbarComponent } from './demotbar/demotbar.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import { NgbdDropdownBasic } from './dropdown-basic';
 
 @NgModule({
   declarations: [
@@ -25,12 +29,15 @@ import { TesterComponent } from './tester/tester.component';
     CustomerComponent,
     FooterComponent,
     SellrecComponent,
-    TesterComponent
+    TesterComponent,
+    DrawerComponent,
+    DemotbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgbModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
