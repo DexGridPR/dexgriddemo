@@ -10,13 +10,15 @@
 
    <div  class="credits">
       <p>Renewable Energy Credits available to transfer:</p>
-      <p [innerHTML]="b" id="creditnumber" type="number"> {{ b }}</p>
+      <p [innerHTML]="b" id="creditnumber" type="number"> {{ n }}</p>
    </div>
 
 
    <div class="transferb">
     <button id="transferb" (click) = "transferr(rec.value)" for="rec">Transfer RECs</button>
    </div>
+
+   <button (click)="console()">Console</button>
 
    <!-- <div style="color:red; height: 2em; width: 15em; background-color: blue;">
       <p style="color: yellow" [innerHTML]="name">{{ name }}</p>

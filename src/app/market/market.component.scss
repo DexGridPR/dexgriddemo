@@ -1,5 +1,5 @@
 h1 {
-    margin-left: 1rem;
+    margin: 0.5em 1rem;
 }
 
 #drawer {
@@ -63,4 +63,8 @@ h1 {
     background-color: rgb(78, 235, 57);
     cursor: pointer;
     font-size: 0.9rem;
+}
+
+app-footer {
+    margin-top: 2em;
 }

@@ -15,11 +15,11 @@ export class SellrecComponent implements OnInit {
 
   name = "one"; 
 
-  n: number = 13;
+  n: number = 40;
   b = this.n;
   timesclicked: number = 0;
   credit: any = document.getElementById("creditnumber");
-  recs: number;
+  rec: number;
 
   ngOnInit() {
     // var timesclicked;
@@ -27,8 +27,8 @@ export class SellrecComponent implements OnInit {
     var n = this.n;
     var number1 = 1;
     var credit = this.credit;
-    console.log(credit);
-    console.log("'credit' Type:", typeof credit)
+    // console.log(credit);
+    // console.log("'credit' Type:", typeof credit)
     // var credit: any = document.getElementById("creditnumber");
     // credit: 12;
     // credit: number;
@@ -36,19 +36,30 @@ export class SellrecComponent implements OnInit {
     // credit.value = n;
   }
 
-  transferr(recs) {
+  transferr(rec) {
     var n = this.n;
-    var b = this.b;
-    var credit = this.credit;
+    // var rec = this.rec;
+    console.log("n:" + n);
+    console.log(rec);
+    // console.log("recs:" + rec);
+    // var n = this.n;
+    // var b = this.b;
+    // var credit = this.credit;
     // var recs;
     // recs = 5;
-    console.log("transferring", recs, "RECs")
-    n = n - recs;
+    // console.log("transferring", rec, "RECs")
+    n = n - rec;
     console.log(n);
-    b = n;
-    console.log(b);
+    this.n = n;
+    return this.n;
+    // b = n;
+    // console.log(b);
     // document.getElementById("creditnumber").innerHTML = n;
+  }
 
+  console() {
+    var n = this.n;
+    console.log(this.n);
   }
   
 

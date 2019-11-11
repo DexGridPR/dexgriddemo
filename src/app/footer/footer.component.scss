@@ -1,11 +1,12 @@
 #foot {
     background-color: black;
-    height: 10rem;
+    height: 7rem;
     // width: 100%;
-    position: relative;
+    // position: relative;
     border-top: 0.3rem solid #bbb;
     color: white;
-    padding: 1rem 0.7rem;
+    padding: 0.5rem 0.7rem;
+    margin-top: 2em;
 }
 
 #title {
@@ -16,6 +17,7 @@
         margin-top: 0;
         margin-right: auto;
         margin-left: auto;
+        margin-bottom: 0.1em;
         font-size: 1.5rem;
     }
 }

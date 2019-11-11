@@ -29,6 +29,7 @@ export class MarketComponent implements OnInit {
 
   get should_open_reg(): boolean {
     return this._gotodemo.should_open_reg;
+
   }
 
   get should_open_cus(): boolean {
@@ -37,6 +38,10 @@ export class MarketComponent implements OnInit {
 
   get should_open_gop(): boolean {
     return this._gotodemo.should_open_gop;
+  }
+
+  get nothing(): boolean {
+    return this._gotodemo.nothing;
   }
 
   // get cus(): boolean {

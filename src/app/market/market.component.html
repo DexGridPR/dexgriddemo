@@ -6,12 +6,12 @@
 
 <div id="general">
 
-  <h1>Demo Page for DexGrid Electricity Market</h1>
-
-  <div id="cover">
+  <div id="cover" *ngIf="nothing">
+    <h1>Demo Page for DexGrid Electricity Market</h1>
     <img id="market_photo" src="../../assets/electric_market.jpg" alt="">
+    <hr>
   </div>
-  <hr>
+
   <div id="market">
     <!-- <div id="options">
       <button id="regulator" (click)="reg()">Regulator</button>
@@ -34,3 +34,5 @@
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>

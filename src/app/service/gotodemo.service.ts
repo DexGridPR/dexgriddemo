@@ -5,8 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class GotodemoService {
   public should_open_reg = false;
-  public should_open_cus = false;
+  public should_open_cus = true;
   public should_open_gop = false;
+  public nothing = true;
 
   constructor() { }
 
@@ -15,6 +16,8 @@ export class GotodemoService {
     this.should_open_gop = false;
     this.should_open_cus = false;    
     this.should_open_reg = true;
+    this.nothing = false;
+
   }
 
   cus() {
@@ -22,12 +25,14 @@ export class GotodemoService {
     this.should_open_reg = false;
     this.should_open_gop = false;    
     this.should_open_cus = true;
+    this.nothing = false;
   }
 
   gop() {
     console.log("Open Gop from Service");
     this.should_open_reg = false;
     this.should_open_cus = false;
-    this.should_open_gop = true;    
+    this.should_open_gop = true;  
+    this.nothing = false;  
   }
 }

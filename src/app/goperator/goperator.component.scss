@@ -1,0 +1,25 @@
+#general {
+    padding: 0em 1em;
+}
+
+.dash {
+    border-color: black;
+    border-width: 0.2em;
+    // color: white;
+    border: 0.2em solid black;
+    border-radius: 0.3em;
+    padding: 0.8em;
+
+    .alert {
+        // background-color: rgb(25, 32, 21);
+        // padding: 0.8em;
+    }
+}
+
+
+.explanation {
+    background-color: rgba(145, 179, 233, 0.63);
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 0.5em;
+    margin-bottom: 2rem;
+}
