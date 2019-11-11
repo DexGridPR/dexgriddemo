@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class GotodemoService {
   public should_open_reg = false;
-  public should_open_cus = true;
+  public should_open_cus = false;
   public should_open_gop = false;
   public nothing = true;
 

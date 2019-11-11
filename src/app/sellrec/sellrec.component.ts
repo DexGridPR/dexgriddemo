@@ -3,6 +3,18 @@ import { Web3Service } from '../service/web3.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export class Rec {
+  amount: number;
+}
+
+export interface B {
+  amount: number;
+}
+
+export class B {
+  amount: number;
+}
+
 
 @Component({
   selector: 'app-sellrec',
@@ -11,17 +23,28 @@ import { Observable } from 'rxjs';
 })
 export class SellrecComponent implements OnInit {
 
-  constructor( private _web3: Web3Service ) { }
+  public rec: Rec;
+  
+
+  constructor( private _web3: Web3Service ) { 
+    // this.rec = this.rec.valueChanges();
+    this.rec = {
+      amount: 40
+    }
+  }
 
   name = "one"; 
 
-  n: number = 40;
-  b = this.n;
+  public n: number = 40;
+  public b = this.n;
   timesclicked: number = 0;
   credit: any = document.getElementById("creditnumber");
-  rec: number;
+  // public rec: number;
 
   ngOnInit() {
+    // this.rec.subscribe( n => {
+    //   this.rec.amount = n 
+    // })
     // var timesclicked;
     // timesclicked = 0;
     var n = this.n;

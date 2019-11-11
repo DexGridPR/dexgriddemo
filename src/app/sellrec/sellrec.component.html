@@ -5,20 +5,21 @@
 
     <div class="transfer">
         <p>Credits to transfer:</p>
-        <input #rec [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?">
+        <input #rectransfered [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?">
       </div>
 
-   <div  class="credits">
+   <div class="credits">
       <p>Renewable Energy Credits available to transfer:</p>
-      <p [innerHTML]="b" id="creditnumber" type="number"> {{ n }}</p>
+      <p ng-bind="n" [innerHTML]="n" id="creditnumber" type="number"> {{ n }}</p>
+      <!-- <p ng-bind="n"> {{ n }}</p> -->
    </div>
 
 
    <div class="transferb">
-    <button id="transferb" (click) = "transferr(rec.value)" for="rec">Transfer RECs</button>
+    <button id="transferb" (click) = "transferr(rectransfered.value)" for="rectransfered">Transfer RECs</button>
    </div>
 
-   <button (click)="console()">Console</button>
+   <!-- <button (click)="console()">Console</button> -->
 
    <!-- <div style="color:red; height: 2em; width: 15em; background-color: blue;">
       <p style="color: yellow" [innerHTML]="name">{{ name }}</p>
