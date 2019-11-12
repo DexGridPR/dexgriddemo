@@ -13,7 +13,7 @@ import { TermsComponent } from 'src/app/terms/terms.component';
 })
 
 export class CustomerComponent implements OnInit {
-  public should_open_sellrec = true;
+  public should_open_sellrec = false;
   public should_open_history = false;
 
   @Inject(MAT_DIALOG_DATA) private data: any;
@@ -34,6 +34,10 @@ export class CustomerComponent implements OnInit {
     this.should_open_sellrec = true;
     this.should_open_history = false;
     console.log("Open up exchange");
+  }
+
+  onCreate() {
+    console.log("Open Account Profile");
   }
 
   // onCreate() {
