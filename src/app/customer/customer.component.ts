@@ -36,17 +36,17 @@ export class CustomerComponent implements OnInit {
     console.log("Open up exchange");
   }
 
-  onCreate() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.hasBackdrop = false;
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "30em;";
-    dialogConfig.position = {
-      'top': '1em'
-    };
-    this.dialog.open(TermsComponent, dialogConfig);
+  // onCreate() {
+  //   const dialogConfig = new MatDialogConfig();
+  //   dialogConfig.hasBackdrop = false;
+  //   dialogConfig.disableClose = false;
+  //   dialogConfig.autoFocus = true;
+  //   dialogConfig.width = "30em;";
+  //   dialogConfig.position = {
+  //     'top': '1em'
+  //   };
+  //   this.dialog.open(TermsComponent, dialogConfig);
     
-  }
+  // }
 
 }
