@@ -1,0 +1,148 @@
+#customer {
+    margin: 0 1em;
+}
+
+.explanation {
+    background-color: rgba(145, 179, 233, 0.63);
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 0.5em;
+    margin-bottom: 2rem;
+}
+
+.custitle {
+    background-color: rgba(145, 179, 233, 0.63);
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 0.5em;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#cus-info {
+    background-color: rgb(192, 182, 182);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.7rem;
+}
+
+#dashboard {
+    // background-color: rgb(11, 12, 14);
+    // width: 100%;
+    // color: white;
+    padding: 0.2rem 0.7rem;
+    // border-width: 1em;
+    // border-color: black;
+    border: 0.1em solid black;
+    border-radius: 0.2em;
+    padding-bottom: 1em;
+
+}
+
+#wrap {
+    // display: flex;
+    // flex-flow: column wrap;
+    // flex-direction: column;
+    // flex-wrap: wrap;
+    // align-content: wrap;
+    // margin-right: auto;
+    // margin-left: auto;
+    position: relative;
+    // width: 90%;
+    width: 100%;
+    // column-span: all;
+
+    @media only screen and (min-width: 600px) {
+        column-count: 3;
+        // column-fill: auto;
+        column-gap: 0.5rem;
+        // height: 25rem;    
+    }
+}
+
+.dashcard {
+    background-color: rgb(158, 126, 126);
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.4rem;
+    margin-bottom: 0.3rem;
+    // margin: 0.3rem;
+    // flex-wrap: wrap;
+    // width: 90%;
+    // display: flex;
+}
+
+// .dashcard-inner {
+//     padding: 1rem;   
+//     // width: 30%;
+//     position: relative;
+//     min-height: 1px;
+//     display: flex;
+// }
+
+.dashcard-title {
+    font-size: 1.2rem;
+    border-bottom: 0.1rem, solid, rgba(100, 96, 96, 0.726);
+}
+
+.dashcard-title-sub {
+    font-size: 1rem;
+    border-bottom: 0.1rem, solid, rgba(100, 96, 96, 0.726);
+}
+
+// #history {
+
+// }
+
+#buttons {
+    margin-top: 2rem;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.dashbutton {
+    background-color: rgb(161, 44, 44);
+    margin-top: 0.8rem;
+    margin-right: 2rem;
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 3rem;
+    // padding: 0rem;
+    border: 0.1rem,rgb(144, 138, 138);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#billing {
+    display: inline-block;
+}
+
+.billbutton {
+    background-color: rgb(57, 114, 207);
+    // margin-top: 0.8rem;
+    // margin-right: 2rem;
+    margin-left: 1em;
+    border-radius: 0.7rem;
+    width: 5rem;
+    height: 3rem;
+    border: 0.1rem,rgb(144, 138, 138);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 0.7rem;
+}
+
+// .billbutton:hover {
+//     font-size: 1.0rem;
+//     max-width: 12rem;
+// }
+
+.dashbutton:hover {
+    // padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+    // height: 2.2rem;
+    font-size: 1.0rem;
+    max-width: 12rem;
+}
