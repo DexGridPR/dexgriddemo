@@ -20,6 +20,8 @@ import { MatMenuModule} from '@angular/material/menu';
 import { GoperatorComponent } from './goperator/goperator.component';
 import { HistoryComponent } from './history/history.component';
 import { RegaccComponent } from './regacc/regacc.component';
+import { TermsComponent } from './terms/terms.component';
+import { DersComponent } from './ders/ders.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { RegaccComponent } from './regacc/regacc.component';
     DemotbarComponent,
     GoperatorComponent,
     HistoryComponent,
-    RegaccComponent  
+    RegaccComponent,
+    TermsComponent,
+    DersComponent  
   ],
   imports: [
     BrowserModule,

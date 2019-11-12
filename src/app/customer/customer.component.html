@@ -18,8 +18,10 @@
 
     <div id="cus-info">
       <p>Address- 100 Calle San Francisco, San Juan, Puerto Rico 00901</p>
-      <p>Billing Number- #34920</p>
-      <p>Ethereum Address- 0xtY4....9We4</p>
+      <div id="bill">
+          <p id="billing">Customer Number- #34920</p> <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
+      </div>
+      <p>My Profile- 0xtY4....9We4</p>
     </div>
 
     <!-- Five total dashboard cards -->
@@ -27,8 +29,8 @@
       <div id="bill" class="dashcard">
         <div class="dashcard-inner">
             <p class="dashcard-title">Billing</p>
-            <p>Current month expense: $12.45</p>
-            <p>Current month earnings: $9.43</p>
+            <p>Credits left [December]: $63</p>
+            <p>Prepaid [December]: $100</p>
         </div>
       </div>
   
@@ -42,9 +44,12 @@
   
       <div id="equipment" class="dashcard">
         <div class="dashcard-inner">
-          <p class="dashcard-title">Your Equipment:</p>
+          <p class="dashcard-title">Production:</p>
+          <p class="dashcard-title-sub">Equipment:</p>
           <p>5.2 kW solar PV, rooftop</p>
           <p>3 kW Lithium Ion battery</p>
+          <p class="dashcard-title-sub">Earnings:</p>
+          <p>$11.45 for 10 kWh sold</p>
         </div>
       </div>
   
@@ -52,7 +57,7 @@
         <div class="dashcard-inner">
           <p class="dashcard-title">Consumption:</p>
           <p>Last 30 days: 32 kWh</p>
-          <p>Last 12 months: 354 kWh</p>
+          <p>Last 12 months, monthly: 40 kWh</p>
           <p>Sources:</p>
           <ul>
             <li>43% Solar PV</li>
@@ -75,6 +80,8 @@
 
     <div id="buttons">
         <button (click)="history()" class="dashbutton">Previous Bills</button>
+
+        <button (click)="sellrec()" class="dashbutton">Power Purchase Agreement</button>
       
         <button (click)="sellrec()" class="dashbutton">Sell Your RECs</button>
     </div>

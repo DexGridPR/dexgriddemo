@@ -4,20 +4,20 @@
  <div class="general">
 
     <div class="transfer">
-        <p>Credits to transfer:</p>
+        <p>Credits to sell:</p>
         <!-- <input #rectransfered [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?"> -->
         <input #rectransfered type="number" name="RECs" id="recs" placeholder="How many RECs?">
       </div>
 
    <div class="credits">
-      <p>Renewable Energy Credits available to transfer:</p>
+      <p>Renewable Energy Credits available to sell:</p>
       <p ng-bind="n" [innerHTML]="n" id="creditnumber" type="number"> {{ n }}</p>
       <!-- <p ng-bind="n"> {{ n }}</p> -->
    </div>
 
 
    <div class="transferb">
-    <button id="transferb" (click) = "transferr(rectransfered.value)" for="rectransfered">Transfer RECs</button>
+    <button id="transferb" (click) = "transferr(rectransfered.value)" for="rectransfered">Sell RECs</button>
    </div>
 
    <!-- <button (click)="console()">Console</button> -->
