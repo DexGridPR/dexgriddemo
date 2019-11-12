@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoperatorComponent implements OnInit {
 
+  public regulatoraccounts = true;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  regacc() {
+    this.regulatoraccounts = true;
+  }
+
 
 }

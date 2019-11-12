@@ -25,5 +25,13 @@
       <p>Electricity Stored</p>
       <p style="text-decoration: underline;">216 kWh</p>
     </div>
+
+    <div>
+      <button (click)="regacc()" class="dashbutton">Regulator Accounts</button>
+    </div>
+
+    <div *ngIf="regulatoraccounts;">
+      <app-regacc></app-regacc>
+    </div>
   </div>
 </div>

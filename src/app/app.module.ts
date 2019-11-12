@@ -19,6 +19,7 @@ import { DemotbarComponent } from './demotbar/demotbar.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { GoperatorComponent } from './goperator/goperator.component';
 import { HistoryComponent } from './history/history.component';
+import { RegaccComponent } from './regacc/regacc.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HistoryComponent } from './history/history.component';
     DrawerComponent,
     DemotbarComponent,
     GoperatorComponent,
-    HistoryComponent  
+    HistoryComponent,
+    RegaccComponent  
   ],
   imports: [
     BrowserModule,
