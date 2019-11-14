@@ -22,6 +22,7 @@ import { HistoryComponent } from './history/history.component';
 import { RegaccComponent } from './regacc/regacc.component';
 import { TermsComponent } from './terms/terms.component';
 import { DersComponent } from './ders/ders.component';
+import { DownloadComponent } from './download/download.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DersComponent } from './ders/ders.component';
     HistoryComponent,
     RegaccComponent,
     TermsComponent,
-    DersComponent  
+    DersComponent,
+    DownloadComponent  
   ],
   imports: [
     BrowserModule,
