@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "dexgriddemo",
     "public": "dist/dexgrid",
     "ignore": [
       "firebase.json",

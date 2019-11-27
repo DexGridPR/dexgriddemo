@@ -31,8 +31,8 @@ export class GotodemoService {
   gop() {
     console.log("Open Gop from Service");
     this.should_open_reg = false;
-    this.should_open_cus = false;
-    this.should_open_gop = true;  
+    this.should_open_cus = true;
+    this.should_open_gop = false;  
     this.nothing = false;  
   }
 }
