@@ -20,7 +20,7 @@ export class Web3Service {
   constructor() { }
 
   Transfer() {
-    console.log("Transfer Web3");
+    console.log("Transfer Web3 from Service");
     // const Web3 = require('web3');
     console.log(Web3);
     // const web3 = require('web3');

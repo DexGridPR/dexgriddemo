@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER, InjectionToken } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,20 @@ import { RegaccComponent } from './regacc/regacc.component';
 import { TermsComponent } from './terms/terms.component';
 import { DersComponent } from './ders/ders.component';
 import { DownloadComponent } from './download/download.component';
+
+// import { WEB3PROVIDER } from './web3-provider';
+
+const WEB3PROVIDER = new InjectionToken('Web3 provider', {
+  providedIn: 'root',
+  factory: () => (window as any).ethereum
+});
+
+
+export function enableWeb3Provider(provider) {
+  return () => {
+    provider.enable();  // Ask the user to enable MetaMask at load time.
+  };
+}
 
 @NgModule({
   declarations: [
@@ -51,7 +65,14 @@ import { DownloadComponent } from './download/download.component';
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: enableWeb3Provider,
+      deps: [WEB3PROVIDER],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
