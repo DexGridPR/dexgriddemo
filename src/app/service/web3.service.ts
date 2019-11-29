@@ -301,7 +301,7 @@ export class Web3Service {
 
   }
 
-  transactionE () {
+  transactionE (Amount) {
     let privateKey = "AE0BF8533D32EFBE3F78256B074D1996493B90E4A840ADBE8EA4025CC912FDFA";
     let wallet = new ethers.Wallet(privateKey);
     // Connect a wallet to Rinkeby
@@ -323,7 +323,7 @@ export class Web3Service {
       // ... or supports ENS names
       // to: "ricmoo.firefly.eth",
 
-      value: utils.parseEther("0.2"),
+      value: utils.parseEther(Amount),
       data: "0x",
 
       // This ensures the transaction cannot be replayed on different networks

@@ -158,9 +158,9 @@ export class SellrecComponent implements OnInit {
 }
 
 
-transactionE() {
+transactionE(Amount) {
   console.log("Transferring Ether through Ethers");
-  this._web3service.transactionE();
+  this._web3service.transactionE(Amount);
 }
 
 transferE() {
