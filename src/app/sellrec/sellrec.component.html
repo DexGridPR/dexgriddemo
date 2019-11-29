@@ -6,7 +6,7 @@
     <div class="transfer">
         <p>Credits to sell:</p>
         <!-- <input #rectransfered [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?"> -->
-        <input #rectransfered type="number" name="RECs" id="recs" placeholder="How many RECs?">
+        <input #Amount #rectransfered type="number" name="RECs" id="recs" placeholder="How many RECs?">
       </div>
 
    <div class="credits">
@@ -21,11 +21,24 @@
    </div>
 
    <div class="transferb">
-    <button id="transferb" (click) = "transferEth()" for="rectransfered">Transfer Ether</button>
+    <button id="transferb" (click) = "transfer(Amount.value)" for="rectransfered">Transfer Amount</button>
    </div>
 
    <div class="transferb">
-    <button id="transferb" (click) = "enableWeb3Provider(provider)" for="rectransfered">Web3</button>
+    <button id="transferb" (click) = "transferE()" for="rectransfered">Transfer Ether</button>
+   </div>
+
+   <div class="transferb">
+    <button id="transferb" (click) = "enableWeb3Provider()" for="rectransfered">Web3</button>
+   </div>
+
+   <div class="transferb">
+    <button id="transferb" (click) = "Metamask()" for="rectransfered">Metamask</button>
+   </div>
+   
+
+   <div class="transferb">
+    <button id="transferb" (click) = "transactionE()" for="rectransfered">Ethers Txn</button>
    </div>
 
    <!-- <button (click)="console()">Console</button> -->

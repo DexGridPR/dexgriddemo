@@ -32,11 +32,13 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
 });
 
 
-export function enableWeb3Provider(provider) {
-  return () => {
-    provider.enable();  // Ask the user to enable MetaMask at load time.
-  };
-}
+// export function enableWeb3Provider(provider) {
+//   console.log("Running app.module function enableWeb3Provider");
+//   console.log("Provider:", provider)
+//   return () => {
+//     provider.enable();  // Ask the user to enable MetaMask at load time.
+//   };
+// }
 
 @NgModule({
   declarations: [
@@ -66,12 +68,12 @@ export function enableWeb3Provider(provider) {
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: enableWeb3Provider,
-      deps: [WEB3PROVIDER],
-      multi: true
-    }
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: enableWeb3Provider,
+    //   deps: [WEB3PROVIDER],
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,25 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { providers, getDefaultProvider } from 'ethers';
 import { environment } from 'src/environments/environment';
+import Big from 'big.js';
+import { ethers } from 'ethers';
+// import Web3 from 'web3';
+import * as Web3 from 'web3';
+
+declare let web3;
+declare let require: any;
+declare let window: any;
+declare let nonce: number;
+
+// var providerBridge = new ProviderBridge(provider, signer);
+// var web3 = new Web3(provider);
+
+// someLongRunningPromise().then(function(signer, provider) {
+//     providerBridge.connectEthers(provider, signer);
+
+//     // Alternatively, if you want to connect to a standard Web3 provider anyways
+//     // providerBridge.connectWeb3(someWeb3Provider);
+// });
 
 
 // First, we define the tree-shakable InjectionToken MetamaskWeb3Provider, 
@@ -111,17 +130,50 @@ export class SellrecComponent implements OnInit {
     }
   }
 
-  enableWeb3Provider(provider) {
-    console.log(provider, "is provider");
-    provider.getDefaultProvider()
+  ngOnInit() {
+    var n = this.n;
+    var number1 = 1;
+    var credit = this.credit;
+
+    // function enableWeb3Provider(provider) {
+    //   console.log("Running app.module function enableWeb3Provider");
+    //   console.log("Provider:", provider)
+    //   return () => {
+    //     ethers.provider.enable();  // Ask the user to enable MetaMask at load time.
+    //   };
+    // }
+
+    // The network will be automatically detected; if the network is
+// changed in MetaMask, it causes a page refresh.
+  let currentProvider = new web3.providers.HttpProvider('http://localhost:4200');
+  let provider = new ethers.providers.Web3Provider(currentProvider);
+  }
+
+  enableWeb3Provider() {
+    console.log(providers, "is provider");
+    // providers.getDefaultProvider()
   // return () => {
   //   provider.enable();  // Ask the user to enable MetaMask at load time.
   // };
 }
 
-transferEth() {
+
+transactionE() {
+  console.log("Transferring Ether through Ethers");
+  this._web3service.transactionE();
+}
+
+transferE() {
   console.log("Transferring Ether");
-  this._web3service.Transfer();
+  this._web3service.TransferE();
+}
+
+transfer(Amount) {
+  console.log(Amount);
+  console.log(typeof Amount)
+  console.log("Transfer RECs");
+  // alert("Sending RECs");
+  this._web3service.Transfer(Amount);
 }
 
   name = "one"; 
@@ -132,12 +184,6 @@ transferEth() {
   credit: any = document.getElementById("creditnumber");
   // public rec: number;
 
-  ngOnInit() {
-    var n = this.n;
-    var number1 = 1;
-    var credit = this.credit;
-  }
-
   transferr(rec) {
     var n = this.n;
     console.log("n:" + n);
@@ -146,6 +192,11 @@ transferEth() {
     console.log(n);
     this.n = n;
     return this.n;
+  }
+
+  Metamask() {
+    console.log("Metamask");
+    this._web3service.Metamask();
   }
 
   console() {
@@ -187,11 +238,7 @@ transferEth() {
     // document.getElementById("creditnumber").innerHTML = n;
   }
 
-  transfer() {
-    console.log("Transfer RECs");
-    // alert("Sending RECs");
-    // this._web3.Transfer();
-  }
+
 
   
 
