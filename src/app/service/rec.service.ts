@@ -109,7 +109,7 @@ export class RecService {
     
     const privateKey = "7DCD03EF7449D63A472DEECFDFE916942E43092329E190407C6C07F3D87A8703";
     let wallet = new ethers.Wallet(privateKey, provider);
-  
+
     //Your wallet
     let walletWithProvider = new ethers.Wallet(privateKey, provider);
   
@@ -159,7 +159,7 @@ export class RecService {
 
   getBalance = async () => {
     const ethers = require('ethers');
-    console.log("Service getBalance");
+    console.log("getBalanced on Service");
 
     let abi = [
       'function balanceOf(address account) public view returns (uint256)'
@@ -170,7 +170,7 @@ export class RecService {
     let contractAddress = "0x75281C0EeeE7CC353b84E38cB91F3927D228c57a";
 
     let contract = new ethers.Contract(contractAddress, abi, provider);
-    console.log("Contract: " + contract)
+    console.log("Contract Address: " + contractAddress)
 
     let address = "0xB16cD26B93eFa651dDbAc040ADD0E6bD41Eb1f67";
 
@@ -181,7 +181,7 @@ export class RecService {
 
     // this.message = this.currentValue;
     this.messageSource.next(this.currentValue);
-    return console.log(this.message);
+    return console.log("this.message: " + this.message);
 
  
   }
