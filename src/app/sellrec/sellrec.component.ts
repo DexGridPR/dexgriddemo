@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject, Injectable, InjectionToken, NgModule, APP_INITIALIZER } from '@angular/core';
+import { Component, OnInit, Inject, Injectable, InjectionToken, NgModule, APP_INITIALIZER, Input } from '@angular/core';
 import { Web3Service } from '../service/web3.service';
+import { RecService } from '../service/rec.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { providers, getDefaultProvider } from 'ethers';
@@ -113,7 +114,6 @@ export class B {
   amount: number;
 }
 
-
 @Component({
   selector: 'app-sellrec',
   templateUrl: './sellrec.component.html',
@@ -121,19 +121,47 @@ export class B {
 })
 export class SellrecComponent implements OnInit {
 
-  public rec: Rec;
+  public rec: number;
+  public Amount: number;
+  public balance: number;
+  @Input() RecAmount: any;
   
-  constructor( private _web3service: Web3Service ) { 
+  constructor( private _web3service: Web3Service, private _mintservice: RecService  ) { 
     // this.rec = this.rec.valueChanges();
-    this.rec = {
-      amount: 40
-    }
+    // this.rec = {
+    //   rec: 40
+    // }
+    this.rec = 40
   }
 
+  message: string;
+
   ngOnInit() {
-    var n = this.n;
-    var number1 = 1;
-    var credit = this.credit;
+    this._mintservice.currentMessage.subscribe(message => this.message = message);
+
+    this._mintservice.getBalance();
+
+    // this._mintservice.getBalance.subscribe
+
+    this._web3service.tokenBalance.subscribe(
+      rec => {
+        this.rec = rec; 
+      // return this.n;
+      // this.rec = rec;
+      return this.rec;
+      });
+
+    // this._mintservice.RecAmount.subscribe(
+    //   RecAmount => {
+    //     this.rec = RecAmount;
+    //     return this.rec;
+    //   });
+  
+    this._web3service.getBalance();
+    // console.log("Balance:", etherString)
+    // var n = this.n;
+    // var number1 = 1;
+    // var credit = this.credit;
 
     // function enableWeb3Provider(provider) {
     //   console.log("Running app.module function enableWeb3Provider");
@@ -149,6 +177,24 @@ export class SellrecComponent implements OnInit {
   let provider = new ethers.providers.Web3Provider(currentProvider);
   }
 
+  setSharedValue(Amount){ 
+    // this._web3service.insertData(Amount);
+  }
+
+  mint(value) {
+    console.log("Minting");
+    this._mintservice.mintRec(value);
+  }
+
+  transferRec(value) {
+    console.log("Transfering Recs");
+    this._mintservice.Transfer(value);
+  }
+
+  // checkBalance() {
+  //   this._mintservice.getBalance();
+  // }
+
   enableWeb3Provider() {
     console.log(providers, "is provider");
     // providers.getDefaultProvider()
@@ -158,10 +204,10 @@ export class SellrecComponent implements OnInit {
 }
 
 
-transactionE(Amount) {
-  console.log("Transferring Ether through Ethers");
-  this._web3service.transactionE(Amount);
-}
+// transactionE(value) {
+//   console.log("Transferring Ether through Ethers");
+//   this._web3service.transactionE(value);
+// }
 
 transferE() {
   console.log("Transferring Ether");
@@ -178,7 +224,7 @@ transfer(Amount) {
 
   name = "one"; 
 
-  public n: number = 40;
+  public n: number = this.rec;
   public b = this.n;
   timesclicked: number = 0;
   credit: any = document.getElementById("creditnumber");
@@ -197,11 +243,6 @@ transfer(Amount) {
   Metamask() {
     console.log("Metamask");
     this._web3service.Metamask();
-  }
-
-  console() {
-    var n = this.n;
-    console.log(this.n);
   }
   
 

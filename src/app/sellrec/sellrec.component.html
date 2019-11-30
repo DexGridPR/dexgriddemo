@@ -1,20 +1,41 @@
 <!-- <h1>{{ SellrecComponent.name }}</h1> -->
- <p>Sell your Renewable Energy Credits here:</p>
+ <p>Manage your RECs here:</p>
 <hr>
  <div class="general">
 
     <div class="transfer">
-        <p>Credits to sell:</p>
+        <p>Create new RECs:</p>
         <!-- <input #rectransfered [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?"> -->
         <input #Amount #rectransfered type="number" name="RECs" id="recs" placeholder="How many RECs?">
       </div>
 
    <div class="credits">
-      <p>Renewable Energy Credits available to sell:</p>
-      <p ng-bind="n" [innerHTML]="n" id="creditnumber" type="number"> {{ n }}</p>
+      <!-- <p>REC balance:</p>
+      <p ng-bind="rec" [innerHTML]="rec" id="creditnumber" type="number"> {{ rec }}</p> -->
       <!-- <p ng-bind="n"> {{ n }}</p> -->
+
+      <p>REC Balance:</p>
+      <p ng-bind="message" [innerHTML]="message" id="creditnumber" type="number"> {{ message }}</p>
    </div>
 
+   <div class="transferb">
+    <button id="transferb" (click) = "mint(Amount.value)" for="rectransfered">Mint Rec</button>
+   </div>
+
+   <div class="transfer">
+    <p>Amount of RECs to Transfer:</p>
+    <!-- <input #rectransfered [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?"> -->
+    <input #recamount type="number" name="RECs" id="recs" placeholder="How many RECs?">
+  </div>
+
+   <div class="transferb">
+    <button id="transferb" (click) = "transferRec(recamount.value)" for="rectransfered">Transfer RECs</button>
+   </div>
+
+
+   <!-- <div class="transferb">
+    <button id="transferb" (click) = "checkBalance()" for="rectransfered">Console Balance</button>
+   </div> -->
 
    <!-- <div class="transferb">
     <button id="transferb" (click) = "transferr(rectransfered.value)" for="rectransfered">Sell RECs</button>
@@ -36,10 +57,6 @@
     <button id="transferb" (click) = "Metamask()" for="rectransfered">Metamask</button>
    </div>
     -->
-
-   <div class="transferb">
-    <button id="transferb" (click) = "transactionE(Amount.value)" for="rectransfered">Ethers Txn</button>
-   </div>
 
    <!-- <button (click)="console()">Console</button> -->
 

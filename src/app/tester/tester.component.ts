@@ -15,7 +15,7 @@ export class TesterComponent implements OnInit {
   ngOnInit() {
     var Value = this._recserv.Value;
     this._recserv.setData(Value);
-    this._recserv.getData();
+    // this._recserv.getData();
   }
 
   changetext() {

@@ -6,11 +6,26 @@ import { ethers, utils } from 'ethers';
 // import Web3 from 'web3';
 import * as Web3 from 'web3';
 import { Promise } from 'q';
+import { Subject } from 'rxjs';
 
 declare let Web3: any;
 declare let web3;
 declare let require: any;
 declare let window: any;
+let privateKey = "AE0BF8533D32EFBE3F78256B074D1996493B90E4A840ADBE8EA4025CC912FDFA";
+let wallet = new ethers.Wallet(privateKey);
+let provider = ethers.getDefaultProvider('rinkeby');
+let walletWithProvider = new ethers.Wallet(privateKey, provider);
+
+provider.getBalance(wallet.address).then((balance) => {
+      let etherString = ethers.utils.formatEther(balance);
+
+});
+
+// Service message commands
+// var insertData = function(Amount: number) {
+//   this.dataStringSource.next(Amount)
+// };
 
 
 
@@ -21,7 +36,42 @@ declare let window: any;
 
 export class Web3Service {
 
+  private dataStringSource = new Subject<number>();
+
+  public etherString = new Subject<number>();
+
+
   constructor() { }
+
+  getBalance() {
+    console.log("Getting Balance");
+    let privateKey = "AE0BF8533D32EFBE3F78256B074D1996493B90E4A840ADBE8EA4025CC912FDFA";
+    let wallet = new ethers.Wallet(privateKey);
+
+    // Connect a wallet to Rinkeby
+    let provider = ethers.getDefaultProvider('rinkeby');
+    let walletWithProvider = new ethers.Wallet(privateKey, provider);
+    console.log("Wallet Address:", wallet.address);
+
+    // let nonce = provider.getTransactionCount(wallet);
+    provider.getBalance(wallet.address).then((balance) => {
+      console.log("Balance Type:" + typeof balance);
+
+      // balance is a BigNumber (in wei); format is as a sting (in ether)
+      let etherString = ethers.utils.formatEther(balance);
+  
+      console.log("etherString: " + etherString);
+      return etherString;
+    });
+  }
+
+  getChange() {
+    
+  };
+
+
+  public tokenBalance = this.etherString.asObservable();
+  
 
   Transfer(Amount) {
     console.log("Transfer Web3 from");
@@ -301,17 +351,30 @@ export class Web3Service {
 
   }
 
-  transactionE (Amount) {
+  transactionE (value) {
+    const ethers = require('ethers');
+
+    var dataStringSource = this.dataStringSource;
+    dataStringSource.next(value);
+    console.log("Datastring:", dataStringSource);
     let privateKey = "AE0BF8533D32EFBE3F78256B074D1996493B90E4A840ADBE8EA4025CC912FDFA";
     let wallet = new ethers.Wallet(privateKey);
     // Connect a wallet to Rinkeby
     let provider = ethers.getDefaultProvider('rinkeby');
     let walletWithProvider = new ethers.Wallet(privateKey, provider);
+    console.log("Wallet Address:", wallet.address)
 
     // let nonce = provider.getTransactionCount(wallet);
     var transactionCount = provider.getTransactionCount(wallet.address);
     console.log("Transaction Count:", transactionCount);
+    provider.getBalance(wallet.address).then((balance) => {
 
+      // balance is a BigNumber (in wei); format is as a sting (in ether)
+      let etherString = ethers.utils.formatEther(balance);
+  
+      console.log("Balance: " + etherString);
+  });
+    // console.log("Account Balance:", walletBalance);
     // let nonce = provider.getTransactionCount(); 
     // All properties are optional
     let transaction = {
@@ -323,7 +386,7 @@ export class Web3Service {
       // ... or supports ENS names
       // to: "ricmoo.firefly.eth",
 
-      value: utils.parseEther(Amount),
+      value: utils.parseEther(value),
       data: "0x",
 
       // This ensures the transaction cannot be replayed on different networks
