@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, Injectable, InjectionToken, NgModule, APP_IN
 import { Web3Service } from '../service/web3.service';
 import { RecService } from '../service/rec.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, interval } from 'rxjs';
 import { providers, getDefaultProvider } from 'ethers';
 import { environment } from 'src/environments/environment';
 import Big from 'big.js';
@@ -140,6 +140,11 @@ export class SellrecComponent implements OnInit {
     this._mintservice.currentMessage.subscribe(message => this.message = message);
 
     this._mintservice.getBalance();
+
+    //Run every few seconds to check on new balance
+    interval(100 * 60).subscribe(message => {
+      this._mintservice.getBalance();
+    })
 
     // this._mintservice.getBalance.subscribe
 
