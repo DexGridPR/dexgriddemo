@@ -14,9 +14,10 @@
       <p ng-bind="rec" [innerHTML]="rec" id="creditnumber" type="number"> {{ rec }}</p> -->
       <!-- <p ng-bind="n"> {{ n }}</p> -->
 
-      <p>REC Balance:</p>
-      <p ng-bind="message" [innerHTML]="message" id="creditnumber" type="number"> {{ message }}</p>
-      <a href="https://rinkeby.etherscan.io/token/0x75281c0eeee7cc353b84e38cb91f3927d228c57a" target="_blank">Token Tracker</a>
+      <p>Your REC Balance:</p>
+      <a href="https://rinkeby.etherscan.io/token/0x75281c0eeee7cc353b84e38cb91f3927d228c57a?a=0xb16cd26b93efa651ddbac040add0e6bd41eb1f67" target="_blank">
+        <p ng-bind="message" [innerHTML]="message" id="creditnumber" type="number"> {{ message }}</p>
+      </a>
    </div>
 
    <div class="transferb">
