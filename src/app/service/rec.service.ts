@@ -19,11 +19,16 @@ declare let window: any;
 })
 export class RecService {
   currentValue: any;
+  totalSupply: any;
 
   //From Fireship
   message = 5;
   private messageSource = new BehaviorSubject<string>("0");
   currentMessage = this.messageSource.asObservable();
+
+  recs = 500;
+  private recsSource = new BehaviorSubject<string>("500");
+  currentRecs = this.recsSource.asObservable();
 
   // public RecAmount = this.currentValue.asObservable();
 
@@ -181,10 +186,35 @@ export class RecService {
 
     // this.message = this.currentValue;
     this.messageSource.next(this.currentValue);
-    return console.log("this.message: " + this.message);
-
- 
+    return console.log("this.message: " + this.currentValue);
   }
+
+  getTotalBalance = async () => {
+    const ethers = require('ethers');
+    console.log("Service Get Total Balance");
+
+    let abi = [
+      // 'function balanceOf(address account) public view returns (uint256)'
+      'function totalSupply() public view returns (uint256)'
+    ];
+    
+    let provider = ethers.getDefaultProvider('rinkeby');
+
+    let contractAddress = "0x75281C0EeeE7CC353b84E38cB91F3927D228c57a";
+
+    let contract = new ethers.Contract(contractAddress, abi, provider);
+    console.log("Contract Address: " + contractAddress)
+
+    this.totalSupply = await contract.totalSupply();
+
+    await this.totalSupply.toString();
+    // return console.log("Current Value: " + this.currentValue);
+
+    // this.message = this.currentValue;
+    this.recsSource.next(this.totalSupply);
+    return console.log("this.message: " + this.totalSupply);
+
+  };
 
 
   ////////////////////////////////////////
