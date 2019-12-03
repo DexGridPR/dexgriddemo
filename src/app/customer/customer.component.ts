@@ -4,6 +4,8 @@ import { HistoryComponent } from '../history/history.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { TermsComponent } from 'src/app/terms/terms.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 
 @Component({
@@ -19,7 +21,7 @@ export class CustomerComponent implements OnInit {
   @Inject(MAT_DIALOG_DATA) private data: any;
 
 
-  constructor( ) { }
+  constructor( private _bottomSheet: MatBottomSheet ) { }
 
   ngOnInit() {
   }
@@ -40,17 +42,22 @@ export class CustomerComponent implements OnInit {
     console.log("Open Account Profile");
   }
 
-  // onCreate() {
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.hasBackdrop = false;
-  //   dialogConfig.disableClose = false;
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.width = "30em;";
-  //   dialogConfig.position = {
-  //     'top': '1em'
-  //   };
-  //   this.dialog.open(TermsComponent, dialogConfig);
-    
-  // }
+  openBottomSheet(): void {
+    this._bottomSheet.open(CusBottomSheet);
+  }
 
+}
+
+@Component({
+  selector: 'bottom-sheet',
+  templateUrl: 'sheet.html',
+  styleUrls: ['./customer.component.scss']
+})
+export class CusBottomSheet {
+  constructor(private _bottomSheetRef: MatBottomSheetRef<CusBottomSheet>) {}
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
 }

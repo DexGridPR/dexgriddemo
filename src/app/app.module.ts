@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { LandingComponent } from './landing/landing.component';
 import { MarketComponent } from './market/market.component';
-import { RegulatorComponent } from './regulator/regulator.component';
-import { CustomerComponent } from './customer/customer.component';
+import { RegulatorComponent, RegBottomSheet } from './regulator/regulator.component';
+import { CustomerComponent, CusBottomSheet } from './customer/customer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -17,12 +17,15 @@ import { TesterComponent } from './tester/tester.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { DemotbarComponent } from './demotbar/demotbar.component';
 import { MatMenuModule} from '@angular/material/menu';
-import { GoperatorComponent } from './goperator/goperator.component';
+import { GoperatorComponent, BottomSheet } from './goperator/goperator.component';
 import { HistoryComponent } from './history/history.component';
 import { RegaccComponent } from './regacc/regacc.component';
 import { TermsComponent } from './terms/terms.component';
 import { DersComponent } from './ders/ders.component';
 import { DownloadComponent } from './download/download.component';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 // import { WEB3PROVIDER } from './web3-provider';
 
@@ -58,15 +61,21 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     RegaccComponent,
     TermsComponent,
     DersComponent,
-    DownloadComponent  
+    DownloadComponent,
+    BottomSheet,
+    RegBottomSheet,
+    CusBottomSheet
   ],
   imports: [
     BrowserModule,
     MatMenuModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatIconModule,
+    MatBottomSheetModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
+  entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet],
   providers: [
     // {
     //   provide: APP_INITIALIZER,

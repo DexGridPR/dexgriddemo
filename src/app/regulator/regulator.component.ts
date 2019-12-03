@@ -4,6 +4,9 @@ import { RecService } from '../service/rec.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable, interval } from 'rxjs';
 import { providers, getDefaultProvider } from 'ethers';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+
 
 @Component({
   selector: 'app-regulator',
@@ -16,7 +19,7 @@ export class RegulatorComponent implements OnInit {
   public openders = false;
   recs: string;
 
-  constructor( private _mintservice: RecService ) { }
+  constructor( private _mintservice: RecService, private _bottomSheet: MatBottomSheet ) { }
 
   ngOnInit() {
     this._mintservice.currentRecs.subscribe(recs => this.recs = recs);
@@ -40,4 +43,23 @@ export class RegulatorComponent implements OnInit {
     this.openders = true;
   }
 
+  openBottomSheet(): void {
+    this._bottomSheet.open(RegBottomSheet);
+  }
+
+}
+
+
+@Component({
+  selector: 'bottom-sheet',
+  templateUrl: 'sheet.html',
+  styleUrls: ['./regulator.component.scss']
+})
+export class RegBottomSheet {
+  constructor(private _bottomSheetRef: MatBottomSheetRef<RegBottomSheet>) {}
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
 }
