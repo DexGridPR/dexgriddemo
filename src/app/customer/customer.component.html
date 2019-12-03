@@ -4,71 +4,59 @@
   <mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
 
   <div id="dashboard">
-    <p class="custitle">Customer Dashboard</p>
 
-    <div id="cus-info">
-      <p>Address- 100 Calle San Francisco, San Juan, Puerto Rico 00901</p>
-      <div id="bill">
-          <p id="billing">Customer Number- #34920</p> <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
-      </div>
-      <p>My Profile- 0xtY4....9We4</p>
-    </div>
+    <mat-card>
+      <p class="custitle">Customer Dashboard</p>
+    </mat-card>
 
-    <!-- Five total dashboard cards -->
-    <!-- <div id="wrap"  multi-col>
-      <div id="bill" class="dashcard">
-        <div class="dashcard-inner">
-            <p class="dashcard-title">Billing</p>
-            <p>Credits left [December]: $63</p>
-            <p>Prepaid [December]: $100</p>
+    <mat-card id="cus-info">
+        <p>Address- 100 Calle San Francisco, San Juan, Puerto Rico 00901</p>
+        <div id="bill">
+            <p id="billing">Customer Number- #34920</p> <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
         </div>
-      </div>
-  
-      <div id="perform" class="dashcard">
-        <div class="dashcard-inner">
-            <p class="dashcard-title">DER Performance, last 30 days:</p>
-            <p>Solar PV: 42 kWh</p>
-            <p>Battery: 64 kWh charged</p>
-        </div>
-      </div>
-  
-      <div id="equipment" class="dashcard">
-        <div class="dashcard-inner">
-          <p class="dashcard-title">Production:</p>
-          <p class="dashcard-title-sub">Equipment:</p>
-          <p>5.2 kW solar PV, rooftop</p>
-          <p>3 kW Lithium Ion battery</p>
-          <p class="dashcard-title-sub">Earnings:</p>
-          <p>$11.45 for 10 kWh sold</p>
-        </div>
-      </div>
-  
-      <div id="consumption" class="dashcard">
-        <div class="dashcard-inner">
-          <p class="dashcard-title">Consumption:</p>
+        <p>My Profile- 0xtY4....9We4</p>
+    </mat-card>
+
+    <div fxLayout="row wrap"
+    fxLayoutGap="1em">
+      <mat-card>
+        <p>Billing</p>
+        <hr>
+        <mat-card-content>
+          <p>Credit Left: $63</p>
+          <p>Prepaid this month (December): $100</p>
+          <mat-progress-bar mode="determinate" value="63"></mat-progress-bar>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <p>DER Performance</p>
+        <hr>
+        <mat-card-content>
+          <p>Solar System: 42 kWh</p>
+          <p>Battery: 64 kWh charged</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <p>Consumption</p>
+        <hr>
+        <mat-card-content>
           <p>Last 30 days: 32 kWh</p>
           <p>Last 12 months, monthly: 40 kWh</p>
-          <p>Sources:</p>
-          <ul>
-            <li>43% Solar PV</li>
-            <li>24% Wind</li>
-            <li>22% Natural Gas</li>
-            <li>11% Petroleum</li>
-          </ul>
-        </div>
-      </div>
-  
-      <div id="der" class="dashcard">
-        <div class="dashcard-inner">
-          <p class="dashcard-title">Renewable Energy Credits</p>
-          <p>Generated, past 12 months: 0.87 RECs</p>
-          <p>Consumed/Purchased: 0.00 RECs</p>
-        </div>
-      </div>
-  
-    </div> -->
+        </mat-card-content>
+      </mat-card>
 
-    
+
+      <mat-card>
+        <p>Renewable Energy Credits</p>
+        <hr>
+        <mat-card-content>
+          <p>Generated, past 12 months: 3 RECs</p>
+          <p>Consumed / Purchased: 0.00 RECs</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
     <div id="buttons">
         <button (click)="history()" class="dashbutton">Previous Bills</button>

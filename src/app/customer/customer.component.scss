@@ -146,3 +146,15 @@
     font-size: 1.0rem;
     max-width: 12rem;
 }
+
+.mat-card {
+    margin-top: 2em;
+    // margin-right: 1em;
+}
+
+.grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fit,minmax(var(--ea-grid-col-min-width,22em),var(--ea-grid-col-max-width,1fr)));
+    grid-gap: var(--ea-grid-gap,1.5em);
+    width: 70%;
+}

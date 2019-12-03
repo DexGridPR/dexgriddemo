@@ -1,11 +1,13 @@
 import { Component, OnInit, HostListener, InjectionToken, Injectable, Inject } from '@angular/core';
 import { SellrecComponent } from '../sellrec/sellrec.component';
 import { HistoryComponent } from '../history/history.component';
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
+import { MAT_DIALOG_DATA, MatDialogRef, MatCard } from "@angular/material";
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { TermsComponent } from 'src/app/terms/terms.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @Component({

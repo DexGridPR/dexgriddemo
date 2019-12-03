@@ -26,6 +26,10 @@ import { DownloadComponent } from './download/download.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatCardModule } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 // import { WEB3PROVIDER } from './web3-provider';
 
@@ -73,6 +77,9 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     BrowserAnimationsModule,
     MatIconModule,
     MatBottomSheetModule,
+    MatCardModule,
+    MatProgressBarModule,
+    FlexLayoutModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet],
