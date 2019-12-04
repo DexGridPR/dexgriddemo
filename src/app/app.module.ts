@@ -21,7 +21,7 @@ import { GoperatorComponent, BottomSheet } from './goperator/goperator.component
 import { HistoryComponent } from './history/history.component';
 import { RegaccComponent } from './regacc/regacc.component';
 import { TermsComponent } from './terms/terms.component';
-import { DersComponent } from './ders/ders.component';
+import { DersComponent } from './regulator/ders/ders.component';
 import { DownloadComponent } from './download/download.component';
 
 import { MatIconModule } from '@angular/material/icon';

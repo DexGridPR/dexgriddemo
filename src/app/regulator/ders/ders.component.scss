@@ -146,3 +146,28 @@
     font-size: 1.0rem;
     max-width: 12rem;
 }
+
+.card-title {
+    display: inline-block;
+}
+
+.mat-icon {
+    float: right;
+    margin-right: 0.2em;
+}
+
+.mat-card {
+    margin-bottom: 1em;
+
+    @media only screen and (max-width: 400px) {
+        width: 90%;
+    }
+}
+
+.card-div {
+
+    @media only screen and (max-width: 400px) {
+        margin: 0 3em;
+    }
+
+}

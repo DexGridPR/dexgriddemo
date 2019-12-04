@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Injectable, InjectionToken, NgModule, APP_INITIALIZER, Input } from '@angular/core';
-import { DersComponent } from '../ders/ders.component';
+import { DersComponent } from './ders/ders.component';
 import { RecService } from '../service/rec.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable, interval } from 'rxjs';

@@ -152,6 +152,10 @@
     // margin-right: 1em;
 }
 
+.infocard {
+    width: 15em;
+}
+
 .grid {
     display: flex;
     grid-template-columns: repeat(auto-fit,minmax(var(--ea-grid-col-min-width,22em),var(--ea-grid-col-max-width,1fr)));
