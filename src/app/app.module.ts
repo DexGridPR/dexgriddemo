@@ -26,8 +26,9 @@ import { DownloadComponent } from './download/download.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatButtonModule } from '@angular/material';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -84,6 +85,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     MatBottomSheetModule,
     MatCardModule,
     MatProgressBarModule,
+    MatButtonModule,
     FlexLayoutModule,
     ChartsModule,
     MatDialogModule,

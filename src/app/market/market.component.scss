@@ -68,3 +68,13 @@ h1 {
 app-footer {
     margin-top: 2em;
 }
+
+.button-row {
+    display: inline-block;
+
+    button {
+        margin: 0 0.4em;
+        width: 6.5em;
+        height: 6.5em;
+    }
+}

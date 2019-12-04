@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerComponent } from '../customer/customer.component';
 import { RegulatorComponent } from '../regulator/regulator.component';
 import { GoperatorComponent} from '../goperator/goperator.component';
@@ -7,6 +7,7 @@ import { GoperatorComponent} from '../goperator/goperator.component';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GotodemoService } from '../service/gotodemo.service';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @Component({
@@ -51,6 +52,21 @@ export class MarketComponent implements OnInit {
   set searchText(value: boolean) {
     this._gotodemo.should_open_reg = value;
     console.log(value);
+  }
+
+  reg() {
+    console.log("Open Regulator Portal");
+    this._gotodemo.reg();
+  }
+
+  cus() {
+    console.log("Open Customer Portal");
+    this._gotodemo.cus();
+  }
+
+  gop() {
+    console.log("Open Grid Operator Portal");
+    this._gotodemo.gop();
   }
   
 
