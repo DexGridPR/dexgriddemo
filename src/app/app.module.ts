@@ -72,7 +72,8 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     BottomSheet,
     RegBottomSheet,
     CusBottomSheet, 
-    CusBottomWarn, ConsumptionComponent
+    CusBottomWarn, 
+    ConsumptionComponent
   ],
   imports: [
     BrowserModule,

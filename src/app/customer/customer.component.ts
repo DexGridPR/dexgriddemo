@@ -134,19 +134,3 @@ export class CusBottomWarn {
   }
   
 }
-
-@Component({
-  selector: 'DialogConsumption',
-  templateUrl: 'consumption.html',
-  styleUrls: ['./customer.component.scss']
-})
-export class DialogConsumption {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogConsumption>) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}
