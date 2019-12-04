@@ -47,7 +47,6 @@ export class RecService {
     let amount: number;
     amount = value;
     console.log("Service minting " + amount + " RECs");
-    // const ethers = require('ethers');
   
     // Connect to the network
     let provider = ethers.getDefaultProvider('rinkeby');

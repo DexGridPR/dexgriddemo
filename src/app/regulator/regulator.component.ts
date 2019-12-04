@@ -42,11 +42,13 @@ export class RegulatorComponent implements OnInit {
 
   ders() {
     console.log("Opening DERs");
+    this.opencontrol = false;
     this.openders = true;
   }
 
   openControl() {
     console.log("Opening REC Control");
+    this.openders = false;
     this.opencontrol = true;
   }
 

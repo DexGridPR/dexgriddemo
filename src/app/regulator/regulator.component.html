@@ -1,29 +1,29 @@
 <div id="regulator">
-<h1>Welcome to your Regulator Portal</h1>
+  <h1>Welcome to your Regulator Portal</h1>
 
-<mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
+  <mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
 
   <div id="dashboard">
-    <div id="welcome">
-      <p>Welcome to your Regulator Dashboard!</p>
+    <div id="top">
+      <div id="welcome">
+        <p>Welcome to your Regulator Dashboard!</p>
+      </div>
+
+      <div id="rec">
+        <p>Total Current RECs:</p>
+        <a href="https://rinkeby.etherscan.io/token/0x75281c0eeee7cc353b84e38cb91f3927d228c57a" target="_blank">
+          <p>{{ recs }}</p>
+        </a>
+      </div>
+
+      <div id="generation">
+        <p>Generation in last 24 hours: 112,678 MWh</p>
+      </div>
+
+      <button mat-raised-button (click)="ders()">Open DER List</button>
+      <button mat-raised-button (click)="openControl()">Open REC Control</button>
     </div>
 
-    <div id="rec">
-      <p>Total Current RECs:</p>
-      <a href="https://rinkeby.etherscan.io/token/0x75281c0eeee7cc353b84e38cb91f3927d228c57a" target="_blank"><p>{{ recs }}</p></a>
-    </div>
-
-    <div id="prmap">
-      <p>Geolocation of REC producing sites:</p>
-      <img src="../../assets/PRRECs.png" alt="">
-    </div>
-
-    <div id="generation">
-      <p>Generation in last 24 hours: 112,678 MWh</p>
-    </div>
-
-    <button id="derbutton" (click)="ders()">Open DER List</button>
-    <button mat-raised-button (click)="openControl()">Open REC Control</button>
 
 
     <div *ngIf="openders;">

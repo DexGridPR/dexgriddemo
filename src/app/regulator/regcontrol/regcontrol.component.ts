@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, Injectable, InjectionToken, NgModule, APP_INITIALIZER, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
+import {MatInputModule} from '@angular/material/input';
 
 import { Web3Service } from '../../service/web3.service';
 import { RecService } from '../../service/rec.service';
@@ -27,7 +28,7 @@ declare let nonce: number;
 })
 export class RegcontrolComponent implements OnInit {
 
-  public rec: number;
+  public recs: number;
   public Amount: number;
   public balance: number;
   @Input() RecAmount: any;
@@ -37,7 +38,7 @@ export class RegcontrolComponent implements OnInit {
     // this.rec = {
     //   rec: 40
     // }
-    this.rec = 40
+    this.recs = 40
   }
 
   autoTicks = true;
@@ -48,7 +49,7 @@ export class RegcontrolComponent implements OnInit {
   showTicks = true;
   step = 10;
   thumbLabel = true;
-  value = 0;
+  value = 100;
   vertical = false;
 
   ngOnInit() {
@@ -61,15 +62,17 @@ export class RegcontrolComponent implements OnInit {
 
     this._web3service.tokenBalance.subscribe(
       rec => {
-        this.rec = rec; 
+        this.recs = rec; 
       // return this.n;
       // this.rec = rec;
-      return this.rec;
+      return this.recs;
       });
   }
 
-    mint(value) {
+  mintRecs(value) {
     console.log("Minting");
+    console.log(value);
+    console.log(typeof value);
     this._mintservice.mintRec(value);
   }
 
