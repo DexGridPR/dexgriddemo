@@ -8,6 +8,7 @@ import { SellrecComponent } from './sellrec/sellrec.component';
 import { DersComponent } from './regulator/ders/ders.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ConsumptionComponent } from './customer/consumption/consumption.component';
+import { RegcontrolComponent } from './regulator/regcontrol/regcontrol.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'ders', component: DersComponent },
   { path: 'customer', component: CustomerComponent },
   { path: 'consumption', component: ConsumptionComponent },
+  { path: 'regcontrol', component: RegcontrolComponent },
   { path: 'market', component: MarketComponent }
 ];
 

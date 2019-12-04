@@ -17,7 +17,9 @@ export class RegulatorComponent implements OnInit {
 
   @Input() RecAmount: any;
   public openders = false;
+  public opencontrol = false;
   recs: string;
+  
 
   constructor( private _mintservice: RecService, private _bottomSheet: MatBottomSheet ) { }
 
@@ -39,8 +41,13 @@ export class RegulatorComponent implements OnInit {
   }
 
   ders() {
-    console.log("Open DERs");
+    console.log("Opening DERs");
     this.openders = true;
+  }
+
+  openControl() {
+    console.log("Opening REC Control");
+    this.opencontrol = true;
   }
 
   openBottomSheet(): void {

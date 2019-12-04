@@ -1,0 +1,22 @@
+<div class="main">
+  <p>Mint New RECs:</p>
+
+  <mat-slider
+  class="slider"
+  [disabled]="disabled"
+  [invert]="invert"
+  [max]="max"
+  [min]="min"
+  [step]="step"
+  [thumbLabel]="thumbLabel"
+  [tickInterval]="tickInterval"
+  [vertical]="vertical"
+
+  [(ngModel)]="value">
+  </mat-slider>
+
+  <input matInput type="number" placeholder="Value" [(ngModel)]="value">
+
+  <button (click)="mintRecs(recs.value)">Mint</button>
+
+</div>

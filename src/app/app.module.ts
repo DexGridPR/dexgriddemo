@@ -28,11 +28,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatCardModule, MatButtonModule } from '@angular/material';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConsumptionComponent } from './customer/consumption/consumption.component';
+import { RegcontrolComponent } from './regulator/regcontrol/regcontrol.component';
+import { FormsModule } from '@angular/forms';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -74,7 +77,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     RegBottomSheet,
     CusBottomSheet, 
     CusBottomWarn, 
-    ConsumptionComponent
+    ConsumptionComponent, RegcontrolComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +92,8 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     FlexLayoutModule,
     ChartsModule,
     MatDialogModule,
+    MatSliderModule,
+    FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn],

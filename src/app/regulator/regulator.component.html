@@ -23,9 +23,15 @@
     </div>
 
     <button id="derbutton" (click)="ders()">Open DER List</button>
+    <button mat-raised-button (click)="openControl()">Open REC Control</button>
+
 
     <div *ngIf="openders;">
       <app-ders></app-ders>
+    </div>
+
+    <div *ngIf="opencontrol;">
+      <app-regcontrol></app-regcontrol>
     </div>
   </div>
 
