@@ -7,7 +7,7 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { LandingComponent } from './landing/landing.component';
 import { MarketComponent } from './market/market.component';
 import { RegulatorComponent, RegBottomSheet } from './regulator/regulator.component';
-import { CustomerComponent, CusBottomSheet } from './customer/customer.component';
+import { CustomerComponent, CusBottomSheet, CusBottomWarn } from './customer/customer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -18,7 +18,7 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { DemotbarComponent } from './demotbar/demotbar.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { GoperatorComponent, BottomSheet } from './goperator/goperator.component';
-import { HistoryComponent } from './history/history.component';
+import { HistoryComponent } from './customer/history/history.component';
 import { RegaccComponent } from './regacc/regacc.component';
 import { TermsComponent } from './terms/terms.component';
 import { DersComponent } from './regulator/ders/ders.component';
@@ -29,6 +29,9 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatCardModule } from '@angular/material';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ChartsModule } from 'ng2-charts';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConsumptionComponent } from './customer/consumption/consumption.component';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -68,7 +71,8 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     DownloadComponent,
     BottomSheet,
     RegBottomSheet,
-    CusBottomSheet
+    CusBottomSheet, 
+    CusBottomWarn, ConsumptionComponent
   ],
   imports: [
     BrowserModule,
@@ -80,9 +84,11 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     MatCardModule,
     MatProgressBarModule,
     FlexLayoutModule,
+    ChartsModule,
+    MatDialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet],
+  entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn],
   providers: [
     // {
     //   provide: APP_INITIALIZER,

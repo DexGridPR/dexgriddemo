@@ -1,0 +1,18 @@
+<div class="chart-wrapper">
+    <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas>
+</div>
+
+<div class="explain">
+    <p>This is your daily consumption broken down, by average total costs per time of day, for this month.</p>
+    <p>It looks like half or more of your electric costs are in the afternoon. Perhaps consider
+      watching your consumption during these hours as electricity can cost more during this time 
+      in your region.
+    </p>
+</div>

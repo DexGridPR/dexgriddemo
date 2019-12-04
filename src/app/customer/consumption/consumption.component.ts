@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import { ChartType, ChartOptions } from 'chart.js';
+import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+
+@Component({
+  selector: 'app-consumption',
+  templateUrl: './consumption.component.html',
+  styleUrls: ['./consumption.component.scss']
+})
+export class ConsumptionComponent implements OnInit {
+
+  constructor() {
+    monkeyPatchChartJsTooltip();
+    monkeyPatchChartJsLegend();
+  }
+
+  ngOnInit() {
+  }
+
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public pieChartLabels: Label[] = [['Morning'], ['Afternoon'], 'Evening'];
+  public pieChartData: SingleDataSet = [30, 50, 20];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartPlugins = [];
+
+
+}

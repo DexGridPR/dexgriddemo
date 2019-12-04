@@ -6,6 +6,9 @@ import { TesterComponent } from './tester/tester.component';
 import { DownloadComponent } from './download/download.component';
 import { SellrecComponent } from './sellrec/sellrec.component';
 import { DersComponent } from './regulator/ders/ders.component';
+import { CustomerComponent } from './customer/customer.component';
+import { ConsumptionComponent } from './customer/consumption/consumption.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -14,6 +17,8 @@ const routes: Routes = [
   { path: 'download', component: DownloadComponent },
   { path: 'sellrec', component: SellrecComponent },
   { path: 'ders', component: DersComponent },
+  { path: 'customer', component: CustomerComponent },
+  { path: 'consumption', component: ConsumptionComponent },
   { path: 'market', component: MarketComponent }
 ];
 

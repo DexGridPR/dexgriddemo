@@ -2,6 +2,25 @@
     margin: 0 1em;
 }
 
+.chart-wrapper {
+    margin-top: 2em;
+    height: auto;
+    width: 80%;
+
+}
+
+#credits-left {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 0.8em;
+}
+
+.warning {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
 .explanation {
     background-color: rgba(145, 179, 233, 0.63);
     padding: 0.5em 0.5em 0.5em 0.5em;

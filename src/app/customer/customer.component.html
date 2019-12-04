@@ -23,9 +23,13 @@
         <p>Billing</p>
         <hr>
         <mat-card-content>
+          <p>Prepayment this Month (December): $100</p>
           <p>Credit Left: $63</p>
-          <p>Prepaid this month (December): $100</p>
           <mat-progress-bar mode="determinate" value="63"></mat-progress-bar>
+          <hr>
+          <p>Estimated duration of credits:</p>
+          <p id="credits-left">20 days</p>
+          <mat-icon (click)="openBottomWarning()" aria-hidden="false" aria-label="warning icon">warning</mat-icon>
         </mat-card-content>
       </mat-card>
 
@@ -33,8 +37,9 @@
         <p>DER Performance</p>
         <hr>
         <mat-card-content>
-          <p>Solar System: 42 kWh</p>
+          <p>Solar System: 29.3 kWh [December]</p>
           <p>Battery: 64 kWh charged</p>
+          <mat-progress-bar mode="determinate" value="97"></mat-progress-bar>
         </mat-card-content>
       </mat-card>
 
@@ -44,6 +49,9 @@
         <mat-card-content>
           <p>Last 30 days: 32 kWh</p>
           <p>Last 12 months, monthly: 40 kWh</p>
+          <p style="font-weight: bold; display: inline-block; margin-right: 0.3em;">Average kWh rate: $0.125</p>
+          <mat-icon (click)="openDialog()" aria-hidden="false" aria-label="warning icon">warning</mat-icon>
+
         </mat-card-content>
       </mat-card>
 
@@ -58,8 +66,20 @@
       </mat-card>
     </div>
 
+    <div class="chart-wrapper">
+        <canvas baseChart 
+            [datasets]="lineChartData" 
+            [labels]="lineChartLabels" 
+            [options]="lineChartOptions"
+            [colors]="lineChartColors" 
+            [legend]="lineChartLegend" 
+            [chartType]="lineChartType" 
+            [plugins]="lineChartPlugins">
+        </canvas>
+    </div>
+
     <div id="buttons">
-        <button (click)="history()" class="dashbutton">Previous Bills</button>
+        <button (click)="history()" class="dashbutton">Previous Consumption</button>
 
         <!-- <button (click)="sellrec()" class="dashbutton">Power Purchase Agreement</button> -->
       
