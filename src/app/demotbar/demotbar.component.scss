@@ -40,6 +40,8 @@
     display: inline-block;
     height: 90%;
     padding-left: 1em;
+    float: right;
+    margin-right: 1em;
 
     button {
         // height: 90%;
@@ -54,7 +56,7 @@
 }
 
 #site-logo {
-    float:right;
+    float:left;
     margin-right: 1em;
     vertical-align: middle;
     display: inline-block;
