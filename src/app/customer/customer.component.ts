@@ -3,7 +3,6 @@ import { SellrecComponent } from '../sellrec/sellrec.component';
 import { HistoryComponent } from './history/history.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { MatDialogModule, MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { TermsComponent } from 'src/app/terms/terms.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -12,7 +11,7 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ConsumptionComponent } from 'src/app/customer/consumption/consumption.component';
-
+import { TermsComponent } from 'src/app/customer/terms/terms.component';
 
 
 @Component({
@@ -54,8 +53,14 @@ export class CustomerComponent implements OnInit {
     console.log("Open up exchange");
   }
 
-  onCreate() {
+  onCreate(): void {
     console.log("Open Account Profile");
+    const dialog = this.dialog.open( TermsComponent, {
+      width: '90%', maxWidth: '90%'
+    });
+    dialog.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   openBottomSheet(): void {

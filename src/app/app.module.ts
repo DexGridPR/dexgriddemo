@@ -20,9 +20,10 @@ import { MatMenuModule} from '@angular/material/menu';
 import { GoperatorComponent, BottomSheet } from './goperator/goperator.component';
 import { HistoryComponent } from './customer/history/history.component';
 import { RegaccComponent } from './regacc/regacc.component';
-import { TermsComponent } from './terms/terms.component';
 import { DersComponent } from './regulator/ders/ders.component';
 import { DownloadComponent } from './download/download.component';
+import { TermsComponent } from './customer/terms/terms.component';
+
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 import { GotodemoService } from "../service/gotodemo.service";
 
