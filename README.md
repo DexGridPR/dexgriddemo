@@ -1,5 +1,9 @@
 # Dexgrid
 
+## Demo Codebase
+
+Initial codebase for the DexGrid app demo
+
 ## Technical Documentation
 
 See Writeups folder for technical writeups on DexGrid products. Including:
