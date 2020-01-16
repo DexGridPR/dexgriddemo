@@ -33,18 +33,24 @@
 }
 
 .custitle {
-    background-color: rgba(145, 179, 233, 0.63);
+    background-color: #6D92CB;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    border-radius: 0.5em;
-    margin-bottom: 2rem;
-    text-align: center;
+    p {
+        border-radius: 0.5em;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
 }
 
 #cus-info {
-    background-color: rgb(192, 182, 182);
+    background-color:#4370B7;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 0.7rem;
+
+    p {
+        color: white;
+    }
 }
 
 #dashboard {
@@ -143,7 +149,7 @@
 }
 
 .billbutton {
-    background-color: rgb(57, 114, 207);
+    background-color: #FF8F4D;
     // margin-top: 0.8rem;
     // margin-right: 2rem;
     margin-left: 1em;

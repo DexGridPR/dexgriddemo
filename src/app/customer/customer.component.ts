@@ -98,8 +98,8 @@ export class CustomerComponent implements OnInit {
 
   lineChartColors: Color[] = [
     {
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,255,0,0.28)',
+      borderColor: '#FBD22D',
+      backgroundColor: '#6D92CB',
     },
   ];
 

@@ -5,9 +5,9 @@
 
   <div id="dashboard">
 
-    <mat-card>
-      <p class="custitle">Customer Dashboard</p>
-    </mat-card>
+    <!-- <mat-card class="custitle">
+      <p>Customer Dashboard</p>
+    </mat-card> -->
 
     <mat-card id="cus-info">
         <p>Address- 100 Calle San Francisco, San Juan, Puerto Rico 00901</p>
@@ -29,7 +29,7 @@
           <hr>
           <p>Estimated duration of credits:</p>
           <p id="credits-left">20 days</p>
-          <mat-icon (click)="openBottomWarning()" aria-hidden="false" aria-label="warning icon">warning</mat-icon>
+          <mat-icon (click)="openBottomWarning()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
         </mat-card-content>
       </mat-card>
 
@@ -50,7 +50,7 @@
           <p>Last 30 days: 32 kWh</p>
           <p>Last 12 months, monthly: 40 kWh</p>
           <p style="font-weight: bold; display: inline-block; margin-right: 0.3em;">Average kWh rate: $0.125</p>
-          <mat-icon (click)="openDialog()" aria-hidden="false" aria-label="warning icon">warning</mat-icon>
+          <mat-icon (click)="openDialog()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
 
         </mat-card-content>
       </mat-card>

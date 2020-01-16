@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
-import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip, Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-consumption',
@@ -25,6 +25,15 @@ export class ConsumptionComponent implements OnInit {
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
+  public pieChartColor = [
+    {
+      backgroundColor: [
+        '#0A3272',
+        '#FBD22D',
+        '#FB802D',
+      ]
+    }
+  ];
 
 
 }

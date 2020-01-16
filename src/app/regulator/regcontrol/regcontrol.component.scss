@@ -3,10 +3,14 @@
 }
 
 .recs {
-    background-color: rgba(111, 111, 224, 0.534);
+    background-color: #2A5AA6;
     padding-top: 1em;
     padding-left: 1em;
     padding-bottom: 2em;
+
+    p {
+        color: white;
+    }
 }
 
 .transferb {
@@ -15,4 +19,11 @@
 
 #transferb {
     margin-left: 0.5em;
+}
+
+.mat-form-field {
+    background-color: #ffffffc9;
+    border-radius: 0.4em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
 }
