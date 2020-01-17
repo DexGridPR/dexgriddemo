@@ -3,11 +3,22 @@ body {
 }
 
 .img {
-    width: 80%;
+    width: 90vw;
     height: auto;
     display: block;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 5vh;
+    margin-bottom: 25vh;
+
+
+    @media only screen and (min-width: 600px) {
+        width: auto;
+        height: 85vh;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 #center-img {
@@ -23,6 +34,7 @@ body {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 10em;
 
     h2 {
         text-align: center;
