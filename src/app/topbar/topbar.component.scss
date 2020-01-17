@@ -61,22 +61,24 @@
     // color: rgb(42, 97, 60);
     float: right;
     // position: relative;
+    height: 90%;
+    padding-left: 1em;
+    margin-right: 1em;
 }
 
 #demobutton {
-    margin-top: 10%;
-    margin-right: 2rem;
-    border-radius: 1.5rem;
-    width: 10rem;
-    height: 2rem;
-    // padding: 0rem;
+    margin-top: 5%;
+    border-radius: 0.6rem;
+    width: 9rem;
+    height: 90%;
     border: 0.1rem,rgb(144, 138, 138);
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    background-color:#FBD22D;
+    background-color:#FF6F1A;
     cursor: pointer;
     font-size: 0.9rem;
+    vertical-align: middle;
 }
 
 #demobutton:hover {

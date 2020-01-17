@@ -1,6 +1,6 @@
 #transferb {
     // background-color: #a12c2c;
-    margin-top: 0.8rem;
+    // margin-top: 0.8rem;
     margin-right: 2rem;
     // border-radius: 1.5rem;
     // width: 10rem;
@@ -24,11 +24,15 @@
 }
 
 .transfer {
-    display: inline-block;
-
+    // display: inline-block;
+    margin-top: 2em;
 }
 
 .transferb {
     // float: right;
-    margin-top: 1em;
+    // margin-top: 1em;
+}
+
+.smalltitle {
+    margin: 0.2em 0.1em;
 }

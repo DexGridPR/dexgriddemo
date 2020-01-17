@@ -1,34 +1,35 @@
 <!-- <h1>{{ SellrecComponent.name }}</h1> -->
-<h1>Manage your renewable energy credits:</h1>
+<h1>Manage your Renewable Energy Credits:</h1>
 <hr>
 <div class="general">
 
   <div class="transfer">
-    <p>Create new RECs:</p>
+
+      <div class="credits">
+          <!-- <p>REC balance:</p>
+            <p ng-bind="rec" [innerHTML]="rec" id="creditnumber" type="number"> {{ rec }}</p> -->
+          <!-- <p ng-bind="n"> {{ n }}</p> -->
+      
+          <p class="smalltitle">Your REC Balance:</p>
+          <a href="https://rinkeby.etherscan.io/token/0x75281c0eeee7cc353b84e38cb91f3927d228c57a?a=0xb16cd26b93efa651ddbac040add0e6bd41eb1f67"
+            target="_blank">
+            <p ng-bind="message" [innerHTML]="message" id="creditnumber" type="number"> {{ message }}</p>
+          </a>
+        </div>
+        
+    <p class="smalltitle">Create new RECs:</p>
     <mat-form-field>
       <input matInput #Amount #rectransfered type="number" name="RECs" id="recs" placeholder="How many RECs?">
     </mat-form-field>
+
+    <div class="transferb">
+        <button mat-raised-button color="warn" id="transferb" (click)="mint(Amount.value)" for="rectransfered">Mint Rec</button>
+      </div>
     <!-- <input #rectransfered [value]="recs" type="number" name="RECs" id="recs" placeholder="How many RECs?"> -->
   </div>
 
-  <div class="credits">
-    <!-- <p>REC balance:</p>
-      <p ng-bind="rec" [innerHTML]="rec" id="creditnumber" type="number"> {{ rec }}</p> -->
-    <!-- <p ng-bind="n"> {{ n }}</p> -->
-
-    <p>Your REC Balance:</p>
-    <a href="https://rinkeby.etherscan.io/token/0x75281c0eeee7cc353b84e38cb91f3927d228c57a?a=0xb16cd26b93efa651ddbac040add0e6bd41eb1f67"
-      target="_blank">
-      <p ng-bind="message" [innerHTML]="message" id="creditnumber" type="number"> {{ message }}</p>
-    </a>
-  </div>
-
-  <div class="transferb">
-    <button mat-raised-button color="warn" id="transferb" (click)="mint(Amount.value)" for="rectransfered">Mint Rec</button>
-  </div>
-
   <div class="transfer">
-    <p>Amount of RECs to Transfer:</p>
+    <p class="smalltitle">Amount of RECs to Transfer:</p>
     <mat-form-field>
       <input matInput #recamount type="number" name="RECs" id="recs" placeholder="How many RECs?">
     </mat-form-field>

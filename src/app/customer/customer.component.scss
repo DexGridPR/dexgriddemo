@@ -3,9 +3,10 @@
 }
 
 .chart-wrapper {
-    margin-top: 2em;
+    // margin-top: 2em;
     height: auto;
     width: 80%;
+    margin: 2em auto;
 
     @media only screen and (max-width: 600px) {
         width: 100%;
@@ -26,10 +27,10 @@
 }
 
 .explanation {
-    background-color: rgba(145, 179, 233, 0.63);
+    // background-color: rgba(145, 179, 233, 0.63);
     padding: 0.5em 0.5em 0.5em 0.5em;
     border-radius: 0.5em;
-    margin-bottom: 2rem;
+    margin-bottom: 0.1rem;
 }
 
 .custitle {
