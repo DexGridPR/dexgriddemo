@@ -7,8 +7,11 @@
 
     <div id="summary">
       <h2>What We Do</h2>
+      <i (click)="scrollElement(target)" class="material-icons">
+        keyboard_arrow_down
+        </i>
       <hr>
-      <p>
+      <p #target>
         We see electric cooperatives, microgrids and other forms of distributed 
         energy resources (DERs) as living and growing organisms. To thrive, it 
         needs to be matched with a decentralized operating system. 
@@ -81,8 +84,11 @@
 
     <div id="signup">
       <h2>Let's Work Together</h2>
+      <i (click)="scrollElementWork(worktogether)" class="material-icons">
+          keyboard_arrow_down
+        </i>
       <hr>
-      <p>Now's the time to do something about our kids' future!
+      <p #worktogether>Now's the time to do something about our kids' future!
         We are currently expanding our partnerships with leading energy players 
         in the Caribbean.
         If you are a project developer, investor, landlord, or if you have a specific 
