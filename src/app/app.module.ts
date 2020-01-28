@@ -29,8 +29,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatCardModule, MatButtonModule } from '@angular/material';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatInputModule} from '@angular/material/input';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts';
@@ -80,7 +81,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     BottomSheet,
     RegBottomSheet,
     CusBottomSheet, 
-    CusBottomWarn, 
+    CusBottomWarn,
     ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent
   ],
   imports: [
@@ -99,6 +100,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     MatSliderModule,
     FormsModule,
     MatInputModule,
+    MatSelectModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn],

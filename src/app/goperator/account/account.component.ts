@@ -21,7 +21,6 @@ export class AccountComponent implements OnInit {
   pickOperator(operator) {
     console.log(operator);
     this._operator.closeAccount(operator);
-    
     // this.dialogRef.close;
   }
 

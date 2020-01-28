@@ -1,15 +1,27 @@
 <mat-dialog-content>
   <div class="main">
-    <h1>Purchase additional electric credits</h1>
+    <h3>Purchase additional electric credits</h3>
 
     <mat-form-field class="example-full-width">
       <div class="creditamount">
         <input matInput placeholder="Credit Amount" type="number" name="credits" id="credits">
+
       </div>
+      <mat-hint>Recommended Amount: <br>40 credits</mat-hint>
 
     </mat-form-field>
 
-    <button mat-raised-button color="warn" class="purchase">Purchase
+    <mat-form-field class="paymentmethod">
+        <mat-label>Method of Payment</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let credit of credits" [value]="credit.value">
+            {{credit.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <button mat-raised-button color="warn" class="purchase" 
+    (click)="submitCreditAmount()" [mat-dialog-close]="true">Purchase
         <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
       </button>
   </div>
