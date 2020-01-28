@@ -39,6 +39,7 @@ import { ConsumptionComponent } from './customer/consumption/consumption.compone
 import { RegcontrolComponent } from './regulator/regcontrol/regcontrol.component';
 import { FormsModule } from '@angular/forms';
 import { AccountComponent } from './goperator/account/account.component';
+import { CreditsComponent } from './customer/credits/credits.component';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -80,7 +81,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     RegBottomSheet,
     CusBottomSheet, 
     CusBottomWarn, 
-    ConsumptionComponent, RegcontrolComponent, AccountComponent
+    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent
   ],
   imports: [
     BrowserModule,

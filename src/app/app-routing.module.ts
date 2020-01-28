@@ -11,6 +11,7 @@ import { ConsumptionComponent } from './customer/consumption/consumption.compone
 import { TermsComponent } from './customer/terms/terms.component';
 import { RegcontrolComponent } from './regulator/regcontrol/regcontrol.component';
 import { AccountComponent } from './goperator/account/account.component';
+import { CreditsComponent } from './customer/credits/credits.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'customer', component: CustomerComponent },
   { path: 'consumption', component: ConsumptionComponent },
   { path: 'terms', component: TermsComponent },
+  { path: 'credits', component: CreditsComponent },
   { path: 'regcontrol', component: RegcontrolComponent },
   { path: 'account', component: AccountComponent },
   { path: 'market', component: MarketComponent }

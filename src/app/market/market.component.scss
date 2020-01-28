@@ -19,11 +19,15 @@ h1 {
 }
 
 #market_photo {
-    width: 40%;
+    width: 15em;
     height: auto;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
+
+    @media only screen and (min-width: 600px) {
+        width: 60vw;
+    }
 }
 
 #market {

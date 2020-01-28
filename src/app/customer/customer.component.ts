@@ -12,6 +12,7 @@ import { Color, Label } from 'ng2-charts';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ConsumptionComponent } from 'src/app/customer/consumption/consumption.component';
 import { TermsComponent } from 'src/app/customer/terms/terms.component';
+import { CreditsComponent } from 'src/app/customer/credits/credits.component';
 
 
 @Component({
@@ -56,6 +57,16 @@ export class CustomerComponent implements OnInit {
   onCreate(): void {
     console.log("Open Account Profile");
     const dialog = this.dialog.open( TermsComponent, {
+      width: '90%', maxWidth: '90%'
+    });
+    dialog.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openCredits(): void {
+    console.log("Open Credits Portal");
+    const dialog = this.dialog.open( CreditsComponent, {
       width: '90%', maxWidth: '90%'
     });
     dialog.afterClosed().subscribe(result => {
