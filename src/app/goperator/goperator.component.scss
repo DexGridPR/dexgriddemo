@@ -2,6 +2,10 @@
 
 $dashbutton: dashbutton;
 
+h1 {
+    text-align: center;
+}
+
 .dashbutton {
     // background-color: rgb(161, 44, 44);
     margin-top: 0.8rem;
@@ -42,4 +46,20 @@ $dashbutton: dashbutton;
     padding: 0.5em 0.5em 0.5em 0.5em;
     border-radius: 0.5em;
     margin-bottom: 2rem;
+}
+
+.generation {
+    text-align: center;
+}
+
+.supplygraphs {
+    width: 90%;
+    height: auto;
+    text-align: center;
+    margin: 0.2em auto;
+
+    img {
+        width: 100%;
+        margin: 0.2em auto;
+    }
 }
