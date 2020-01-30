@@ -52,14 +52,46 @@ h1 {
     text-align: center;
 }
 
-.supplygraphs {
+.graphs {
     width: 90%;
     height: auto;
     text-align: center;
     margin: 0em auto;
 
+    // @media only screen and (min-width: 600px) {
+    //     width: 40%;
+    //     display: inline-block;
+    // }
+
     img {
         width: 100%;
         margin: 0em auto;
+    }
+
+    .supplygraph {
+        @media only screen and (min-width: 600px) {
+        width: 35%;
+        display: inline-block;
+        margin: 0.2em 2em;
+        img {
+            height: 18em;
+        }
+        }
+    }
+
+    .demandgraph {
+        @media only screen and (min-width: 600px) {
+        // height: 15em;
+        width: 48%;
+        display: inline-block;
+        margin: 0.2em 2em;
+        img {
+            height: 18em;
+        }
+
+        p {
+            top: 0;
+        }
+     }
     }
 }
