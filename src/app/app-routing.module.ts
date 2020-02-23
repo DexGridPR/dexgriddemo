@@ -12,6 +12,9 @@ import { TermsComponent } from './customer/terms/terms.component';
 import { RegcontrolComponent } from './regulator/regcontrol/regcontrol.component';
 import { AccountComponent } from './goperator/account/account.component';
 import { CreditsComponent } from './customer/credits/credits.component';
+import { SettingsComponent } from './customer/settings/settings.component';
+import { ThemarketComponent } from './customer/themarket/themarket.component';
+
 
 
 
@@ -28,6 +31,8 @@ const routes: Routes = [
   { path: 'credits', component: CreditsComponent },
   { path: 'regcontrol', component: RegcontrolComponent },
   { path: 'account', component: AccountComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'themarket', component: ThemarketComponent },
   { path: 'market', component: MarketComponent }
 ];
 

@@ -1,0 +1,32 @@
+<section class="main">
+  <h1>The Market</h1>
+  <p>Watch as prices of electricity
+    <br>change on your local electric market</p>
+
+  <div class="currentPrice">
+    <p>Current Price per kWh</p>
+    <div>
+      <p>0.13 Credits</p>
+    </div>
+  </div>
+
+  <div class="prices">
+    <div class="bids">
+      <p>Bids <br> (Credits, Amount)</p>
+      <div class="buys">
+        <p class="text" *ngFor="let _prices of price">
+          {{ _prices.buyOrder }} || {{ _prices.amount }} kWh
+        </p>
+      </div>
+    </div>
+  
+    <div class="asks">
+      <p>Asks <br> (Credits, Amount)</p>
+      <div class="sales">
+        <p class="text" *ngFor="let _sales of sale">
+            {{ _sales.sellOrder }} || {{ _sales.amount }} kWh
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

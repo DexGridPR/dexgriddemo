@@ -2,5 +2,14 @@
   "projects": {
     "default": "dexgrid-f12ac",
     "dexdemo": "dexgriddemo"
+  },
+  "targets": {
+    "dexgriddemo": {
+      "hosting": {
+        "dexgrid": [
+          "dexgriddemo"
+        ]
+      }
+    }
   }
 }

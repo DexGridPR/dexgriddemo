@@ -10,15 +10,15 @@
     </mat-card> -->
 
     <mat-card id="cus-info">
-        <p>Address- 100 Calle San Francisco, San Juan, Puerto Rico 00901</p>
-        <div id="bill">
-            <p id="billing">Customer Number- #34920</p> <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
-        </div>
-        <p>My Profile- 0xtY4....9We4</p>
+      <p>Address- 100 Calle San Francisco, San Juan, Puerto Rico 00901</p>
+      <div id="bill">
+        <p id="billing">Customer Number- #34920</p>
+        <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
+      </div>
+      <p>My Profile- 0xtY4....9We4</p>
     </mat-card>
 
-    <div fxLayout="row wrap"
-    fxLayoutGap="1em">
+    <div fxLayout="row wrap" fxLayoutGap="1em">
       <mat-card class="infocard">
         <p>Billing</p>
         <hr>
@@ -67,33 +67,36 @@
     </div>
 
     <div class="chart-wrapper">
-        <canvas baseChart 
-            [datasets]="lineChartData" 
-            [labels]="lineChartLabels" 
-            [options]="lineChartOptions"
-            [colors]="lineChartColors" 
-            [legend]="lineChartLegend" 
-            [chartType]="lineChartType" 
-            [plugins]="lineChartPlugins">
-        </canvas>
+      <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+        [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+      </canvas>
     </div>
 
     <div id="buttons">
 
       <button mat-raised-button (click)="openCredits()" class="dashbutton">Purchase Electric Credits
-          <mat-icon aria-hidden="false" aria-label="add_circle_outline icon">add_circle_outline</mat-icon>
-          <!-- <mat-icon aria-hidden="false" aria-label="credit_card icon">credit_card</mat-icon> -->
+        <mat-icon aria-hidden="false" aria-label="add_circle_outline icon">add_circle_outline</mat-icon>
+        <!-- <mat-icon aria-hidden="false" aria-label="credit_card icon">credit_card</mat-icon> -->
       </button>
 
-        <button mat-raised-button (click)="history()" class="dashbutton">Previous Consumption
-          <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
-        </button>
+      <button mat-raised-button (click)="history()" class="dashbutton">Previous Consumption
+        <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
+      </button>
 
-        <!-- <button (click)="sellrec()" class="dashbutton">Power Purchase Agreement</button> -->
-      
-        <button mat-raised-button (click)="sellrec()" class="dashbutton">Sell Your RECs
-          <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
-        </button>
+      <!-- <button (click)="sellrec()" class="dashbutton">Power Purchase Agreement</button> -->
+
+      <button mat-raised-button (click)="sellrec()" class="dashbutton">Sell Your RECs
+        <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
+      </button>
+
+      <button mat-raised-button (click)="openSettings()" class="dashbutton">Energy Settings
+        <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
+      </button>
+
+
+      <button mat-raised-button (click)="opentheMarket()" class="dashbutton">The Market
+        <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
+      </button>
     </div>
 
     <div *ngIf="should_open_sellrec;">
@@ -104,6 +107,16 @@
     <div *ngIf="should_open_history;">
       <app-history></app-history>
       <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+    </div>
+
+
+    <div *ngIf="should_open_settings;">
+      <app-settings></app-settings>
+      <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+    </div>
+
+    <div *ngIf="should_open_market">
+      <app-themarket></app-themarket>
     </div>
 
   </div>

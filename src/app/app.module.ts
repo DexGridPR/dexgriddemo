@@ -11,7 +11,6 @@ import { CustomerComponent, CusBottomSheet, CusBottomWarn } from './customer/cus
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 import { SellrecComponent } from './sellrec/sellrec.component';
 import { TesterComponent } from './tester/tester.component';
 import { DrawerComponent } from './drawer/drawer.component';
@@ -32,6 +31,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts';
@@ -41,6 +41,12 @@ import { RegcontrolComponent } from './regulator/regcontrol/regcontrol.component
 import { FormsModule } from '@angular/forms';
 import { AccountComponent } from './goperator/account/account.component';
 import { CreditsComponent } from './customer/credits/credits.component';
+import { SettingsComponent } from './customer/settings/settings.component';
+import { ThemarketComponent } from './customer/themarket/themarket.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -78,11 +84,12 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     TermsComponent,
     DersComponent,
     DownloadComponent,
+    SettingsComponent,
     BottomSheet,
     RegBottomSheet,
     CusBottomSheet, 
     CusBottomWarn,
-    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent
+    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent
   ],
   imports: [
     BrowserModule,
@@ -101,6 +108,9 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     FormsModule,
     MatInputModule,
     MatSelectModule,
+    MatSlideToggleModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn],

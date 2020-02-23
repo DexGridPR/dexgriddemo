@@ -13,6 +13,8 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ConsumptionComponent } from 'src/app/customer/consumption/consumption.component';
 import { TermsComponent } from 'src/app/customer/terms/terms.component';
 import { CreditsComponent } from 'src/app/customer/credits/credits.component';
+import { SettingsComponent } from 'src/app/customer/settings/settings.component';
+import { ThemarketComponent } from 'src/app/customer/themarket/themarket.component';
 
 
 @Component({
@@ -24,6 +26,8 @@ import { CreditsComponent } from 'src/app/customer/credits/credits.component';
 export class CustomerComponent implements OnInit {
   public should_open_sellrec = false;
   public should_open_history = false;
+  public should_open_settings = false;
+  public should_open_market = false;
 
   @Inject(MAT_DIALOG_DATA) private data: any;
 
@@ -44,14 +48,33 @@ export class CustomerComponent implements OnInit {
 
   history() {
     console.log("Open Bill History");
+    this.should_open_market = false;
     this.should_open_history = true;
     this.should_open_sellrec = false;
   }
 
   sellrec() {
+    this.should_open_market = false;
     this.should_open_sellrec = true;
     this.should_open_history = false;
     console.log("Open up exchange");
+  }
+
+  openSettings() {
+    this.should_open_market = false;
+    this.should_open_settings = true;
+    this.should_open_history = false;
+    this.should_open_sellrec = false;
+    console.log("Open up Settings");
+  }
+
+
+  opentheMarket() {
+    this.should_open_settings = false;
+    this.should_open_history = false;
+    this.should_open_sellrec = false;
+    this.should_open_market = true;
+    console.log("Open up Settings");
   }
 
   onCreate(): void {
