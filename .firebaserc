@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "dexgrid-f12ac",
+    "default": "dexgriddemo",
     "dexdemo": "dexgriddemo"
   },
   "targets": {

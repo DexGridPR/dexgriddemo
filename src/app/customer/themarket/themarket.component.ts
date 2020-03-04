@@ -23,6 +23,13 @@ export class Sales {
   wind?: string;
 }
 
+export class Rains {
+  inches?: string;
+  rain?: string;
+  sun?: string;
+  wind?: string;
+}
+
 @Component({
   selector: 'app-themarket',
   templateUrl: './themarket.component.html',
@@ -33,7 +40,7 @@ export class ThemarketComponent implements OnInit {
   @Input() price: Prices[];
 
   @Input() sale: Sales[];
-
+  @Input() rain: Rains[];
   constructor( private _fireservice: FirestoredexService ) { }
 
   ngOnInit() {
@@ -45,6 +52,12 @@ export class ThemarketComponent implements OnInit {
     this._fireservice.getSales().subscribe(Sales => {
       console.log(Sales);
       this.sale = Sales;
+    })
+
+
+    this._fireservice.getRains().subscribe(Rains => {
+      console.log(Rains);
+      this.rain = Rains;
     })
   }
 

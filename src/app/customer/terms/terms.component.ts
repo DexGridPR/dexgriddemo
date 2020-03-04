@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-terms',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TermsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialogRef: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  closeD() {
+    this.dialogRef.closeAll();
   }
 
 }

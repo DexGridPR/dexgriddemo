@@ -1,5 +1,5 @@
-<div id="customer">
-  <h1>Welcome to your Customer Dashboard</h1>
+<div id="customer" *ngFor="let _account of account | slice:0:1">
+  <h1>Welcome to your Dashboard, {{ _account.name}}</h1>
 
   <mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
 
@@ -10,12 +10,12 @@
     </mat-card> -->
 
     <mat-card id="cus-info">
-      <p>Address- 100 Calle San Francisco, San Juan, Puerto Rico 00901</p>
+      <p>Address- {{ _account.profile.address }}</p>
       <div id="bill">
-        <p id="billing">Customer Number- #34920</p>
+        <p id="billing">Customer Number- #{{ _account.profile.userID }}</p>
         <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
       </div>
-      <p>My Profile- 0xtY4....9We4</p>
+      <p>My Blockchain Profile #- {{ _account.profile.ethereum }}</p>
     </mat-card>
 
     <div fxLayout="row wrap" fxLayoutGap="1em">
@@ -23,8 +23,8 @@
         <p>Billing</p>
         <hr>
         <mat-card-content>
-          <p>Prepayment this Month (December): $100</p>
-          <p>Credit Left: $63</p>
+          <p>Prepayment, Last 30 Days: {{ _account.consumption.prepay30 }} Credits</p>
+          <p>Credits Left: {{_account.credits}}</p>
           <mat-progress-bar mode="determinate" value="63"></mat-progress-bar>
           <hr>
           <p>Estimated duration of credits:</p>
@@ -37,8 +37,8 @@
         <p>DER Performance</p>
         <hr>
         <mat-card-content>
-          <p>Solar System: 29.3 kWh [December]</p>
-          <p>Battery: 13 kWh charged</p>
+          <p>Solar System: {{ _account.solar.monthGen }} kWh [December]</p>
+          <p>Battery: {{ _account.solar.batteryCharge }} kWh charged</p>
           <mat-progress-bar mode="determinate" value="97"></mat-progress-bar>
         </mat-card-content>
       </mat-card>
@@ -47,9 +47,9 @@
         <p>Consumption</p>
         <hr>
         <mat-card-content>
-          <p>Last 30 days: 32 kWh</p>
-          <p>Last 12 months, monthly: 40 kWh</p>
-          <p style="font-weight: bold; display: inline-block; margin-right: 0.3em;">Average kWh rate: $0.125</p>
+          <p>Last 30 days: {{ _account.consumption.thirtyDays }} kWh</p>
+          <p>Last 12 months, monthly: {{ _account.consumption.avg12month }} kWh</p>
+          <p style="font-weight: bold; display: inline-block; margin-right: 0.3em;">Average kWh rate: ${{ _account.consumption.avgkWh }}</p>
           <mat-icon (click)="openDialog()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
 
         </mat-card-content>
@@ -60,8 +60,8 @@
         <p>Renewable Energy Credits</p>
         <hr>
         <mat-card-content>
-          <p>Generated, past 12 months: 3 RECs</p>
-          <p>Consumed / Purchased: 0.00 RECs</p>
+          <p>Generated, past 12 months: {{ _account.RECs.twelveMonth }} RECs</p>
+          <p>Consumed / Purchased: {{ _account.RECs.consumed }} RECs</p>
         </mat-card-content>
       </mat-card>
     </div>

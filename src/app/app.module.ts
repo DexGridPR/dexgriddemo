@@ -45,8 +45,9 @@ import { SettingsComponent } from './customer/settings/settings.component';
 import { ThemarketComponent } from './customer/themarket/themarket.component';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -109,12 +110,14 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn],
   providers: [
+    AngularFirestore
     // {
     //   provide: APP_INITIALIZER,
     //   useFactory: enableWeb3Provider,

@@ -2,11 +2,18 @@
   <h1>The Market</h1>
   <p>Watch as prices of electricity
     <br>change on your local electric market</p>
+    <div class="text" *ngFor="let _rain of rain">
+        <p> {{ _rain.rain }} Credits</p>
+      </div>
 
   <div class="currentPrice">
+    
     <p>Current Price per kWh</p>
     <div>
-      <p>0.13 Credits</p>
+      <div class="text" *ngFor="let _rain of rain">
+        <p *ngIf="rain < .157 && rain > 0.118; else hello">{{ _rain.rain }} Credits</p>
+        <ng-template #hello>0.130 Credits</ng-template>
+      </div>
     </div>
   </div>
 

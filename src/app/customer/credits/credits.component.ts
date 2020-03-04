@@ -1,5 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {MatSelectModule} from '@angular/material/select';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
+import { HttpClient } from '@angular/common/http';
+import { SubmitfireService } from 'src/app/service/submitfire.service';
+import { MatDialog } from '@angular/material';
+
+
+export class Account {
+  id?: string;
+  credit?: number;
+  conID?: string;
+  genID?: string;
+  address?: string;
+}
 
 export interface Credit {
   value: string;
@@ -13,7 +25,9 @@ export interface Credit {
 })
 
 export class CreditsComponent implements OnInit {
-  dialogRef: any;
+  // dialogRef: any;
+
+  // @Input() account: Account[];
 
   credits: Credit[] = [
     {value: 'credit-0', viewValue: 'Credit Card [..2003]'},
@@ -21,15 +35,25 @@ export class CreditsComponent implements OnInit {
     {value: 'ATH-2', viewValue: 'ATH Mobile [Popular]'}
   ];
 
-  constructor() { }
+  readonly URL = 'https://us-central1-dexgriddemo.cloudfunctions.net/testFunction'
+
+  constructor(private _submitfire: SubmitfireService, private dialogRef: MatDialog) { }
 
   ngOnInit() {
+    // this._submitfire.getAccounts().subscribe(Account => {
+    //   this.account = Account;
+    // })
   }
 
-  submitCreditAmount() {
-    // this._operator.closeAccount(operator);
-    
-    this.dialogRef.close;
+  async submitCreditAmount(creditAmount: number) {
+    console.log("Adding" , creditAmount , "credits")
+  
+    const credits: number = await creditAmount;
+    console.log(typeof credits)
+
+
+    await this._submitfire.uploadCredit(credits)
+    this.dialogRef.closeAll();
   }
 
 }
