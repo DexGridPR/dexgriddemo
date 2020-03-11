@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, ObservableLike } from 'rxjs';
 import { AngularFirestoreModule, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
+import 'firebase/firestore';
 import { map, tap, take, switchMap, mergeMap, expand, takeWhile } from 'rxjs/operators';
 
 export class Prices {

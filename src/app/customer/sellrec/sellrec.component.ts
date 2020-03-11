@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Injectable, InjectionToken, NgModule, APP_INITIALIZER, Input } from '@angular/core';
-import { Web3Service } from '../service/web3.service';
-import { RecService } from '../service/rec.service';
+import { Web3Service } from '../../service/web3.service';
+import { RecService } from '../../service/rec.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable, interval } from 'rxjs';
 import { providers, getDefaultProvider } from 'ethers';

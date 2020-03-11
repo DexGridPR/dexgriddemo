@@ -11,14 +11,14 @@ import { CustomerComponent, CusBottomSheet, CusBottomWarn } from './customer/cus
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { SellrecComponent } from './sellrec/sellrec.component';
+import { SellrecComponent } from './customer/sellrec/sellrec.component';
 import { TesterComponent } from './tester/tester.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { DemotbarComponent } from './demotbar/demotbar.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { GoperatorComponent, BottomSheet } from './goperator/goperator.component';
 import { HistoryComponent } from './customer/history/history.component';
-import { RegaccComponent } from './regacc/regacc.component';
+import { RegaccComponent } from './regulator/regacc/regacc.component';
 import { DersComponent } from './regulator/ders/ders.component';
 import { DownloadComponent } from './download/download.component';
 import { TermsComponent } from './customer/terms/terms.component';

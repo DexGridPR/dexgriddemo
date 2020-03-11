@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Injectable  } from '@angular/core';
 import { FirestoredexService } from 'src/app/service/firestoredex.service';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
 import 'firebase/firestore';
 
 import { Observable } from 'rxjs';

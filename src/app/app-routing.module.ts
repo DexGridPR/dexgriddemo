@@ -4,7 +4,7 @@ import { DemoComponent } from './demo/demo.component';
 import { LandingComponent } from './landing/landing.component';
 import { TesterComponent } from './tester/tester.component';
 import { DownloadComponent } from './download/download.component';
-import { SellrecComponent } from './sellrec/sellrec.component';
+import { SellrecComponent } from './customer/sellrec/sellrec.component';
 import { DersComponent } from './regulator/ders/ders.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ConsumptionComponent } from './customer/consumption/consumption.component';

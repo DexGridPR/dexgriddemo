@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, InjectionToken, Injectable, Inject, Input } from '@angular/core';
-import { SellrecComponent } from '../sellrec/sellrec.component';
+import { SellrecComponent } from './sellrec/sellrec.component';
 import { HistoryComponent } from './history/history.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { MatDialogModule, MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -20,7 +20,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { HttpClientModule } from '@angular/common/http';
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
 import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
 
 
