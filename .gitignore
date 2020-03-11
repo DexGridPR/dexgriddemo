@@ -33,6 +33,8 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+
+# firebase
 /functions
 /src/environments
 /.firebase
@@ -44,6 +46,8 @@ firebase.json
 firestore.rules
 firestore-debug.log
 .firebaserc
+pubsub-debug.log
+
 
 # System Files
 .DS_Store
