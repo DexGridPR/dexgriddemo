@@ -8,7 +8,7 @@
 
 ## Demo Codebase
 
-Initial codebase for the DexGrid app demo
+Codebase for the DexGrid app demo
 
 ## Technical Documentation
 

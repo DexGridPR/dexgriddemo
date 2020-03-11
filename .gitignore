@@ -37,8 +37,8 @@ testem.log
 /src/environments
 /.firebase
 environment.ts
-/src/environments
-.firebase
+/src/environments/*
+.firebase/*
 y
 firebase.json
 firestore.rules
