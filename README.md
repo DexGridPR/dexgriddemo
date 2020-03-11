@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://dexgriddemo.web.app">
+    <img width="200" src="./src/assets/icons/icon-384x384.png">
+  </a>
+</p>
+
 # Dexgrid
 
 ## Demo Codebase
