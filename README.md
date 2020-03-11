@@ -6,7 +6,8 @@ Initial codebase for the DexGrid app demo
 
 ## Technical Documentation
 
-See Writeups folder for technical writeups on DexGrid products. Including:
+###### See Writeups folder for technical writeups on DexGrid products. Including:
+
     1. Customer Onboarding
     2. Retail Customer Dashboard
     3. Regulator Dashboard
