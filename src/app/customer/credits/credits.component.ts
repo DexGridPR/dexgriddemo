@@ -47,11 +47,7 @@ export class CreditsComponent implements OnInit {
 
   async submitCreditAmount(creditAmount: number) {
     console.log("Adding" , creditAmount , "credits")
-  
     const credits: number = await creditAmount;
-    console.log(typeof credits)
-
-
     await this._submitfire.uploadCredit(credits)
     this.dialogRef.closeAll();
   }

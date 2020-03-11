@@ -21,6 +21,7 @@ import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import * as firebase from 'firebase';
+import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
 
 
 export class Accounts {
@@ -29,6 +30,7 @@ export class Accounts {
   genID?: string;
   conID?: string;
   address?: string;
+  solar?: string
 }
 
 @Component({
@@ -54,9 +56,10 @@ export class CustomerComponent implements OnInit {
     this._accounts.getAccounts().subscribe(Account => {
       this.account = Account;
       console.log(this.account)
-      const AccountOne = Account[0]
+      const AccountOne = Account[1]
       const credits = AccountOne.credits
       console.log(credits)
+      const fill = 60 / 29
       // if (Account.id = "44"){
       //   this.account = Account.id;
       //   console.log(this.account)
@@ -76,6 +79,7 @@ export class CustomerComponent implements OnInit {
   history() {
     console.log("Open Bill History");
     this.should_open_market = false;
+    this.should_open_settings = false;
     this.should_open_history = true;
     this.should_open_sellrec = false;
   }
@@ -108,7 +112,7 @@ export class CustomerComponent implements OnInit {
   onCreate(): void {
     console.log("Open Terms Popup");
     const dialog = this.dialog.open( TermsComponent, {
-      width: '90%', maxWidth: '90%'
+      width: '90%', maxWidth: '90%', 
     });
     dialog.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -119,7 +123,8 @@ export class CustomerComponent implements OnInit {
   openCredits(): void {
     console.log("Open Credits Portal");
     const dialog = this.dialog.open( CreditsComponent, {
-      width: '90%', maxWidth: '90%'
+      // width: '90%', 
+      maxWidth: '90%'
     });
     dialog.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -156,7 +161,7 @@ export class CustomerComponent implements OnInit {
     xAxes: [{
       scaleLabel: {
          display: true,
-         labelString: 'Day of the Month [December]'
+         labelString: 'Day of the Month [March]'
       }
    }]
  }//END scales

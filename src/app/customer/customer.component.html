@@ -1,5 +1,10 @@
+<!-- <div class="text" *ngFor="let _rain of rain">
+  <p *ngIf="rain < .157 && rain > 0.118; else hello">{{ _rain.rain }} Credits</p>
+  <ng-template #hello>0.130 Credits</ng-template>
+</div> -->
+
 <div id="customer" *ngFor="let _account of account | slice:0:1">
-  <h1>Welcome to your Dashboard, {{ _account.name}}</h1>
+  <h1>Welcome to your Dashboard, {{ _account.profile.name}}</h1>
 
   <mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
 
@@ -18,7 +23,8 @@
       <p>My Blockchain Profile #- {{ _account.profile.ethereum }}</p>
     </mat-card>
 
-    <div fxLayout="row wrap" fxLayoutGap="1em">
+    <!-- <div fxLayout="row wrap" fxLayoutGap="1em"> -->
+    <section class="basicGrid">
       <mat-card class="infocard">
         <p>Billing</p>
         <hr>
@@ -37,9 +43,9 @@
         <p>DER Performance</p>
         <hr>
         <mat-card-content>
-          <p>Solar System: {{ _account.solar.monthGen }} kWh [December]</p>
+          <p>Solar System: {{ _account.solar.monthGen }} kWh [February]</p>
           <p>Battery: {{ _account.solar.batteryCharge }} kWh charged</p>
-          <mat-progress-bar mode="determinate" value="97"></mat-progress-bar>
+          <mat-progress-bar mode="determinate" value=fill></mat-progress-bar>
         </mat-card-content>
       </mat-card>
 
@@ -55,7 +61,6 @@
         </mat-card-content>
       </mat-card>
 
-
       <mat-card class="infocard">
         <p>Renewable Energy Credits</p>
         <hr>
@@ -64,7 +69,9 @@
           <p>Consumed / Purchased: {{ _account.RECs.consumed }} RECs</p>
         </mat-card-content>
       </mat-card>
-    </div>
+    </section>
+
+    <!-- </div> -->
 
     <div class="chart-wrapper">
       <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"

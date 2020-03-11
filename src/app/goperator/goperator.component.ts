@@ -26,7 +26,7 @@ export class GoperatorComponent implements OnInit {
   ngOnInit() {
     console.log("Open Account Profile");
     const dialog = this.dialog.open( AccountComponent, {
-      width: '90%', maxWidth: '90%'
+     maxWidth: '90%'
     });
     dialog.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

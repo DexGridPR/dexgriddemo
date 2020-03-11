@@ -14,7 +14,8 @@
             Email is <strong>required</strong>
           </mat-error> -->
     </mat-form-field>
-    <button mat-raised-button (click)="pickOperator(operator.value)" [mat-dialog-close]="true">Submit</button>
+    <button id="defaultButton" mat-raised-button (click)="defaultOperator()" [mat-dialog-close]="true">Demo Account</button>
+    <button id="submitButton" mat-raised-button (click)="pickOperator(operator.value)" [mat-dialog-close]="true">Submit</button>
 
   </form>
 

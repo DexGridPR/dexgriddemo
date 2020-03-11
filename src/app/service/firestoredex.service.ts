@@ -3,6 +3,7 @@ import { Observable, ObservableLike } from 'rxjs';
 import { AngularFirestoreModule, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import * as firebase from 'firebase';
+import { map, tap, take, switchMap, mergeMap, expand, takeWhile } from 'rxjs/operators';
 
 export class Prices {
   rain?: string;
@@ -19,7 +20,11 @@ export class Sales {
 }
 
 export class Rains {
-  rain?: string;
+  rain?: string;  
+  // settings: any;
+  // [x: string]: any;
+  // settings: any;
+
   inches?: string;
   sun?: string;
   wind?: string;
@@ -36,7 +41,14 @@ export class Accounts {
   monthGen?: number;
   batteryCharge?: number;
   thirtyDays?: number;
-  
+  month?: string;
+  kWhConsumption?: number;
+  creditConsumption?: number;
+  controlAC?: boolean;
+  heaterControl?: boolean;
+  washingControl?: boolean;
+  // solar?: map;
+  // batteryCharge?: string;
 }
 
 
@@ -71,6 +83,14 @@ export class FirestoredexService {
 
   getAccounts() {
     return this.Accounts
+  }
+
+  async openSettings() {
+    const accounts = await this.Accounts
+    console.log(accounts)
+    // const accountDoc = await accounts.get();
+
+
   }
 
 }

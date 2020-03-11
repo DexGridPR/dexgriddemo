@@ -165,19 +165,21 @@
 }
 
 .card-div {
-
-    @media only screen and (max-width: 400px) {
-        margin: 0 3em;
-    }
-
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    // @media only screen and (max-width: 400px) {
+    //     margin: 0 3em;
+    // }
 }
 
 #prmap {
-    margin-left: 2em;
-    margin-bottom: 1.5em;
+    text-align: center;
+    margin: 0 auto 1em;
     border: black;
+
     img {
-        width: 50%;
+        width: 90%;
         height: auto;
         border-radius: 0.6em;
     }

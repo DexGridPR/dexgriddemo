@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { LandingComponent } from './landing/landing.component';
-import { MarketComponent } from './market/market.component';
+import { DemoComponent } from './demo/demo.component';
 import { RegulatorComponent, RegBottomSheet } from './regulator/regulator.component';
 import { CustomerComponent, CusBottomSheet, CusBottomWarn } from './customer/customer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -48,6 +48,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { NewUserComponent } from './customer/new-user/new-user.component';
+import { CommComponent } from './landing/comm/comm.component';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -71,7 +73,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     AppComponent,
     TopbarComponent,
     LandingComponent,
-    MarketComponent,
+    DemoComponent,
     RegulatorComponent,
     CustomerComponent,
     FooterComponent,
@@ -90,7 +92,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     RegBottomSheet,
     CusBottomSheet, 
     CusBottomWarn,
-    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent
+    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, CommComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +117,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     AngularFirestoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn],
+  entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn, NewUserComponent, CommComponent],
   providers: [
     AngularFirestore
     // {

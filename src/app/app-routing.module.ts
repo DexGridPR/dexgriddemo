@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MarketComponent } from './market/market.component';
+import { DemoComponent } from './demo/demo.component';
 import { LandingComponent } from './landing/landing.component';
 import { TesterComponent } from './tester/tester.component';
 import { DownloadComponent } from './download/download.component';
@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'themarket', component: ThemarketComponent },
-  { path: 'market', component: MarketComponent }
+  { path: 'demo', component: DemoComponent }
 ];
 
 @NgModule({

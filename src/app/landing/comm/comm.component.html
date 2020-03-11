@@ -1,0 +1,38 @@
+<mat-dialog-content>
+  <div class="main">
+    <h3>Send us a message so we can get back to you soon!</h3>
+
+    <mat-form-field class="example-full-width" type="string">
+      <div class="creditamount">
+        <label>Your name:
+            <!-- <input class="form-control" type="string" matInput #name="ngModel" [(ngModel)]="name.value"= id="name" required> -->
+            <input class="form-control" matInput #name="ngModel" [(ngModel)]="name.value" required>
+
+          </label>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <div class="creditamount">
+        <label>Email or Phone Number:
+            <input class="form-control" matInput #communication="ngModel" [(ngModel)]="communication.value" id="communication" required>
+        </label>
+      </div>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <div class="creditamount">
+        <label>Any comments for us:
+            <input class="form-control" matInput #comment="ngModel" [(ngModel)]="comment.value" id="comments" required>
+        </label>
+      </div>
+    </mat-form-field>
+
+    <!-- <button mat-raised-button color="warn" class="purchase" (click)="submitCreditAmount()" [mat-dialog-close]="true">Purchase -->
+    <button mat-raised-button color="warn" class="submit" (click)="submitMessage(name.value, communication.value, comment.value)">Submit
+      <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
+    </button>
+  </div>
+
+</mat-dialog-content>

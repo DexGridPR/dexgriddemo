@@ -1,17 +1,19 @@
 <mat-dialog-content>
   <section class="main">
-    <p class="title">
+    <!-- <p class="title">
       Energy Settings
-    </p>
+    </p> -->
     <mat-card-content>
-        <h2 class="example-h2">Toggle Options</h2>
-    
+        <h2 class="example-h2">Energy Settings</h2>
+        <p>Allow your DexGrid Energy Agent to manage your appliances, potentially saving you up to $789 per year.</p>
         <section class="example-section">
           <mat-slide-toggle
               class="example-margin"
               [color]="color"
-              [checked]="checked"
-              [disabled]="disabled">
+              (change)="setACValue(AC, $event)"
+              value="checked"
+              #AC
+              >
             Control Air Conditioner
           </mat-slide-toggle>
         </section>
@@ -20,8 +22,9 @@
             <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                [checked]="checked"
-                [disabled]="disabled">
+                (change)="setHeaterValue(heater, $event)"
+                #heater
+                >
               Control Water Heater
             </mat-slide-toggle>
           </section>
@@ -30,10 +33,14 @@
               <mat-slide-toggle checked
                   class="example-margin"
                   [color]="color"
-                  [disabled]="disabled">
+                  [disabled]="disabled"
+                  #washer
+                  (change)="setWasherValue(washer, $event)"
+                  >
                 Control Washing Machine
               </mat-slide-toggle>
             </section>
+            
       </mat-card-content>
   </section>
 

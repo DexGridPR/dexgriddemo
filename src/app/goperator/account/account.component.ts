@@ -24,6 +24,12 @@ export class AccountComponent implements OnInit {
     // this.dialogRef.close;
   }
 
+  defaultOperator() {
+    console.log("Default Operator")
+    const operator = "Default"
+    this._operator.closeAccount(operator);
+  }
+
   // isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
   //   const isSubmitted = form && form.submitted;
   //   return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));

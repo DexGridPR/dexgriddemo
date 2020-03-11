@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { CustomerComponent } from '../customer/customer.component';
 import { RegulatorComponent } from '../regulator/regulator.component';
 import { GoperatorComponent} from '../goperator/goperator.component';
@@ -7,20 +7,24 @@ import { GoperatorComponent} from '../goperator/goperator.component';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GotodemoService } from '../service/gotodemo.service';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { MatDialogModule, MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
 
 
 @Component({
-  selector: 'app-market',
-  templateUrl: './market.component.html',
-  styleUrls: ['./market.component.scss']
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.scss']
 })
-export class MarketComponent implements OnInit {
+export class DemoComponent implements OnInit {
   // public should_open_reg = false;
   // public should_open_cus = false;
+  @Inject(MAT_DIALOG_DATA) private data: any;
 
   // constructor( private dialog: MatDialog ) { }
-  constructor ( private _gotodemo: GotodemoService ) { }
+  constructor ( private _gotodemo: GotodemoService, public dialog: MatDialog ) { }
 
   ngOnInit() {
   //   this._gotodemo.should_open_reg.subscribe((should_open_reg) => {
@@ -68,7 +72,18 @@ export class MarketComponent implements OnInit {
     console.log("Open Grid Operator Portal");
     this._gotodemo.gop();
   }
-  
 
+  openNewUser(): void {
+    console.log("Open Onboarding");
+    const dialog = this.dialog.open( NewUserComponent, {
+      // width: '90%', 
+      maxWidth: '90%'
+    });
+    dialog.afterClosed().subscribe(result => {
+      this._gotodemo.cus();
+      console.log(result);
+      console.log('The dialog was closed');
+    });
+  }
 
 }

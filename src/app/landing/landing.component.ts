@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { CommComponent } from 'src/app/landing/comm/comm.component';
 
 @Component({
   selector: 'app-landing',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor( public dialog: MatDialog ) { }
 
   ngOnInit() {
   }
@@ -20,6 +22,17 @@ export class LandingComponent implements OnInit {
   scrollElementWork(worktogether) {
     console.log(worktogether);
     worktogether.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+
+  openComm() {
+    console.log("Opening Communication panel")
+    const dialog = this.dialog.open( CommComponent, {
+      // width: '90%', 
+      maxWidth: '90%'
+    });
+    dialog.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

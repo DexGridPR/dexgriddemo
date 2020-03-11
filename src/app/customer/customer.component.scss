@@ -15,7 +15,12 @@ h1 {
     @media only screen and (max-width: 600px) {
         width: 100%;
     }
+}
 
+.basicGrid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 
 #credits-left {
@@ -181,14 +186,14 @@ h1 {
     // max-width: 12rem;
 }
 
-.mat-card {
-    margin-top: 2em;
-    // margin-right: 1em;
-}
+// .mat-card {
+//     margin-top: 2em;
+//     // margin-right: 1em;
+// }
 
-.infocard {
-    width: 15em;
-}
+// .infocard {
+//     width: 15em;
+// }
 
 .grid {
     display: flex;

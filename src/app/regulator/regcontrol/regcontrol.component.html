@@ -1,5 +1,5 @@
-<div class="recs">
-  <p>Mint New RECs:</p>
+
+
 
   <!-- <mat-slider
   class="slider"
@@ -15,13 +15,15 @@
   [(ngModel)]="recs">
   </mat-slider> -->
 
-  <div class="transferb">
-    <mat-form-field>
-      <input matInput #Amount #rectransfered type="number" name="RECs" id="recs" placeholder="How many RECs?">
-    </mat-form-field>
+  <mat-card class="recs">
+    <p class="card-title">Mint New RECs:</p>
 
-      <button mat-raised-button color="warn" id="transferb" (click) = "mintRecs(Amount.value)" for="rectransfered">Mint Rec</button>
-    </div>
-  
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput #Amount #rectransfered type="number" name="RECs" id="recs" placeholder="How many RECs?">
+      </mat-form-field>
 
-</div>
+      <button mat-raised-button color="warn" id="transferb" (click)="mintRecs(Amount.value)" for="rectransfered">Mint Rec</button>
+    </mat-card-content>
+  </mat-card>
+
