@@ -43,9 +43,9 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
     this._accounts.getAccounts().subscribe(Account => {
       this.account = Account;
-      console.log(this.account)
+      // console.log(this.account)
       const AccountOne = Account[0]
-      console.log(AccountOne)
+      // console.log(AccountOne)
       // const settings = AccountOne.settings
       // console.log(settings)
       // const ACsetting = settings.controlAC

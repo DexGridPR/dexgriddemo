@@ -15,10 +15,10 @@ export class HistoryComponent implements OnInit {
   ngOnInit() {
     this._accounts.getAccounts().subscribe(Account => {
       this.account = Account;
-      console.log(this.account)
+      // console.log(this.account)
       const AccountOne = Account[0]
       const credits = AccountOne.credits
-      console.log(credits)
+      // console.log(credits)
     })
   }
 

@@ -55,10 +55,10 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {
     this._accounts.getAccounts().subscribe(Account => {
       this.account = Account;
-      console.log(this.account)
+      // console.log(this.account)
       const AccountOne = Account[1]
       const credits = AccountOne.credits
-      console.log(credits)
+      // console.log(credits)
       const fill = 60 / 29
       // if (Account.id = "44"){
       //   this.account = Account.id;

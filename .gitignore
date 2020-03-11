@@ -38,6 +38,12 @@ testem.log
 /.firebase
 environment.ts
 /src/environments
+.firebase
+y
+firebase.json
+firestore.rules
+firestore-debug.log
+.firebaserc
 
 # System Files
 .DS_Store

@@ -15,7 +15,8 @@ export class NewUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  userIDDefault = "o001";
+  userIDDefault = "u00001";
+  conID = "c00001"
   consumedDefault = 0;
   purchasedDefault = 100;
   twelveMonthDefault = 71;
@@ -31,6 +32,11 @@ export class NewUserComponent implements OnInit {
   batteryChargeDefault = 9.8;
   monthGenDefault = 89;
   sizeDefault = 5;
+
+  refridgerator = 2
+  airconditioner = 6
+  waterheater = 4
+  lighting = 2
 
   february20 = {
     month: "February 2020",
@@ -68,6 +74,7 @@ export class NewUserComponent implements OnInit {
     kWhConsumption: 75
   }
 
+
   historical = {
     february20: this.february20,
     january20: this.january20,
@@ -97,11 +104,24 @@ export class NewUserComponent implements OnInit {
       grid: this.gridDefault,
       name: this.nameDefault,
       userID: this.userIDDefault,
+      conID: this.conID
     }
     solar = {
       batteryCharge: this.batteryChargeDefault,
       monthGen: this.monthGenDefault,
       size: this.sizeDefault,
+    }
+    appliances = {
+      refridgerator: this.refridgerator,
+      airconditioner: this.airconditioner,
+      waterheater: this.waterheater,
+      lighting: this.lighting,
+      totalAppliances: this.refridgerator + this.airconditioner + this.waterheater + this.lighting
+    }
+    settings = {
+      controlAC: false,
+      controlHeater: true,
+      controlWashing: true,
     }
 
     // timestamp: FieldValue.serverTimestamp()
@@ -115,9 +135,60 @@ export class NewUserComponent implements OnInit {
     const credits = await this.credits
     const profile = await this.profile
     const solar = await this.solar
-    this._submitfire.newAccount(userID, RECs, consumption, credits, profile, solar)
+    const appliances = await this.appliances
+    const settings = await this.settings
+    this._submitfire.newAccount(userID, RECs, consumption, credits, profile, solar, appliances, settings)
     return this.dialog.closeAll();
     // this.dialogRef.closeAll();
   }
+
+  // function() {
+  //   var deviceToken = localStorage.getItem("DEVICE_TOKEN");
+  //   if (!deviceToken) {
+  //     var array = new Uint8Array(25);
+  //     window.crypto.getRandomValues(array);
+  //     deviceToken = Array.prototype.map
+  //       .call(array, x => ("00" + x.toString(16)).slice(-2))
+  //       .join("");
+  //     localStorage.setItem("DEVICE_TOKEN", deviceToken);
+  //   }
+
+  //   var widget = new Wyre.Widget({
+  //     env: "test",
+  //     accountId: "AC_YNWFWXDW3AG",
+  //     auth: {
+  //       type: "secretKey",
+  //       secretKey: deviceToken
+  //     },
+  //     operation: {
+  //       type: "debitcard",
+  //       dest: "ethereum:0x98B031783d0efb1E65C4072C6576BaCa0736A912",
+  //       sourceCurrency: "USD",
+  //       destCurrency: "ETH",
+  //       sourceAmount: 10.0
+  //     }
+  //   });
+
+  //   widget.on("close", function(e) {
+  //     // the widget closed before completing the process
+
+  //     if (e.error) {
+  //       console.log("there was a problem: ", e.error);
+  //     } else {
+  //       console.log("the customer closed the widget");
+  //     }
+  //   });
+
+  //   widget.on("complete", function(event) {
+  //     // onboarding was completed successfully!
+  //     console.log("Completed", event);
+  //   });
+
+  //   document
+  //     .getElementById("verify-button")
+  //     .addEventListener("click", function(e) {
+  //       widget.open();
+  //     });
+  // }();
 
 }
