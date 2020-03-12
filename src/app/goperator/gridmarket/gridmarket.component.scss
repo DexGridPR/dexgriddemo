@@ -1,0 +1,22 @@
+
+.basicGrid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, auto));
+}
+
+.mat-card {
+    margin-top: 2em;
+    background-color: #2A5AA6;
+
+    p {
+        color: white;
+    }
+}
+
+.title {
+    font-size: 3em;
+    text-align: center;
+    text-decoration: underline;
+    margin: 0.3em 0 0em 0;
+}

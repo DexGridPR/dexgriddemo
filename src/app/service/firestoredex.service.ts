@@ -21,7 +21,7 @@ export class Sales {
 }
 
 export class Rains {
-  rain?: string;  
+  rain?: string;
   // settings: any;
   // [x: string]: any;
   // settings: any;
@@ -52,6 +52,29 @@ export class Accounts {
   // batteryCharge?: string;
 }
 
+export class Bids {
+  bid?: boolean;
+  bidPrice?: number;
+  kWh?: number;
+  spot?: boolean;
+  spotPrice?: number;
+}
+
+export class Asks {
+  ask?: boolean;
+  askPrice?: number;
+  kWh?: number;
+  spot?: boolean;
+  spotPrice?: number;
+}
+
+export class Spot {
+  bid?: boolean;
+  bidPrice?: number;
+  kWh?: number;
+  spot?: boolean;
+  spotPrice?: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -62,13 +85,35 @@ export class FirestoredexService {
   Sales: Observable<Sales[]>;
   Rains: Observable<Rains[]>;
   Accounts: Observable<Accounts[]>;
+  Bids: Observable<Bids[]>;
+  Asks: Observable<Asks[]>;
+  Spot: Observable<Spot>;
 
-  constructor( private firestore: AngularFirestore ) {
+  constructor(private firestore: AngularFirestore) {
     this.Prices = this.firestore.collection('orders').valueChanges();
     this.Sales = this.firestore.collection('sales').valueChanges();
     this.Rains = this.firestore.collection('incoming').valueChanges();
     this.Accounts = this.firestore.collection('account').valueChanges();
-   }
+    this.Bids = this.firestore.collection('price', ref => {
+      return ref.where("bid", "==", true).orderBy("bidPrice")
+    }).valueChanges();
+    this.Asks = this.firestore.collection('price', ref => {
+      return ref.where("ask", "==", true).orderBy("askPrice")
+    }).valueChanges();
+    this.Spot = this.firestore.collection('price').doc('spot').valueChanges();
+  }
+
+  getSpot() {
+    return this.Spot;
+  }
+
+  getAsks() {
+    return this.Asks;
+  }
+
+  getBids() {
+    return this.Bids;
+  }
 
   getPrices() {
     return this.Prices;

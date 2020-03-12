@@ -18,7 +18,7 @@ import { DemotbarComponent } from './demotbar/demotbar.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { GoperatorComponent, BottomSheet } from './goperator/goperator.component';
 import { HistoryComponent } from './customer/history/history.component';
-import { RegaccComponent } from './regulator/regacc/regacc.component';
+import { RegaccComponent } from './goperator/regacc/regacc.component';
 import { DersComponent } from './regulator/ders/ders.component';
 import { DownloadComponent } from './download/download.component';
 import { TermsComponent } from './customer/terms/terms.component';
@@ -48,8 +48,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import {HttpModule} from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { NewUserComponent } from './customer/new-user/new-user.component';
 import { CommComponent } from './landing/comm/comm.component';
+import { GridmarketComponent } from './goperator/gridmarket/gridmarket.component';
+// import { HttpModule } from '@angular/http/src/http_module';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -92,7 +96,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     RegBottomSheet,
     CusBottomSheet, 
     CusBottomWarn,
-    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, CommComponent
+    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, CommComponent, GridmarketComponent
   ],
   imports: [
     BrowserModule,
@@ -113,13 +117,15 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     MatSelectModule,
     MatSlideToggleModule,
     HttpClientModule,
+    HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn, NewUserComponent, CommComponent],
   providers: [
-    AngularFirestore
+    AngularFirestore,
+    Http
     // {
     //   provide: APP_INITIALIZER,
     //   useFactory: enableWeb3Provider,

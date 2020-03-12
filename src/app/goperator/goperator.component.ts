@@ -6,6 +6,10 @@ import { MatDialogModule, MatDialog, MatDialogConfig } from '@angular/material/d
 import { AccountComponent } from 'src/app/goperator/account/account.component';
 import { AccountverifyService } from 'src/app/service/accountverify.service';
 import { interval } from 'rxjs';
+import { RegaccComponent } from './regacc/regacc.component';
+import { GridmarketComponent } from './gridmarket/gridmarket.component';
+import { FirestoredexService, Bids, Spot } from 'src/app/service/firestoredex.service';
+
 
 
 @Component({
@@ -18,15 +22,18 @@ export class GoperatorComponent implements OnInit {
   @Inject(MAT_DIALOG_DATA) private data: any;
   // public operator: string = "Default";
   @Input() operator: string;
+  // @Input() Spot: Spot[];
+  SpotPrice: number = 0;
 
-  public regulatoraccounts = false;
+  public gridAccounts = false;
+  public gridMarket = false;
 
-  constructor(private _bottomSheet: MatBottomSheet, public dialog: MatDialog, private _operator: AccountverifyService ) { }
+  constructor(private _bottomSheet: MatBottomSheet, public dialog: MatDialog, private _operator: AccountverifyService, private _market: FirestoredexService) { }
 
   ngOnInit() {
     console.log("Open Account Profile");
-    const dialog = this.dialog.open( AccountComponent, {
-     maxWidth: '90%'
+    const dialog = this.dialog.open(AccountComponent, {
+      maxWidth: '90%'
     });
     dialog.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -34,14 +41,35 @@ export class GoperatorComponent implements OnInit {
 
     this._operator.currentOperator.subscribe(operator => this.operator = operator);
 
+    this._market.getSpot().subscribe(Spot => {
+      this.SpotPrice = Spot.spotPrice;
+    })
+
     //Run every few seconds to check on new balance
     // interval(100 * 60).subscribe(recs => {
     //   this._operator.getTotalBalance();
     // })
   }
 
-  regacc() {
-    this.regulatoraccounts = true;
+  openAccounts() {
+    if (this.gridAccounts == false) {
+      this.gridMarket = false;
+      this.gridAccounts = true;
+    }
+    else {
+      this.gridAccounts = false;
+    }
+  }
+
+  openGridMarket() {
+    if (this.gridMarket == false) {
+      console.log("Opening Grid Market")
+      this.gridAccounts = false;
+      this.gridMarket = true;
+    }
+    else {
+      this.gridMarket = false;
+    }
   }
 
   openBottomSheet(): void {
@@ -55,7 +83,7 @@ export class GoperatorComponent implements OnInit {
   styleUrls: ['./goperator.component.scss']
 })
 export class BottomSheet {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheet>) {}
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheet>) { }
 
   openLink(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();

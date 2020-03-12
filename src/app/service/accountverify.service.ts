@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AccountverifyService {
 
   // operator: string;
-  private operator = new BehaviorSubject<string>("Default");
+  private operator = new BehaviorSubject<string>("Santa Isabel");
   currentOperator = this.operator.asObservable();
 
 

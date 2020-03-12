@@ -1,0 +1,27 @@
+<section>
+  <p class="title">Bids</p>
+  <div class="basicGrid">
+    <mat-card *ngFor="let _bid of Bids">
+      <p>{{ _bid.bidPrice }} Credits per kWh</p>
+      <hr>
+      <mat-card-content>
+        <p>Bidding for {{ _bid.kWh }} kWh</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
+
+<button (click)='deleteBids()'>Clean Up Bids</button>
+<br>
+<section>
+  <p class="title">Asks</p>
+  <div class="basicGrid">
+    <mat-card *ngFor="let _ask of Asks">
+      <p>{{ _ask.askPrice }} Credits per kWh</p>
+      <hr>
+      <mat-card-content>
+        <p>To provide {{ _ask.kWh }} kWh</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>

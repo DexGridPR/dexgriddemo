@@ -50,6 +50,12 @@
 
 }
 
+.basicGrid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, auto));
+}
+
 #wrap {
     // display: flex;
     // flex-flow: column wrap;

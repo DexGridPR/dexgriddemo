@@ -1,0 +1,13 @@
+
+<section>
+  <div class="basicGrid">
+    <mat-card *ngFor="let _account of account">
+      <p>{{ _account.profile.name }}</p>
+      <hr>
+      <mat-card-content>
+        <p>{{ _account.solar.size }} kW Solar PV</p>
+        <p>Prepaid Credit Balance: {{ _account.credits }} Credits</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
