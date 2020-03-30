@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecService } from '../service/rec.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-tester',
@@ -10,7 +11,7 @@ export class TesterComponent implements OnInit {
 
   test1 = "test";
 
-  constructor(private _recserv: RecService) { }
+  constructor( private _recserv: RecService, public auth: AuthService ) { }
 
   ngOnInit() {
     var Value = this._recserv.Value;
