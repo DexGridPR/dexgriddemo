@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SubmitfireService } from 'src/app/service/submitfire.service';
-import { MatDialog } from '@angular/material';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new-user',

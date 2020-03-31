@@ -1,24 +1,27 @@
 <section class="main">
-  <p>Authentication</p>
+  <!-- <p>Authentication</p> -->
 
   <div *ngIf="auth.user$ | async as user; else login">
-    <pre>
-      {{ user | json }}
+    <img src="{{ user.photoURL }}" alt="" class="profile-photo">
+    <pre class="user-data">
+      <!-- {{ user | json }} -->
+      Welcome back {{ user.displayName }}!
     </pre>
+
     
     <hr>
-    <button class="button" (click)="auth.signOut()">Sign Out</button>
+    <button class="signout" mat-fab class="button" (click)="auth.signOut()">Sign Out</button>
   
   </div>
   
   <ng-template #login>
-    <button class="button" (click)="auth.googleSignin()">Login with Google</button>
+    <button mat-raised-button color="primary" class="button" (click)="auth.googleSignin()">Login with Google</button>
   </ng-template>
 
 </section>
 
-<h1 [innerHTML]="test1">{{ test1 }}</h1>
+<!-- <h1 [innerHTML]="test1">{{ test1 }}</h1> -->
 
-<button (click)="changetext()">Change the text</button>
+<!-- <button (click)="changetext()">Change the text</button> -->
 
 <!-- <input [value]="rec.value" (input)= type="number" name="" id=""> -->

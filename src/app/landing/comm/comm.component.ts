@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmitfireService } from 'src/app/service/submitfire.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-comm',

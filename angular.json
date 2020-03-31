@@ -143,5 +143,8 @@
       }
     }
   },
-  "defaultProject": "dexgrid"
+  "defaultProject": "dexgrid",
+  "cli": {
+    "analytics": false
+  }
 }

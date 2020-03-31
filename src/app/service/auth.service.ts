@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { auth } from 'firebase/app';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import {
   AngularFirestore,
   AngularFirestoreDocument
@@ -24,12 +24,6 @@ export class AuthService {
     private afs: AngularFirestore,
     private router: Router
   ) { 
-    // this.afAuth.authState.subscribe(auth => { 
-    //   if(auth) {
-    //     this.router.navigateByUrl('/user');
-    //   }
-    // })
-    // afAuth.authState;
     this.user$ = afAuth.authState;
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -51,6 +45,7 @@ export class AuthService {
 
   async signOut() {
     await this.afAuth.auth.signOut();
+
     return this.router.navigate(['/']);
   }
 

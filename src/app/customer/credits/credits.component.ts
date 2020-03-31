@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClient } from '@angular/common/http';
 import { SubmitfireService } from 'src/app/service/submitfire.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 
 export class Account {

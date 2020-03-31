@@ -9,7 +9,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+// import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ConsumptionComponent } from 'src/app/customer/consumption/consumption.component';
 import { TermsComponent } from 'src/app/customer/terms/terms.component';
 import { CreditsComponent } from 'src/app/customer/credits/credits.component';
@@ -18,7 +18,7 @@ import { ThemarketComponent } from 'src/app/customer/themarket/themarket.compone
 import { FirestoredexService } from 'src/app/service/firestoredex.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { AngularFirestore } from 'angularfire2/firestore';
+// import { AngularFirestore } from 'angularfire2/firestore';
 import { HttpClientModule } from '@angular/common/http';
 // import * as firebase from 'firebase';
 import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';

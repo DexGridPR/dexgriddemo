@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER, InjectionToken } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +26,8 @@ import { TermsComponent } from './customer/terms/terms.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { MatCardModule, MatButtonModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
@@ -48,13 +49,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
-import { Http, Headers } from '@angular/http';
+// import { HttpModule } from '@angular/http';
+// import { Http, Headers } from '@angular/http';
 import { NewUserComponent } from './customer/new-user/new-user.component';
 import { CommComponent } from './landing/comm/comm.component';
 import { GridmarketComponent } from './goperator/gridmarket/gridmarket.component';
-import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
-// import { HttpModule } from '@angular/http/src/http_module';
+// import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -118,7 +119,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     MatSelectModule,
     MatSlideToggleModule,
     HttpClientModule,
-    HttpModule,
+    // HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -127,13 +128,6 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
   entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn, NewUserComponent, CommComponent],
   providers: [
     AngularFirestore,
-    Http
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: enableWeb3Provider,
-    //   deps: [WEB3PROVIDER],
-    //   multi: true
-    // }
   ],
   bootstrap: [AppComponent]
 })

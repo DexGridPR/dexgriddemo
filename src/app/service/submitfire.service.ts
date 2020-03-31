@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, ObservableLike } from 'rxjs';
-import { AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+// import { AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import * as firebase from 'firebase';
