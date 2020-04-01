@@ -18,7 +18,16 @@ export class NewUserComponent implements OnInit {
 
   async googleSignin() {
     console.log("Logging you in")
-    await this.auth.googleSignin();
+    const userID = await this.userID;
+    const RECs = await this.RECs
+    const consumption = await this.consumption
+    const credits = await this.credits
+    const profile = await this.profile
+    const solar = await this.solar
+    const appliances = await this.appliances
+    const settings = await this.settings
+    this._submitfire.newAccount(userID, RECs, consumption, credits, profile, solar, appliances, settings)
+    await this.auth.googleSignin(userID, RECs, consumption, credits, profile, solar, appliances, settings);
     
     return this.dialog.closeAll();
   }

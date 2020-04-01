@@ -36,20 +36,20 @@ export class AuthService {
     );
   }
 
-  async googleSignin() {
+  async googleSignin(userID, RECs, consumption, credits, profile, solar, appliances, settings) {
     console.log("Signing you into your Google account");
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user);
+    return this.updateUserData(credential.user, userID, RECs, consumption, credits, profile, solar, appliances, settings);
   }
 
   async signOut() {
     await this.afAuth.auth.signOut();
 
-    return this.router.navigate(['/demo']);
+    return this.router.navigate(['/']);
   }
 
-  private updateUserData(user) {
+  private updateUserData(user, userID, RECs, consumption, credits, profile, solar, appliances, settings) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);
 
@@ -57,7 +57,15 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
+      userID, 
+      RECs, 
+      consumption, 
+      credits, 
+      profile, 
+      solar, 
+      appliances, 
+      settings
     };
 
     return userRef.set(data, { merge: true });
