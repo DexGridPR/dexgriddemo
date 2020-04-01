@@ -22,6 +22,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 // import * as firebase from 'firebase';
 import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
+import { AuthService } from '../service/auth.service';
 
 
 export class Accounts {
@@ -49,14 +50,18 @@ export class CustomerComponent implements OnInit {
 
   @Input() account: Accounts[];
 
-  constructor( private _bottomSheet: MatBottomSheet, public dialog: MatDialog, 
-    private _accounts: FirestoredexService ) { }
+  constructor( 
+    private _bottomSheet: MatBottomSheet, 
+    public dialog: MatDialog, 
+    private _accounts: FirestoredexService, 
+    public auth: AuthService 
+  ) { }
 
   ngOnInit() {
     this._accounts.getAccounts().subscribe(Account => {
       this.account = Account;
       // console.log(this.account)
-      const AccountOne = Account[1]
+      const AccountOne = Account[0]
       const credits = AccountOne.credits
       // console.log(credits)
       const fill = 60 / 29

@@ -152,6 +152,28 @@ h1 {
     font-size: 0.9rem;
 }
 
+.photo_logout {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.profile-photo {
+    text-align: center;
+    width: 4rem;
+    height: auto;
+    // margin: 1rem auto;
+    display: inline-block;
+}
+
+
+.signout {
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 0 0;
+}
+
 #billing {
     display: inline-block;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SubmitfireService } from 'src/app/service/submitfire.service';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-new-user',
@@ -10,9 +11,16 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 })
 export class NewUserComponent implements OnInit {
 
-  constructor( private _submitfire: SubmitfireService, public dialog: MatDialog ) { }
+  constructor( private _submitfire: SubmitfireService, public dialog: MatDialog, public auth: AuthService ) { }
 
   ngOnInit() {
+  }
+
+  async googleSignin() {
+    console.log("Logging you in")
+    await this.auth.googleSignin();
+    
+    return this.dialog.closeAll();
   }
 
   userIDDefault = "u00001";
