@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import * as firebase from 'firebase';
 import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
 import { AuthService } from '../service/auth.service';
+import { UsersettingsComponent } from 'src/app/customer/usersettings/usersettings.component';
 
 
 export class Accounts {
@@ -74,6 +75,15 @@ export class CustomerComponent implements OnInit {
 
   openDialog(): void {
     const dialog = this.dialog.open( ConsumptionComponent, {
+      width: '90%', maxWidth: '90%'
+    });
+    dialog.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openUserSettings() {
+    const dialog = this.dialog.open( UsersettingsComponent, {
       width: '90%', maxWidth: '90%'
     });
     dialog.afterClosed().subscribe(result => {

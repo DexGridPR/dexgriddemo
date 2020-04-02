@@ -23,6 +23,10 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 
+.settings {
+    float: right;
+}
+
 #credits-left {
     font-weight: bold;
     display: inline-block;

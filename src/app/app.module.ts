@@ -56,6 +56,7 @@ import { CommComponent } from './landing/comm/comm.component';
 import { GridmarketComponent } from './goperator/gridmarket/gridmarket.component';
 // import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { UsersettingsComponent } from './customer/usersettings/usersettings.component';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -98,7 +99,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     RegBottomSheet,
     CusBottomSheet, 
     CusBottomWarn,
-    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, CommComponent, GridmarketComponent
+    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, CommComponent, GridmarketComponent, UsersettingsComponent
   ],
   imports: [
     BrowserModule,
