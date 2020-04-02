@@ -81,7 +81,7 @@ export class DemoComponent implements OnInit {
     });
     dialog.afterClosed().subscribe(result => {
       this._gotodemo.cus();
-      console.log(result);
+      console.log("Result: " , result);
       console.log('The dialog was closed');
     });
   }
