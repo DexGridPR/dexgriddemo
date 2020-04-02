@@ -1,7 +1,16 @@
 <mat-dialog-content>
-    <h1 style="text-align: center;">User Settings</h1>
+  <h1 style="text-align: center;">User Settings</h1>
 
-    <div>
-
+  <mat-form-field class="example-full-width" ng-pattern="onlyNumbers" type="number">
+    <div class="creditamount">
+      <label>Number:
+        <input class="form-control" type="number" min="0" max="999" matInput #creditAmount="ngModel" [(ngModel)]="creditAmount.value"
+          ng-pattern="onlyNumbers" id="creditAmount" pattern="^[0-9]+\.[0-9][0-9]$" required>
+      </label>
     </div>
+    <mat-hint>Recommended Amount:
+      <br>40 credits
+    </mat-hint>
+
+  </mat-form-field>
 </mat-dialog-content>

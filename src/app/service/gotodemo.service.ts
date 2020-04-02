@@ -11,13 +11,20 @@ export class GotodemoService {
 
   constructor() { }
 
+  revertDemo() {
+    console.log("Open Reg from Service");
+    this.should_open_gop = false;
+    this.should_open_cus = false;    
+    this.should_open_reg = false;
+    this.nothing = true;
+  }
+
   reg() {
     console.log("Open Reg from Service");
     this.should_open_gop = false;
     this.should_open_cus = false;    
     this.should_open_reg = true;
     this.nothing = false;
-
   }
 
   cus() {

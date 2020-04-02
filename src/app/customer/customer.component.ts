@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
 import { AuthService } from '../service/auth.service';
 import { UsersettingsComponent } from 'src/app/customer/usersettings/usersettings.component';
+import { GotodemoService } from 'src/app/service/gotodemo.service';
 
 
 export class Accounts {
@@ -55,7 +56,8 @@ export class CustomerComponent implements OnInit {
     private _bottomSheet: MatBottomSheet, 
     public dialog: MatDialog, 
     private _accounts: FirestoredexService, 
-    public auth: AuthService 
+    public auth: AuthService,
+    private _gotodemo: GotodemoService
   ) { }
 
   ngOnInit() {
@@ -71,6 +73,12 @@ export class CustomerComponent implements OnInit {
       //   console.log(this.account)
       // }
     })
+  }
+
+  signOut() {
+    console.log("Signing out of Customer Account")
+    this.auth.signOut();
+    return this._gotodemo.revertDemo();
   }
 
   openDialog(): void {

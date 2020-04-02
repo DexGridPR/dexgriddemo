@@ -46,7 +46,7 @@ export class AuthService {
   async signOut() {
     await this.afAuth.auth.signOut();
 
-    return this.router.navigate(['/']);
+    return this.router.navigate(['/demo']);
   }
 
   private updateUserData(user, userID, RECs, consumption, credits, profile, solar, appliances, settings) {
