@@ -91,8 +91,9 @@ export class CustomerComponent implements OnInit {
 
   sellrec() {
     this.should_open_market = false;
-    this.should_open_sellrec = true;
     this.should_open_history = false;
+    this.should_open_settings = false;
+    this.should_open_sellrec = true;
     console.log("Open up exchange");
   }
 
