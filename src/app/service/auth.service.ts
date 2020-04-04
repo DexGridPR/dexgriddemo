@@ -74,12 +74,12 @@ export class AuthService {
 
   }
 
-  inputCredits(credits, email) {
-    console.log("Updating Credits through auth: ", credits)
-    return this.updateUserSettings(credits, email)
+  inputCredits(addSettings) {
+    console.log("Updating Credits through auth: ", addSettings)
+    return this.updateUserSettings(addSettings)
   }
 
-  private updateUserSettings(credits?, email?) {
+  private updateUserSettings(addSettings) {
     console.log("Update User Settings")
     const userInfo = this.afAuth.auth;
     console.log("User Info:" , userInfo);
@@ -89,14 +89,12 @@ export class AuthService {
     console.log("User: " , this.User);
     // let Credits: number
     // let Address: number
-    const data: User =
-    {
-      uid: Uid,
-      credits: credits,
-      email: email,
-      editTime: Date.now(),
-      // address: Address
-    }
+    const data: User = addSettings
+    // {
+    //   addSettings,
+    //   editTime: Date.now(),
+    //   // address: Address
+    // }
     return userRef.set(data, { merge: true });
   }
   

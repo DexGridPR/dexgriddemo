@@ -17,11 +17,28 @@ export class UsersettingsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async submitCreditAmount(creditAmount: number, email: string) {
-    console.log("Adding" , creditAmount , "credits")
+  async submitCreditAmount(creditAmount?: number, email?: string) {
     const credits: number = await creditAmount;
-    this.auth.inputCredits(credits, email);
+    const addSettings = {
+      credits,
+      email
+    }
+    console.log(addSettings)
+
+    await this.clean(addSettings)
+    console.log(addSettings)
+
+    this.auth.inputCredits(addSettings);
     return this.dialog.closeAll();
+  }
+
+//Clean out null variables inside of an object
+  clean(obj) {
+    for (var propName in obj) { 
+      if (obj[propName] === null || obj[propName] === undefined) {
+        delete obj[propName];
+      }
+    }
   }
 
 }
