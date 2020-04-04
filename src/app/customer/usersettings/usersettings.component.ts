@@ -20,7 +20,7 @@ export class UsersettingsComponent implements OnInit {
   async submitCreditAmount(creditAmount: number) {
     console.log("Adding" , creditAmount , "credits")
     const credits: number = await creditAmount;
-    await this.auth.inputCredits(credits)
+    return this.auth.inputCredits(credits);
   }
 
 }

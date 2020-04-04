@@ -17,6 +17,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class AuthService {
+  User: User;
   user$: Observable<any>;
 
   constructor(
@@ -79,12 +80,19 @@ export class AuthService {
 
   private updateUserSettings(credits) {
     console.log("Update User Settings")
-    const user = this.user$;
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);
-    console.log(user, userRef)
-    const data = {
-      uid: user.uid,
+    const userInfo = this.afAuth.auth;
+    console.log("User Info:" , userInfo);
+    const Uid = userInfo.currentUser.uid
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${Uid}`);
+    console.log("User Ref: " , userRef)
+    console.log("User: " , this.User);
+    // let Credits: number
+    // let Address: number
+    const data = 
+    {
+      uid: Uid,
       credits: credits
+      // address: Address
     }
     return userRef.set(data, { merge: true });
   }

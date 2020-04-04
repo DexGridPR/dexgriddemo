@@ -102,7 +102,4 @@ export class SubmitfireService {
     })
   }
 
-  // getAccounts() {
-  //   return this.Accounts
-  // }
 }
