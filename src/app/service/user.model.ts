@@ -20,6 +20,7 @@ export interface User {
     batteryChargeDefault?: number;
     monthGenDefault?: number;
     sizeDefault?: number;
+    editTime?: number;
 }
 
 

@@ -1,20 +1,25 @@
 <mat-dialog-content>
   <h1 style="text-align: center;">User Settings</h1>
 
-  <mat-form-field class="example-full-width" ng-pattern="onlyNumbers" type="number">
-    <div class="creditamount">
-      <label>Number:
+  <mat-form-field class="settings-form-one">
+    <div class="ngInput">
+      <label>Credits to Purchase:
         <input class="form-control" type="number" min="0" max="999" matInput #creditAmount="ngModel" [(ngModel)]="creditAmount.value"
-          ng-pattern="onlyNumbers" id="creditAmount" pattern="^[0-9]+\.[0-9][0-9]$" required>
+          ng-pattern="onlyNumbers" id="creditAmount" pattern="^[0-9]+\.[0-9][0-9]$">
       </label>
     </div>
-    <mat-hint>Recommended Amount:
-      <br>40 credits
-    </mat-hint>
-
   </mat-form-field>
 
-  <button mat-raised-button ng-pattern="onlyNumbers" type="number" color="warn" class="purchase" (click)="submitCreditAmount(creditAmount.value)">Purchase
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Email address:
+        <input class="form-control" matInput #email="ngModel" [(ngModel)]="email.value" id="creditAmount">
+      </label>
+    </div>
+  </mat-form-field>
+
+
+  <button mat-raised-button ng-pattern="onlyNumbers" color="warn" class="submit" (click)="submitCreditAmount(creditAmount.value, email.value)">Submit
     <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
   </button>
 </mat-dialog-content>

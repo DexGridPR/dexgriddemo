@@ -66,19 +66,20 @@ export class AuthService {
       profile, 
       solar, 
       appliances, 
-      settings
+      settings,
+      createTime: Date.now(),
     };
 
     return userRef.set(data, { merge: true });
 
   }
 
-  inputCredits(credits) {
+  inputCredits(credits, email) {
     console.log("Updating Credits through auth: ", credits)
-    return this.updateUserSettings(credits)
+    return this.updateUserSettings(credits, email)
   }
 
-  private updateUserSettings(credits) {
+  private updateUserSettings(credits?, email?) {
     console.log("Update User Settings")
     const userInfo = this.afAuth.auth;
     console.log("User Info:" , userInfo);
@@ -88,10 +89,12 @@ export class AuthService {
     console.log("User: " , this.User);
     // let Credits: number
     // let Address: number
-    const data = 
+    const data: User =
     {
       uid: Uid,
-      credits: credits
+      credits: credits,
+      email: email,
+      editTime: Date.now(),
       // address: Address
     }
     return userRef.set(data, { merge: true });

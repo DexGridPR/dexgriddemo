@@ -92,7 +92,7 @@ export class CustomerComponent implements OnInit {
 
   openUserSettings() {
     const dialog = this.dialog.open( UsersettingsComponent, {
-      width: '90%', maxWidth: '90%'
+     maxWidth: '90%'
     });
     dialog.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
