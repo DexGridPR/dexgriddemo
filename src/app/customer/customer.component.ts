@@ -132,6 +132,20 @@ export class CustomerComponent implements OnInit {
     console.log("Open up Settings");
   }
 
+
+  openNewUser(): void {
+    console.log("Open Onboarding");
+    const dialog = this.dialog.open( NewUserComponent, {
+      // width: '90%', 
+      maxWidth: '90%'
+    });
+    dialog.afterClosed().subscribe(result => {
+      this._gotodemo.cus();
+      console.log("Result: " , result);
+      console.log('The dialog was closed');
+    });
+  }
+
   //Open Bottom Panel for Account 
   onCreate(): void {
     console.log("Open Terms Popup");
@@ -203,6 +217,8 @@ export class CustomerComponent implements OnInit {
   lineChartType = 'line';
 
 }
+
+
 
 //Info Component for Bottom Bar
 @Component({

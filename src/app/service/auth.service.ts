@@ -72,4 +72,23 @@ export class AuthService {
 
   }
 
+  inputCredits(credits) {
+    console.log("Updating Credits through auth: ", credits)
+    return this.updateUserSettings(credits)
+  }
+
+  private updateUserSettings(credits) {
+    console.log("Update User Settings")
+    const user = this.user$;
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);
+    console.log(user, userRef)
+    const data = {
+      uid: user.uid,
+      credits: credits
+    }
+    return userRef.set(data, { merge: true });
+  }
+  
+
+
 }

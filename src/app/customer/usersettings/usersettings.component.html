@@ -13,4 +13,8 @@
     </mat-hint>
 
   </mat-form-field>
+
+  <button mat-raised-button ng-pattern="onlyNumbers" type="number" color="warn" class="purchase" (click)="submitCreditAmount(creditAmount.value)">Purchase
+    <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
+  </button>
 </mat-dialog-content>

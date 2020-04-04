@@ -3,6 +3,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClient } from '@angular/common/http';
 import { SubmitfireService } from 'src/app/service/submitfire.service';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-usersettings',
@@ -11,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UsersettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor( public auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -19,8 +20,7 @@ export class UsersettingsComponent implements OnInit {
   async submitCreditAmount(creditAmount: number) {
     console.log("Adding" , creditAmount , "credits")
     const credits: number = await creditAmount;
-    await this._submitfire.uploadCredit(credits)
-    this.dialogRef.closeAll();
+    await this.auth.inputCredits(credits)
   }
 
 }
