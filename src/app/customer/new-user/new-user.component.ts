@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { SubmitfireService } from 'src/app/service/submitfire.service';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../service/auth.service';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-new-user',
@@ -11,7 +12,15 @@ import { AuthService } from '../../service/auth.service';
 })
 export class NewUserComponent implements OnInit {
 
-  constructor( private _submitfire: SubmitfireService, public dialog: MatDialog, public auth: AuthService ) { }
+  emailSent = false;
+  email: string;
+  errorMessage: string;
+
+  constructor( 
+    private _submitfire: SubmitfireService, 
+    public dialog: MatDialog, 
+    public auth: AuthService 
+  ) { }
 
   ngOnInit() {
   }
@@ -157,6 +166,13 @@ export class NewUserComponent implements OnInit {
     this._submitfire.newAccount(userID, RECs, consumption, credits, profile, solar, appliances, settings)
     return this.dialog.closeAll();
     // this.dialogRef.closeAll();
+  }
+
+  async sendEmailLink(email) {
+    await this.auth.emailSignin(email);
+    if (email) {
+      return this.emailSent = true;
+    }
   }
 
   // function() {

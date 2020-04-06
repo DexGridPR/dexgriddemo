@@ -2,16 +2,38 @@
   <div class="main">
     <h3>Create a new DexGrid Account</h3>
 
-    <div class="buttons">
-      <button mat-raised-button ng-pattern="onlyNumbers" type="number" color="primary" class="purchase" (click)="googleSignin()">Sign Up!
-        <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
-      </button>
-  
-      <button mat-raised-button ng-pattern="onlyNumbers" type="number" color="warn" class="purchase" (click)="createAccount()">Try it out first!
-        <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
-      </button>
-    </div>
+    <!-- <div class="buttons"> -->
+    <button mat-raised-button ng-pattern="onlyNumbers" type="number" color="primary" class="purchase" (click)="googleSignin()">Sign Up!
+      <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
+    </button>
 
+    <button mat-raised-button ng-pattern="onlyNumbers" type="number" color="warn" class="purchase" (click)="createAccount()">Try it out first!
+      <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
+    </button>
+    <!-- </div> -->
+
+  </div>
+
+  <div class="email-login">
+    <hr>
+    <mat-form-field>
+      <label for="email" class="label">Passwordless Login</label>
+      <br>
+      <input matInput type="email" class="input" [(ngModel)]="email">
+      <mat-hint align="start">
+        <strong>Type your email address for a login link</strong>
+      </mat-hint>
+    </mat-form-field>
+
+    <button mat-raised-button ng-pattern="onlyNumbers" type="number" color="primary" class="purchase" (click)="sendEmailLink(email)">Get Login Link
+      <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
+    </button>
+    <div *ngIf="emailSent" class="notification is-info">
+      We sent you an email with your login link to {{ email }}
+    </div>
+    <div *ngIf="errorMessage" class="notification is-danger">
+      {{ errorMessage }}
+    </div>
   </div>
 
 </mat-dialog-content>

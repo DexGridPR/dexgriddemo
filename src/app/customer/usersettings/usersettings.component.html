@@ -17,7 +17,46 @@
       </label>
     </div>
   </mat-form-field>
+<!-- 
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Your Microgrid:
+        <input class="form-control" matInput #grid="ngModel" [(ngModel)]="grid.value" id="creditAmount">
+      </label>
+    </div>
+  </mat-form-field>
 
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Your Rooftop System Size:
+        <input class="form-control" matInput #systemSize="ngModel" [(ngModel)]="systemSize.value" id="creditAmount">
+      </label>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Battery Size:
+        <input class="form-control" matInput #batterySize="ngModel" [(ngModel)]="batterySize.value" id="creditAmount">
+      </label>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Appliance Consumption:
+        <input class="form-control" matInput #applianceCons="ngModel" [(ngModel)]="applianceCons.value" id="creditAmount">
+      </label>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Total Consumption:
+        <input class="form-control" matInput #consumption="ngModel" [(ngModel)]="consumption.value" id="creditAmount">
+      </label>
+    </div>
+  </mat-form-field> -->
 
   <button mat-raised-button ng-pattern="onlyNumbers" color="warn" class="submit" (click)="submitCreditAmount(creditAmount.value, email.value)">Submit
     <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>

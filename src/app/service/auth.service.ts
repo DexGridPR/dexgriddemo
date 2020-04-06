@@ -19,6 +19,10 @@ import { User } from './user.model';
 export class AuthService {
   User: User;
   user$: Observable<any>;
+  email: string;
+  emailSent = false;
+
+  errorMessage: string;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -35,6 +39,12 @@ export class AuthService {
         }
       })
     );
+
+    const url = this.router.url;
+
+    if (url.includes('signIn')) {
+      this.confirmSignIn(url);
+    }
   }
 
   async googleSignin(userID, RECs, consumption, credits, profile, solar, appliances, settings) {
@@ -42,6 +52,46 @@ export class AuthService {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
     return this.updateUserData(credential.user, userID, RECs, consumption, credits, profile, solar, appliances, settings);
+  }
+
+  async emailSignin(email) {
+    const actionCodeSettings = {
+      // Your redirect URL
+      url: 'http://localhost:4200/demo',
+      handleCodeInApp: true
+    };
+    console.log(actionCodeSettings, email)
+
+    try {
+      await this.afAuth.auth.sendSignInLinkToEmail(
+        email,
+        actionCodeSettings
+      );
+      window.localStorage.setItem('emailForSignIn', email);
+      this.emailSent = true;
+    } catch (err) {
+      this.errorMessage = err.message;
+      console.log("Error: ", this.errorMessage)
+    }
+  }
+
+  async confirmSignIn(url) {
+    try {
+      if (this.afAuth.auth.isSignInWithEmailLink(url)) {
+        let email = window.localStorage.getItem('emailForSignIn');
+
+        // If missing email, prompt user for it
+        if (!email) {
+          email = window.prompt('Please provide your email for confirmation');
+        }
+
+        // Signin user and remove the email localStorage
+        const result = await this.afAuth.auth.signInWithEmailLink(email, url);
+        window.localStorage.removeItem('emailForSignIn');
+      }
+    } catch (err) {
+      this.errorMessage = err.message;
+    }
   }
 
   async signOut() {

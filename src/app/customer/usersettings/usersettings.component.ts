@@ -21,7 +21,16 @@ export class UsersettingsComponent implements OnInit {
     const credits: number = await creditAmount;
     const addSettings = {
       credits,
-      email
+      email,
+      // address,
+      // ethereum,
+      // grid,
+      name,
+      // pvsystem,
+      // batterySize,
+      // appliances,
+      // consumption,
+      // controlSettings
     }
     console.log(addSettings)
 
