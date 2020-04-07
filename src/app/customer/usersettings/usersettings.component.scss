@@ -8,17 +8,24 @@ mat-dialog-content {
 }
 
 .settings-form-one {
-    margin: 4rem auto 0;
-    position: absolute;
+    margin: 2rem 1rem 0;
+    // position: absolute;
 }
 
 .settings-form {
-    margin: 0 auto;
+    margin: 0rem 1rem;
     position: relative;
+    @media only screen and (max-width: 600px) {
+        margin: 0.8rem auto;
+    }
 }
 
 .submit {
     display: block;
     position: relative;
-    margin: 4rem auto 0;
+    margin: 2rem auto 0;
+}
+
+.close-button {
+    margin-top: 1rem;
 }

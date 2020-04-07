@@ -5,14 +5,14 @@
 <section class="main">
   <div *ngIf="auth.user$ | async as user; else default">
 
-    <h1>Welcome to your Dashboard, {{ user.displayName }}</h1>
+    <h1>Welcome to your Dashboard, {{ user.profile.displayName }}</h1>
 
     <div class="photo_logout">
       <img src="{{ user.photoURL }}" alt="" class="profile-photo">
       <button class="signout" color="primary" mat-fab (click)="signOut()">Log Out</button>
     </div>
 
-    <mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
+    <mat-icon class="cursor-button" (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
 
     <mat-icon class="settings" (click)="openUserSettings()" aria-hidden="false" aria-label="info icon">settings
     </mat-icon>
@@ -23,7 +23,7 @@
         </mat-card> -->
 
       <mat-card id="cus-info">
-        <p>Address- {{ user.profile.address }}</p>
+        <p>Your Local Grid- {{ user.profile.grid }} MicroGrid</p>
         <div id="bill">
           <p id="billing">Customer Number- #{{ user.profile.userID }}</p>
           <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
@@ -43,7 +43,7 @@
             <hr>
             <p>Estimated duration of credits:</p>
             <p id="credits-left">20 days</p>
-            <mat-icon (click)="openBottomWarning()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
+            <mat-icon class="cursor-button" (click)="openBottomWarning()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
           </mat-card-content>
         </mat-card>
 
@@ -64,7 +64,7 @@
             <p>Last 30 days: {{ user.consumption.thirtyDays }} kWh</p>
             <p>Last 12 months, monthly: {{ user.consumption.avg12month }} kWh</p>
             <p style="font-weight: bold; display: inline-block; margin-right: 0.3em;">Average kWh rate: ${{ user.consumption.avgkWh }}</p>
-            <mat-icon (click)="openDialog()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
+            <mat-icon class="cursor-button" (click)="openDialog()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
 
           </mat-card-content>
         </mat-card>

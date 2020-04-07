@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { SubmitfireService } from 'src/app/service/submitfire.service';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../service/auth.service';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-new-user',
@@ -31,12 +31,11 @@ export class NewUserComponent implements OnInit {
     const RECs = await this.RECs
     const consumption = await this.consumption
     const credits = await this.credits
-    const profile = await this.profile
     const solar = await this.solar
     const appliances = await this.appliances
     const settings = await this.settings
     // this._submitfire.newAccount(userID, RECs, consumption, credits, profile, solar, appliances, settings)
-    await this.auth.googleSignin(userID, RECs, consumption, credits, profile, solar, appliances, settings);
+    await this.auth.googleSignin(userID, RECs, consumption, credits, solar, appliances, settings);
     
     return this.dialog.closeAll();
   }
@@ -100,7 +99,6 @@ export class NewUserComponent implements OnInit {
     kWhConsumption: 75
   }
 
-
   historical = {
     february20: this.february20,
     january20: this.january20,
@@ -124,14 +122,14 @@ export class NewUserComponent implements OnInit {
       historical: this.historical, 
     }
     credits = this.creditsDefault
-    profile = {
-      address: this.addressDefault,
-      ethereum: this.ethereumDefault,
-      grid: this.gridDefault,
-      name: this.nameDefault,
-      userID: this.userIDDefault,
-      conID: this.conID
-    }
+    // profile = {
+    //   address: this.addressDefault,
+    //   ethereum: this.ethereumDefault,
+    //   grid: this.gridDefault,
+    //   name: this.nameDefault,
+    //   userID: this.userIDDefault,
+    //   conID: this.conID
+    // }
     solar = {
       batteryCharge: this.batteryChargeDefault,
       monthGen: this.monthGenDefault,
@@ -148,6 +146,13 @@ export class NewUserComponent implements OnInit {
       controlAC: false,
       controlHeater: true,
       controlWashing: true,
+    }
+
+    profile: {
+      uid: string,
+      email: string,
+      displayName: string,
+      photoURL: string,
     }
 
     // timestamp: FieldValue.serverTimestamp()

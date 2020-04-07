@@ -23,8 +23,13 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 
+.cursor-button {
+    cursor: pointer;
+}
+
 .settings {
     float: right;
+    cursor: pointer;
 }
 
 #credits-left {

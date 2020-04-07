@@ -17,15 +17,31 @@ export class UsersettingsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async submitCreditAmount(creditAmount?: number, email?: string) {
-    const credits: number = await creditAmount;
-    const addSettings = {
-      credits,
+  async submitCreditAmount(
+    pvsystem?: number, email?: string, grid?: string, displayName?: string,
+    airconditioner?: number, lighting?: number, refridgerator?: number,
+    waterheater?: number, totalAppliances?: number, batterySize?: number ) {
+    const profile = {
       email,
-      // address,
-      // ethereum,
-      // grid,
-      name,
+      displayName,
+      grid
+    }
+    const appliances = {
+      airconditioner,
+      lighting,
+      refridgerator,
+      waterheater,
+      totalAppliances
+    }
+    await this.clean(profile)
+
+    const addSettings = {
+      profile,
+      appliances,
+      pvsystem,
+      email,
+      grid,
+      // displayName,
       // pvsystem,
       // batterySize,
       // appliances,
@@ -48,6 +64,11 @@ export class UsersettingsComponent implements OnInit {
         delete obj[propName];
       }
     }
+  }
+
+  closeDialog() {
+    console.log("Closing User Settings");
+    return this.dialog.closeAll();
   }
 
 }

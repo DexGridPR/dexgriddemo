@@ -3,9 +3,9 @@
 
   <mat-form-field class="settings-form-one">
     <div class="ngInput">
-      <label>Credits to Purchase:
-        <input class="form-control" type="number" min="0" max="999" matInput #creditAmount="ngModel" [(ngModel)]="creditAmount.value"
-          ng-pattern="onlyNumbers" id="creditAmount" pattern="^[0-9]+\.[0-9][0-9]$">
+      <label>Your Solar PV System Size:
+        <input class="form-control" type="number" min="0" max="999" matInput #pvsystem="ngModel" [(ngModel)]="pvsystem.value" ng-pattern="onlyNumbers"
+          id="pvsystem" pattern="^[0-9]+\.[0-9][0-9]$">
       </label>
     </div>
   </mat-form-field>
@@ -17,19 +17,51 @@
       </label>
     </div>
   </mat-form-field>
-<!-- 
+
   <mat-form-field class="settings-form">
     <div class="ngInput">
       <label>Your Microgrid:
-        <input class="form-control" matInput #grid="ngModel" [(ngModel)]="grid.value" id="creditAmount">
+        <input class="form-control" matInput #grid="ngModel" [(ngModel)]="grid.value" id="grid">
       </label>
     </div>
   </mat-form-field>
 
   <mat-form-field class="settings-form">
     <div class="ngInput">
-      <label>Your Rooftop System Size:
-        <input class="form-control" matInput #systemSize="ngModel" [(ngModel)]="systemSize.value" id="creditAmount">
+      <label>Air Conditioner Size:
+        <input class="form-control" matInput #airconditioner="ngModel" [(ngModel)]="airconditioner.value" id="airconditioner">
+      </label>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Total Lighting:
+        <input class="form-control" matInput #lighting="ngModel" [(ngModel)]="lighting.value" id="lighting">
+      </label>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Refridgerator Size:
+        <input class="form-control" matInput #refridgerator="ngModel" [(ngModel)]="refridgerator.value" id="refridgerator">
+      </label>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Water Heater:
+        <input class="form-control" matInput #waterheater="ngModel" [(ngModel)]="waterheater.value" id="waterheater">
+      </label>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="settings-form">
+    <div class="ngInput">
+      <label>Total Appliance Consumption:
+        <input class="form-control" matInput #totalAppliances="ngModel" [(ngModel)]="totalAppliances.value" id="totalAppliances">
       </label>
     </div>
   </mat-form-field>
@@ -44,21 +76,18 @@
 
   <mat-form-field class="settings-form">
     <div class="ngInput">
-      <label>Appliance Consumption:
-        <input class="form-control" matInput #applianceCons="ngModel" [(ngModel)]="applianceCons.value" id="creditAmount">
+      <label>Update Your Name:
+        <input class="form-control" matInput #displayName="ngModel" [(ngModel)]="displayName.value" id="displayName">
       </label>
     </div>
   </mat-form-field>
 
-  <mat-form-field class="settings-form">
-    <div class="ngInput">
-      <label>Total Consumption:
-        <input class="form-control" matInput #consumption="ngModel" [(ngModel)]="consumption.value" id="creditAmount">
-      </label>
-    </div>
-  </mat-form-field> -->
 
-  <button mat-raised-button ng-pattern="onlyNumbers" color="warn" class="submit" (click)="submitCreditAmount(creditAmount.value, email.value)">Submit
+  <button mat-raised-button ng-pattern="onlyNumbers" color="primary" class="submit" (click)="submitCreditAmount(pvsystem.value, email.value, grid.value, displayName.value)">Submit
     <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
+  </button>
+
+  <button mat-raised-button color="warn" (click)="closeDialog()" class="close-button">Close
+    <mat-icon aria-hidden="false" aria-label="done icon">close</mat-icon>
   </button>
 </mat-dialog-content>

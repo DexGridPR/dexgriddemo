@@ -47,17 +47,17 @@ export class AuthService {
     }
   }
 
-  async googleSignin(userID, RECs, consumption, credits, profile, solar, appliances, settings) {
+  async googleSignin(userID, RECs, consumption, credits, solar, appliances, settings) {
     console.log("Signing you into your Google account");
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user, userID, RECs, consumption, credits, profile, solar, appliances, settings);
+    return this.updateUserData(credential.user, userID, RECs, consumption, credits, solar, appliances, settings);
   }
 
   async emailSignin(email) {
     const actionCodeSettings = {
       // Your redirect URL
-      url: 'http://localhost:4200/demo',
+      url: 'http://dexgriddemo.firebaseapp.com/demo',
       handleCodeInApp: true
     };
     console.log(actionCodeSettings, email)
@@ -100,15 +100,18 @@ export class AuthService {
     return this.router.navigate(['/demo']);
   }
 
-  private updateUserData(user, userID, RECs, consumption, credits, profile, solar, appliances, settings) {
+  private updateUserData(user, userID, RECs, consumption, credits, solar, appliances, settings) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);
 
-    const data = {
+    const profile = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
+    }
+
+    const data = {
       userID, 
       RECs, 
       consumption, 

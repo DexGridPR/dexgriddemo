@@ -1,5 +1,5 @@
 export interface User {
-    uid: string;
+    uid?: string;
     email?: string;
     displayName?: string;
     credits?: number;
@@ -21,6 +21,12 @@ export interface User {
     monthGenDefault?: number;
     sizeDefault?: number;
     editTime?: number;
+    profile: {
+      uid: string,
+      email: string,
+      displayName: string,
+      photoURL: string,
+    }
 }
 
 
