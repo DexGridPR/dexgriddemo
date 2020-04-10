@@ -11,12 +11,20 @@
     <img id="market_photo" src="../../assets//DexGrid Market.png" alt="">
     <hr>
 
-    <div class="button-row">
+    <div class="button-row" *ngIf="auth.user$ | async as user; else default">
       <button mat-fab color="primary" (click)="reg()">Regulator</button>
       <button mat-fab color="primary" (click)="cus()">Customer</button>
       <button mat-fab color="primary" (click)="gop()">Grid Operator</button>
-      <button mat-fab color="primary" (click)="openNewUser()">New User</button>
     </div>
+
+    <ng-template class="button-row" #default>
+      <div class="button-row">
+          <button mat-fab color="primary" (click)="reg()">Regulator</button>
+          <button mat-fab color="primary" (click)="cus()">Customer</button>
+          <button mat-fab color="primary" (click)="gop()">Grid Operator</button>
+          <button mat-fab color="primary" (click)="openNewUser()">New User</button>
+      </div>
+    </ng-template>
   </div>
 
   <div id="market">

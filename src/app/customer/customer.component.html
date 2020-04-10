@@ -8,7 +8,7 @@
     <h1>Welcome to your Dashboard, {{ user.profile.displayName }}</h1>
 
     <div class="photo_logout">
-      <img src="{{ user.photoURL }}" alt="" class="profile-photo">
+      <img src="{{ user.profile.photoURL }}" alt="" class="profile-photo">
       <button class="signout" color="primary" mat-fab (click)="signOut()">Log Out</button>
     </div>
 

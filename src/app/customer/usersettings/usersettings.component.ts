@@ -33,7 +33,14 @@ export class UsersettingsComponent implements OnInit {
       waterheater,
       totalAppliances
     }
+    // const settings = {
+    //   controlAC,
+    //   controlHeater,
+    //   controlWasher
+    // }
     await this.clean(profile)
+    await this.clean(appliances)
+
 
     const addSettings = {
       profile,
@@ -41,6 +48,7 @@ export class UsersettingsComponent implements OnInit {
       pvsystem,
       email,
       grid,
+      // settings,
       // displayName,
       // pvsystem,
       // batterySize,

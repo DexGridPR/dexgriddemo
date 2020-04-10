@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { MatDialogModule, MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
+import { AuthService } from '../service/auth.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class DemoComponent implements OnInit {
   @Inject(MAT_DIALOG_DATA) private data: any;
 
   // constructor( private dialog: MatDialog ) { }
-  constructor ( private _gotodemo: GotodemoService, public dialog: MatDialog ) { }
+  constructor ( private _gotodemo: GotodemoService, public dialog: MatDialog, public auth: AuthService ) { }
 
   ngOnInit() {
   //   this._gotodemo.should_open_reg.subscribe((should_open_reg) => {

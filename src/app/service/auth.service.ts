@@ -100,7 +100,7 @@ export class AuthService {
     return this.router.navigate(['/demo']);
   }
 
-  private updateUserData(user, userID, RECs, consumption, credits, solar, appliances, settings) {
+  private async updateUserData(user, userID, RECs, consumption, credits, solar, appliances, settings) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);
 
@@ -110,6 +110,8 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
     }
+
+    await this.clean(profile)
 
     const data = {
       userID, 
@@ -122,6 +124,8 @@ export class AuthService {
       settings,
       createTime: Date.now(),
     };
+
+    await this.clean(data)
 
     return userRef.set(data, { merge: true });
 
@@ -150,7 +154,14 @@ export class AuthService {
     // }
     return userRef.set(data, { merge: true });
   }
-  
 
+  //Clean out null variables inside of an object
+  clean(obj) {
+    for (var propName in obj) { 
+      if (obj[propName] === null || obj[propName] === undefined) {
+        delete obj[propName];
+      }
+    }
+  }
 
 }
