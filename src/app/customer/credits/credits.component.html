@@ -2,7 +2,7 @@
   <div class="main">
     <h3>Purchase additional electric credits</h3>
 
-    <mat-form-field class="example-full-width" ng-pattern="onlyNumbers" type="number">
+    <mat-form-field class="credit-input" ng-pattern="onlyNumbers" type="number">
       <div class="creditamount">
         <label>Number:
             <input class="form-control" type="number" min="0" max="999" matInput #creditAmount="ngModel" [(ngModel)]="creditAmount.value" ng-pattern="onlyNumbers" id="creditAmount" pattern="^[0-9]+\.[0-9][0-9]$" required>
@@ -14,7 +14,7 @@
 
     </mat-form-field>
 
-    <mat-form-field class="paymentmethod">
+    <mat-form-field class="payment-method">
       <mat-label>Method of Payment</mat-label>
       <mat-select>
         <mat-option *ngFor="let credit of credits" [value]="credit.value">

@@ -6,8 +6,9 @@ h3 {
     text-align: center;
 }
 
-.example-full-width {
-    margin-right: 2em;
+.credit-input {
+    margin-right: 100%;
+    height: 6rem;
 }
 
 .purchase {
@@ -19,7 +20,7 @@ button {
     float: right;
 }
 
-.paymentmethod {
+.payment-method {
     margin-top: 2em;
-    // float: left;
+    height: 3rem;
 }

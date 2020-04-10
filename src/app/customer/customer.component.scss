@@ -25,11 +25,13 @@ h1 {
 
 .cursor-button {
     cursor: pointer;
+    margin-left: 0.4rem;
 }
 
 .settings {
     float: right;
     cursor: pointer;
+    margin-right: 0.4rem;
 }
 
 #credits-left {
@@ -82,7 +84,8 @@ h1 {
     border: 0.1em solid black;
     border-radius: 0.2em;
     padding-bottom: 1em;
-
+    display: inline-block;
+    margin: 0 0.3rem;
 }
 
 #wrap {
