@@ -89,15 +89,15 @@ export class CustomerComponent implements OnInit {
     this.theUser = user$;
     this.creditsLeft = this.theUser.credits
     this.batteryPower = this.theUser.solar.batteryCharge
-    console.log(this.theUser)
-    console.log(this.batteryPower)
     })
 
 
   }
 
   signOut() {
-console.log(this.theUser)
+    console.log("Signing out of Customer Account");
+    this.auth.signOut();	
+    return this._gotodemo.revertDemo();
   }
 
   openDialog(): void {
