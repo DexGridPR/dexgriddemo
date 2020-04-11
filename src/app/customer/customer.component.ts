@@ -25,6 +25,7 @@ import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
 import { AuthService } from '../service/auth.service';
 import { UsersettingsComponent } from 'src/app/customer/usersettings/usersettings.component';
 import { GotodemoService } from 'src/app/service/gotodemo.service';
+import { User } from '../service/user.model';
 
 
 export class Accounts {
@@ -47,6 +48,12 @@ export class CustomerComponent implements OnInit {
   public should_open_history = false;
   public should_open_settings = false;
   public should_open_market = false;
+  genToday: number = 5.2;
+  creditsEarned: number = 45.6;
+  theUser: User
+  monthlyGen: number
+  creditsLeft: number
+  batteryPower: number
 
   @Inject(MAT_DIALOG_DATA) private data: any;
 
@@ -58,7 +65,11 @@ export class CustomerComponent implements OnInit {
     private _accounts: FirestoredexService, 
     public auth: AuthService,
     private _gotodemo: GotodemoService
-  ) { }
+  ) { 
+    // this.creditsLeft = this.theUser.credits
+    // this.theUser = this.auth.User
+    // this.monthlyGen = this.user$.solar.monthGen
+  }
 
   ngOnInit() {
     this._accounts.getAccounts().subscribe(Account => {
@@ -73,12 +84,20 @@ export class CustomerComponent implements OnInit {
       //   console.log(this.account)
       // }
     })
+
+    this.auth.user$.subscribe(user$ => {
+    this.theUser = user$;
+    this.creditsLeft = this.theUser.credits
+    this.batteryPower = this.theUser.solar.batteryCharge
+    console.log(this.theUser)
+    console.log(this.batteryPower)
+    })
+
+
   }
 
   signOut() {
-    console.log("Signing out of Customer Account")
-    this.auth.signOut();
-    return this._gotodemo.revertDemo();
+console.log(this.theUser)
   }
 
   openDialog(): void {

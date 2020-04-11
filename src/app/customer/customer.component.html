@@ -25,7 +25,7 @@
       <mat-card id="cus-info">
         <p>Your Local Grid- {{ user.profile.grid }} MicroGrid</p>
         <div id="bill">
-          <p id="billing">Customer Number- #{{ user.profile.userID }}</p>
+          <p id="billing">Customer Number- #{{ user.profile.conID }}</p>
           <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
         </div>
         <p>My Blockchain Profile #- {{ user.profile.ethereum }}</p>
@@ -39,7 +39,7 @@
           <mat-card-content>
             <p>Prepayment, Last 30 Days: {{ user.consumption.prepay30 }} Credits</p>
             <p>Credits Left: {{ user.credits}}</p>
-            <mat-progress-bar mode="determinate" value="63"></mat-progress-bar>
+            <mat-progress-bar mode="determinate" [value]="creditsLeft"></mat-progress-bar>
             <hr>
             <p>Estimated duration of credits:</p>
             <p id="credits-left">20 days</p>
@@ -51,9 +51,13 @@
           <p>DER Performance</p>
           <hr>
           <mat-card-content>
-            <p>Solar System: {{ user.solar.monthGen }} kWh [February]</p>
-            <p>Battery: {{ user.solar.batteryCharge }} kWh charged</p>
-            <mat-progress-bar mode="determinate" value=fill></mat-progress-bar>
+            <p>Generated, last 30 days: {{ user.solar.monthGen }} kWh</p>
+            <p>Today's Generation: {{ genToday }} kWh</p>
+            <p>Battery: {{ user.solar.batteryCharge }}% charged</p>
+            <mat-progress-bar mode="determinate" [value]="batteryPower"></mat-progress-bar>
+            <br>
+            <p>Credits Earned, last 30 days: {{ creditsEarned }} Credits</p>
+
           </mat-card-content>
         </mat-card>
 

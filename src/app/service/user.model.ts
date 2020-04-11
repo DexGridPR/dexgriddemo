@@ -27,6 +27,11 @@ export interface User {
       displayName: string,
       photoURL: string,
     }
+    solar: {
+      batteryCharge: number,
+      monthGen: number,
+      size: number
+    }
 }
 
 

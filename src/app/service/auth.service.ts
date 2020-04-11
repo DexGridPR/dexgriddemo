@@ -29,7 +29,7 @@ export class AuthService {
     private afs: AngularFirestore,
     private router: Router
   ) { 
-    this.user$ = afAuth.authState;
+    // this.user$ = afAuth.authState;
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
@@ -144,14 +144,9 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${Uid}`);
     console.log("User Ref: " , userRef)
     console.log("User: " , this.User);
-    // let Credits: number
-    // let Address: number
-    const data: User = addSettings
-    // {
-    //   addSettings,
-    //   editTime: Date.now(),
-    //   // address: Address
-    // }
+
+    const data: User = addSettings;
+
     return userRef.set(data, { merge: true });
   }
 
