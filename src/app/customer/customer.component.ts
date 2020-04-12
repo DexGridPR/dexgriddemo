@@ -197,10 +197,11 @@ export class CustomerComponent implements OnInit {
   openBottomWarning(): void {
     this._bottomSheet.open(CusBottomWarn);
   }
+  
 
   //Array for Charts
   lineChartData: ChartDataSets[] = [
-    { data: [99, 95.2, 91.0, 76.3, 70.1, 64], label: 'Prepayment Credits' },
+    { data: [99, 95.2, 91.0, 76.3, 70.1, 64], label: 'Prepayment Credit Balance' },
   ];
   //Chart Labels
   lineChartLabels: Label[] = ['1st', '3rd', '5th', '7th', '9th', '11th'];
@@ -211,14 +212,14 @@ export class CustomerComponent implements OnInit {
     scales: { //you're missing this
     yAxes: [{
        scaleLabel: {
-          display: true,
+          display: false,
           labelString: 'Credits Left [Dollar Denominated]'
        }
     }],
     xAxes: [{
       scaleLabel: {
          display: true,
-         labelString: 'Day of the Month [March]'
+         labelString: 'Day of the Month [April]'
       }
    }]
  }//END scales

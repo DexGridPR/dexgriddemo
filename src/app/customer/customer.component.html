@@ -1,8 +1,7 @@
-<!-- <div class="text" *ngFor="let _rain of rain">
-  <p *ngIf="rain < .157 && rain > 0.118; else hello">{{ _rain.rain }} Credits</p>
-  <ng-template #hello>0.130 Credits</ng-template>
-</div> -->
+
 <section class="main">
+  <!-- auth.user$ is used here because of the ngIf need for an immediat instance of the object. The remainder
+  of the data used is subscribed to through TS and available from the service. -->
   <div *ngIf="auth.user$ | async as user; else default">
 
     <h1>Welcome to your Dashboard, {{ user.profile.displayName }}</h1>
@@ -18,10 +17,6 @@
     </mat-icon>
     <div id="dashboard">
 
-      <!-- <mat-card class="custitle">
-          <p>Customer Dashboard</p>
-        </mat-card> -->
-
       <mat-card id="cus-info">
         <p>Your Local Grid- {{ user.profile.grid }} MicroGrid</p>
         <div id="bill">
@@ -31,7 +26,6 @@
         <p>My Blockchain Profile #- {{ user.profile.ethereum }}</p>
       </mat-card>
 
-      <!-- <div fxLayout="row wrap" fxLayoutGap="1em"> -->
       <section class="basicGrid">
         <mat-card class="infocard">
           <p>Billing</p>
@@ -83,8 +77,6 @@
         </mat-card>
       </section>
 
-      <!-- </div> -->
-
       <div class="chart-wrapper">
         <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
           [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
@@ -95,14 +87,11 @@
 
         <button mat-raised-button (click)="openCredits()" class="dashbutton">Purchase Electric Credits
           <mat-icon aria-hidden="false" aria-label="add_circle_outline icon">add_circle_outline</mat-icon>
-          <!-- <mat-icon aria-hidden="false" aria-label="credit_card icon">credit_card</mat-icon> -->
         </button>
 
         <button mat-raised-button (click)="history()" class="dashbutton">Previous Consumption
           <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
         </button>
-
-        <!-- <button (click)="sellrec()" class="dashbutton">Power Purchase Agreement</button> -->
 
         <button mat-raised-button (click)="sellrec()" class="dashbutton">Sell Your RECs
           <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
@@ -150,13 +139,7 @@
       <mat-icon class="settings" (click)="openNewUser()" aria-hidden="false" aria-label="info icon">account_circle
       </mat-icon>
   
-
       <div id="dashboard">
-
-        <!-- <mat-card class="custitle">
-        <p>Customer Dashboard</p>
-      </mat-card> -->
-
         <mat-card id="cus-info">
           <p>Address- {{ _account.profile.address }}</p>
           <div id="bill">
@@ -166,7 +149,6 @@
           <p>My Blockchain Profile #- {{ _account.profile.ethereum }}</p>
         </mat-card>
 
-        <!-- <div fxLayout="row wrap" fxLayoutGap="1em"> -->
         <section class="basicGrid">
           <mat-card class="infocard">
             <p>Billing</p>
@@ -214,8 +196,6 @@
           </mat-card>
         </section>
 
-        <!-- </div> -->
-
         <div class="chart-wrapper">
           <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
             [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
@@ -226,14 +206,11 @@
 
           <button mat-raised-button (click)="openCredits()" class="dashbutton">Purchase Electric Credits
             <mat-icon aria-hidden="false" aria-label="add_circle_outline icon">add_circle_outline</mat-icon>
-            <!-- <mat-icon aria-hidden="false" aria-label="credit_card icon">credit_card</mat-icon> -->
           </button>
 
           <button mat-raised-button (click)="history()" class="dashbutton">Previous Consumption
             <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
           </button>
-
-          <!-- <button (click)="sellrec()" class="dashbutton">Power Purchase Agreement</button> -->
 
           <button mat-raised-button (click)="sellrec()" class="dashbutton">Sell Your RECs
             <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
