@@ -86,9 +86,9 @@ export class CustomerComponent implements OnInit {
     })
 
     this.auth.user$.subscribe(user$ => {
-    this.theUser = user$;
-    this.creditsLeft = this.theUser.credits
-    this.batteryPower = this.theUser.solar.batteryCharge
+      this.theUser = user$;
+      this.creditsLeft = this.theUser.credits
+      this.batteryPower = this.theUser.solar.batteryCharge
     })
 
 

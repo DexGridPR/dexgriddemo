@@ -158,6 +158,10 @@
     of any nature.
   </p>
 
+  <div *ngIf="auth.user$ | async as user">
+      <button class="billbutton" (click)="activate()">Activate Account</button>
+  </div>
+
   <!-- <p>Smart Contracts on Ethereum Our current economic machine relies on manual holding and movement of capital and assets. 
     <br>
     Agriculture,

@@ -4,42 +4,91 @@
       Energy Settings
     </p> -->
     <mat-card-content>
-        <h2 class="example-h2">Energy Settings</h2>
-        <p>Allow your DexGrid Energy Agent to manage your appliances, potentially saving you up to $789 per year.</p>
-        <section class="example-section">
-          <mat-slide-toggle
-              class="example-margin"
-              [color]="color"
-              (change)="setACValue(AC, $event)"
-              value="checked"
-              #AC
-              >
-            Control Air Conditioner
-          </mat-slide-toggle>
-        </section>
-
-        <section class="example-section">
-            <mat-slide-toggle
-                class="example-margin"
-                [color]="color"
-                (change)="setHeaterValue(heater, $event)"
-                #heater
-                >
-              Control Water Heater
-            </mat-slide-toggle>
-          </section>
-
-          <section class="example-section">
-              <mat-slide-toggle checked
+        <div *ngIf="auth.user$ | async as user">
+            <h2 class="example-h2">Energy Settings</h2>
+            <p>Allow your DexGrid Energy Agent to manage your appliances, potentially saving you up to $789 per year.</p>
+            <section class="example-section">
+              <mat-slide-toggle
                   class="example-margin"
                   [color]="color"
-                  [disabled]="disabled"
-                  #washer
-                  (change)="setWasherValue(washer, $event)"
+                  (change)="setACValue(AC, $event)"
+                  [checked]="ACcontrol"
+                  value="ACcontrol"
+                  #ACcontrol
                   >
-                Control Washing Machine
+                Control Air Conditioner
               </mat-slide-toggle>
             </section>
+    
+            <section class="example-section">
+                <mat-slide-toggle
+                    class="example-margin"
+                    [color]="color"
+                    (change)="setHeaterValue(heater, $event)"
+                    [checked]="HeaterControl"
+                    value="HeaterControl"
+                    #heater
+                    >
+                  Control Water Heater
+                </mat-slide-toggle>
+              </section>
+    
+              <section class="example-section">
+                  <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      [disabled]="disabled"
+                      [checked]="WasherControl"
+                      value="WasherControl"
+                      #washer
+                      (change)="setWasherValue(washer, $event)"
+                      >
+                    Control Washing Machine
+                  </mat-slide-toggle>
+                </section>
+        </div>
+
+        <ng-template #default>
+            <h2 class="example-h2">Energy Settings</h2>
+            <p>Allow your DexGrid Energy Agent to manage your appliances, potentially saving you up to $789 per year.</p>
+            <section class="example-section">
+              <mat-slide-toggle
+                  class="example-margin"
+                  [color]="color"
+                  (change)="defaultsetACValue(AC, $event)"
+                  value="checked"
+                  #AC
+                  >
+                Control Air Conditioner
+              </mat-slide-toggle>
+            </section>
+    
+            <section class="example-section">
+                <mat-slide-toggle
+                    class="example-margin"
+                    [color]="color"
+                    (change)="defaultsetHeaterValue(heater, $event)"
+                    #heater
+                    >
+                  Control Water Heater
+                </mat-slide-toggle>
+              </section>
+    
+              <section class="example-section">
+                  <mat-slide-toggle checked
+                      class="example-margin"
+                      [color]="color"
+                      [disabled]="disabled"
+                      #washer
+                      (change)="defaultsetWasherValue(washer, $event)"
+                      >
+                    Control Washing Machine
+                  </mat-slide-toggle>
+                </section>
+        </ng-template>
+
+
+
             
       </mat-card-content>
   </section>

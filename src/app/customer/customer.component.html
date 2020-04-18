@@ -4,10 +4,10 @@
   of the data used is subscribed to through TS and available from the service. -->
   <div *ngIf="auth.user$ | async as user; else default">
 
-    <h1>Welcome to your Dashboard, {{ user.profile.displayName }}</h1>
+    <h1>Welcome to your Dashboard, {{ user.Profile.displayName }}</h1>
 
     <div class="photo_logout">
-      <img src="{{ user.profile.photoURL }}" alt="" class="profile-photo">
+      <img src="{{ user.Profile.photoURL }}" alt="" class="profile-photo">
       <button class="signout" color="primary" mat-fab (click)="signOut()">Log Out</button>
     </div>
 
@@ -18,12 +18,12 @@
     <div id="dashboard">
 
       <mat-card id="cus-info">
-        <p>Your Local Grid- {{ user.profile.grid }} MicroGrid</p>
+        <p>Your Local Grid- {{ user.Profile.grid }} MicroGrid</p>
         <div id="bill">
-          <p id="billing">Customer Number- #{{ user.profile.conID }}</p>
+          <p id="billing">Customer Number- #{{ user.Profile.conID }}</p>
           <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
         </div>
-        <p>My Blockchain Profile #- {{ user.profile.ethereum }}</p>
+        <p>My Blockchain Profile #- {{ user.Profile.ethereum }}</p>
       </mat-card>
 
       <section class="basicGrid">
@@ -32,7 +32,7 @@
           <hr>
           <mat-card-content>
             <p>Prepayment, Last 30 Days: {{ user.consumption.prepay30 }} Credits</p>
-            <p>Credits Left: {{ user.credits}}</p>
+            <p>Credits Left: {{ user.Credits}}</p>
             <mat-progress-bar mode="determinate" [value]="creditsLeft"></mat-progress-bar>
             <hr>
             <p>Estimated duration of credits:</p>
@@ -71,8 +71,8 @@
           <p>Renewable Energy Credits</p>
           <hr>
           <mat-card-content>
-            <p>Generated, past 12 months: {{ user.RECs.twelveMonth }} RECs</p>
-            <p>Consumed / Purchased: {{ user.RECs.consumed }} RECs</p>
+            <p>Generated, past 12 months: {{ user.recs.twelveMonth }} RECs</p>
+            <p>Consumed / Purchased: {{ user.recs.consumed }} RECs</p>
           </mat-card-content>
         </mat-card>
       </section>
@@ -132,7 +132,7 @@
 
   <ng-template #default>
     <div id="customer" *ngFor="let _account of account | slice:0:1">
-      <h1>Welcome to your Dashboard, {{ _account.profile.name}}</h1>
+      <h1>Welcome to your Dashboard, {{ _account.Profile.displayName }}</h1>
 
       <mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
 
@@ -141,12 +141,12 @@
   
       <div id="dashboard">
         <mat-card id="cus-info">
-          <p>Address- {{ _account.profile.address }}</p>
+          <p>Address- {{ _account.Profile.address }}</p>
           <div id="bill">
-            <p id="billing">Customer Number- #{{ _account.profile.userID }}</p>
+            <p id="billing">Customer Number- #{{ _account.Profile.userID }}</p>
             <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
           </div>
-          <p>My Blockchain Profile #- {{ _account.profile.ethereum }}</p>
+          <p>My Blockchain Profile #- {{ _account.Profile.ethereum }}</p>
         </mat-card>
 
         <section class="basicGrid">
@@ -190,8 +190,8 @@
             <p>Renewable Energy Credits</p>
             <hr>
             <mat-card-content>
-              <p>Generated, past 12 months: {{ _account.RECs.twelveMonth }} RECs</p>
-              <p>Consumed / Purchased: {{ _account.RECs.consumed }} RECs</p>
+              <p>Generated, past 12 months: {{ _account.recs.twelveMonth }} RECs</p>
+              <p>Consumed / Purchased: {{ _account.recs.consumed }} RECs</p>
             </mat-card-content>
           </mat-card>
         </section>

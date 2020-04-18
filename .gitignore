@@ -36,6 +36,7 @@ testem.log
 
 # firebase
 /functions
+functions/
 /src/environments
 /.firebase
 environment.ts

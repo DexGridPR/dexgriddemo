@@ -47,11 +47,11 @@ export class AuthService {
     }
   }
 
-  async googleSignin(userID, RECs, consumption, credits, solar, appliances, settings) {
+  async googleSignin(newAccount) {
     console.log("Signing you into your Google account");
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user, userID, RECs, consumption, credits, solar, appliances, settings);
+    return this.updateUserData(credential.user, newAccount);
   }
 
   async emailSignin(email) {
@@ -100,28 +100,31 @@ export class AuthService {
     return this.router.navigate(['/demo']);
   }
 
-  private async updateUserData(user, userID, RECs, consumption, credits, solar, appliances, settings) {
+  private async updateUserData(user, newAccount) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);
 
-    const profile = {
+    const Profile = {
+      conID: newAccount.conID,
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
+      grid: newAccount.grid,
+      address: newAccount.address,
+      ethereum: newAccount.ethereum
     }
 
-    await this.clean(profile)
+    await this.clean(Profile)
 
     const data = {
-      userID, 
-      RECs, 
-      consumption, 
-      credits, 
-      profile, 
-      solar, 
-      appliances, 
-      settings,
+      Profile: Profile,
+      activated: newAccount.activated,
+      Credits: newAccount.credits,
+      solar: newAccount.solar,
+      appliances: newAccount.appliances,
+      consumption: newAccount.consumption,
+      recs: newAccount.recs,
       createTime: Date.now(),
     };
 
@@ -143,7 +146,6 @@ export class AuthService {
     const Uid = userInfo.currentUser.uid
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${Uid}`);
     console.log("User Ref: " , userRef)
-    console.log("User: " , this.User);
 
     const data: User = addSettings;
 
@@ -157,6 +159,27 @@ export class AuthService {
         delete obj[propName];
       }
     }
+  }
+
+  activateAccount() {
+    console.log("Submitfire activating account");
+    const addSettings = {activated: true};
+    // const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);
+    return this.updateUserSettings(addSettings);
+  }
+
+  async changeSettings(AC, heater, washer) {
+    console.log("Changing Settings in Auth");
+    const addSettings = {
+      appliances: {
+        controlAC: AC,
+        controlHeater: heater,
+        controlWashing: washer
+      }
+    }
+    await this.clean(addSettings);
+    console.log("addsettings: " , addSettings)
+    return this.updateUserSettings(addSettings)
   }
 
 }

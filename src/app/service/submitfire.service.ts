@@ -77,11 +77,10 @@ export class SubmitfireService {
       });
   }
 
-  newAccount(userID, RECs, consumption, credits, profile, solar, appliances, settings) {
-    console.log("New account from SubmitFire Service")
-    this.db.collection('account').add({
-      userID, RECs, consumption, credits, profile, solar, appliances, settings
-    })
+  newAccount(newAccount) {
+    console.log("New account from SubmitFire Service");
+    console.log("newProfile: " , newAccount);
+    this.db.collection('account').add({newAccount})
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef);
         console.log(docRef);

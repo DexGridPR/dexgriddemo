@@ -21,16 +21,21 @@ export interface User {
     monthGenDefault?: number;
     sizeDefault?: number;
     editTime?: number;
-    profile: {
+    Profile: {
       uid: string,
       email: string,
       displayName: string,
       photoURL: string,
     }
-    solar: {
+    solar?: {
       batteryCharge: number,
       monthGen: number,
       size: number
+    }
+    appliances?: {
+      controlAC: boolean,
+      controlHeater: boolean,
+      controlWashing: boolean
     }
 }
 

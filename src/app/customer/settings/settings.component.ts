@@ -6,6 +6,8 @@ import { ThemePalette } from '@angular/material/core';
 import { FirestoredexService } from 'src/app/service/firestoredex.service';
 import 'hammerjs';
 import { FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
+import { User } from '../../service/user.model';
 
 export class Accounts {
   userID?: string;
@@ -35,10 +37,15 @@ export class Accounts {
 })
 export class SettingsComponent implements OnInit {
   ACsetting: boolean;
+  theUser: User;
+  ACcontrol: boolean;
+  WashingControl: boolean;
+  HeaterControl: boolean;
 
   @Input() account: Accounts[];
 
-  constructor( private _accounts: FirestoredexService, private _submitfire: SubmitfireService ) { }
+  constructor( private _accounts: FirestoredexService, private _submitfire: SubmitfireService,
+    public auth: AuthService, ) { }
 
   ngOnInit() {
     this._accounts.getAccounts().subscribe(Account => {
@@ -52,6 +59,14 @@ export class SettingsComponent implements OnInit {
       // console.log("AC setting: " , ACsetting)
       // const checked = ACsetting
       // console.log("Checked: " , checked)
+    });
+
+    this.auth.user$.subscribe(user$ => {
+      this.theUser = user$;
+      this.ACcontrol = this.theUser.appliances.controlAC
+      this.WashingControl = this.theUser.appliances.controlWashing
+      this.HeaterControl = this.theUser.appliances.controlHeater
+      console.log(this.ACcontrol)
     })
   }
 
@@ -59,7 +74,54 @@ export class SettingsComponent implements OnInit {
   checked = this.ACsetting;
   disabled = false;
 
-setACValue(AC, e) {
+  setACValue(ACcontrol, e) {
+    ACcontrol = this.checked
+      console.log(ACcontrol)
+      if(e.checked) {
+        ACcontrol=true
+      }else {
+        ACcontrol=false
+      }
+      this.ACcontrol = ACcontrol
+      console.log(ACcontrol)
+      return this.changeSettings()
+    }
+  
+  setHeaterValue(heater, e) {
+    heater = this.checked
+      console.log(heater)
+      if(e.checked) {
+        heater=true
+      }else {
+        heater=false
+      }
+      this.HeaterControl = heater
+      console.log("heater: " , heater)
+      return this.changeSettings()
+    }
+  
+  setWasherValue(washer, e) {
+    washer = this.checked
+      console.log(washer)
+      if(e.checked) {
+        washer=true
+      }else {
+        washer=false
+      }
+      this.WashingControl = washer
+      console.log(washer)
+      return this.changeSettings()
+    }
+
+  changeSettings() {
+    console.log("Collected Settings: ", this.ACcontrol, this.HeaterControl, this.WashingControl);
+    const AC = this.ACcontrol
+    const heater = this.HeaterControl
+    const washer = this.WashingControl
+    return this.auth.changeSettings(AC, heater, washer)
+  }
+
+defaultsetACValue(AC, e) {
   AC = this.checked
     console.log(AC)
     if(e.checked) {
@@ -71,7 +133,7 @@ setACValue(AC, e) {
     return this._submitfire.checkAC(AC)
   }
 
-setHeaterValue(heater, e) {
+defaultsetHeaterValue(heater, e) {
   heater = this.checked
     console.log(heater)
     if(e.checked) {
@@ -83,7 +145,7 @@ setHeaterValue(heater, e) {
     return this._submitfire.checkHeater(heater)
   }
 
-setWasherValue(washer, e) {
+defaultsetWasherValue(washer, e) {
   washer = this.checked
     console.log(washer)
     if(e.checked) {
