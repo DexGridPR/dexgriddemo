@@ -1,112 +1,125 @@
 <div>
   <h1>Billing History:</h1>
-  <p>See your last 18 months of payments here</p>
-
-  <div id="months" *ngFor="let _account of account | slice:0:1">
-    <div class="month">
-      <p>Month: {{ _account.consumption.historical.february20.month }}</p>
-      <p>Credits: {{ _account.consumption.historical.february20.creditConsumption }} Credits</p>
-      <p>Energy Consumed: {{ _account.consumption.historical.february20.kWhConsumption }} kWh</p>
+  <div *ngIf="auth.user$ | async as user; else default">
+    
+    <div class="months" *ngFor="let _cons of consumption">
+      <mat-card class="period">
+        <p>Period: {{ _cons.energyPeriod }}</p>
+        <p>kWh Consumed: {{ _cons.kWh }}</p>
+        <p>Credits Paid: {{ _cons.price }} Credits</p>
+      </mat-card>
     </div>
-    <div class="month">
-      <p>Month: {{ _account.consumption.historical.january20.month }}</p>
-      <p>Credits: {{ _account.consumption.historical.january20.creditConsumption }} Credits</p>
-      <p>Energy Consumed: {{ _account.consumption.historical.january20.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>Month: {{ _account.consumption.historical.december19.month }}</p>
-      <p>Credits: {{ _account.consumption.historical.december19.creditConsumption }} Credits</p>
-      <p>Energy Consumed: {{ _account.consumption.historical.december19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>Month: {{ _account.consumption.historical.november19.month }}</p>
-      <p>Credits: {{ _account.consumption.historical.november19.creditConsumption }} Credits</p>
-      <p>Energy Consumed: {{ _account.consumption.historical.november19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>Month: {{ _account.consumption.historical.october19.month }}</p>
-      <p>Credits: {{ _account.consumption.historical.october19.creditConsumption }} Credits</p>
-      <p>Energy Consumed: {{ _account.consumption.historical.october19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>Month: {{ _account.consumption.historical.september19.month }}</p>
-      <p>Credits: {{ _account.consumption.historical.september19.creditConsumption }} Credits</p>
-      <p>Energy Consumed: {{ _account.consumption.historical.september19.kWhConsumption }} kWh</p>
-    </div>
-    <!-- <div class="month">
-      <p>{{ _account.consumption.historical.august19.month }}</p>
-      <p>{{ _account.consumption.historical.august19.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.august19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.july19.month }}</p>
-      <p>{{ _account.consumption.historical.july19.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.july19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.june19.month }}</p>
-      <p>{{ _account.consumption.historical.june19.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.june19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.may.month }}</p>
-      <p>{{ _account.consumption.historical.may19.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.may19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.april19.month }}</p>
-      <p>{{ _account.consumption.historical.april19.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.april19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.march19.month }}</p>
-      <p>{{ _account.consumption.historical.march19.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.march19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.february19.month }}</p>
-      <p>{{ _account.consumption.historical.february19.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.february19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.january19.month }}</p>
-      <p>{{ _account.consumption.historical.january19.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.january19.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.december18.month }}</p>
-      <p>{{ _account.consumption.historical.december18.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.december18.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.november18.month }}</p>
-      <p>{{ _account.consumption.historical.november18.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.november18.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.october18.month }}</p>
-      <p>{{ _account.consumption.historical.october18.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.october18.kWhConsumption }} kWh</p>
-    </div>
-    <div class="month">
-      <p>{{ _account.consumption.historical.september18.month }}</p>
-      <p>{{ _account.consumption.historical.september18.creditConsumption }} Credits</p>
-      <p>{{ _account.consumption.historical.september18.kWhConsumption }} kWh</p>
-    </div> -->
-    <!-- <div class="month">
-      <p>July '18</p>
-      <p>43 Credits</p>
-      <p>874 kWh</p>
-    </div>
-    <div class="month">
-      <p>June '18</p>
-      <p>41 Credits</p>
-      <p>845 kWh</p>
-    </div>
-    <div class="month">
-      <p>May '18</p>
-      <p>40 Credits</p>
-      <p>787 kWh</p>
-    </div> -->
   </div>
+
+  <ng-template #default>
+      <p>See your last 18 months of payments here</p>
+      <div id="months" *ngFor="let _account of account | slice:0:1">
+          <div class="month">
+            <p>Month: {{ _account.consumption.historical.february20.month }}</p>
+            <p>Credits: {{ _account.consumption.historical.february20.creditConsumption }} Credits</p>
+            <p>Energy Consumed: {{ _account.consumption.historical.february20.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>Month: {{ _account.consumption.historical.january20.month }}</p>
+            <p>Credits: {{ _account.consumption.historical.january20.creditConsumption }} Credits</p>
+            <p>Energy Consumed: {{ _account.consumption.historical.january20.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>Month: {{ _account.consumption.historical.december19.month }}</p>
+            <p>Credits: {{ _account.consumption.historical.december19.creditConsumption }} Credits</p>
+            <p>Energy Consumed: {{ _account.consumption.historical.december19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>Month: {{ _account.consumption.historical.november19.month }}</p>
+            <p>Credits: {{ _account.consumption.historical.november19.creditConsumption }} Credits</p>
+            <p>Energy Consumed: {{ _account.consumption.historical.november19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>Month: {{ _account.consumption.historical.october19.month }}</p>
+            <p>Credits: {{ _account.consumption.historical.october19.creditConsumption }} Credits</p>
+            <p>Energy Consumed: {{ _account.consumption.historical.october19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>Month: {{ _account.consumption.historical.september19.month }}</p>
+            <p>Credits: {{ _account.consumption.historical.september19.creditConsumption }} Credits</p>
+            <p>Energy Consumed: {{ _account.consumption.historical.september19.kWhConsumption }} kWh</p>
+          </div>
+          <!-- <div class="month">
+            <p>{{ _account.consumption.historical.august19.month }}</p>
+            <p>{{ _account.consumption.historical.august19.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.august19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.july19.month }}</p>
+            <p>{{ _account.consumption.historical.july19.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.july19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.june19.month }}</p>
+            <p>{{ _account.consumption.historical.june19.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.june19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.may.month }}</p>
+            <p>{{ _account.consumption.historical.may19.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.may19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.april19.month }}</p>
+            <p>{{ _account.consumption.historical.april19.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.april19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.march19.month }}</p>
+            <p>{{ _account.consumption.historical.march19.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.march19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.february19.month }}</p>
+            <p>{{ _account.consumption.historical.february19.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.february19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.january19.month }}</p>
+            <p>{{ _account.consumption.historical.january19.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.january19.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.december18.month }}</p>
+            <p>{{ _account.consumption.historical.december18.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.december18.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.november18.month }}</p>
+            <p>{{ _account.consumption.historical.november18.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.november18.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.october18.month }}</p>
+            <p>{{ _account.consumption.historical.october18.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.october18.kWhConsumption }} kWh</p>
+          </div>
+          <div class="month">
+            <p>{{ _account.consumption.historical.september18.month }}</p>
+            <p>{{ _account.consumption.historical.september18.creditConsumption }} Credits</p>
+            <p>{{ _account.consumption.historical.september18.kWhConsumption }} kWh</p>
+          </div> -->
+          <!-- <div class="month">
+            <p>July '18</p>
+            <p>43 Credits</p>
+            <p>874 kWh</p>
+          </div>
+          <div class="month">
+            <p>June '18</p>
+            <p>41 Credits</p>
+            <p>845 kWh</p>
+          </div>
+          <div class="month">
+            <p>May '18</p>
+            <p>40 Credits</p>
+            <p>787 kWh</p>
+          </div> -->
+        </div>
+    </ng-template>
+
 </div>

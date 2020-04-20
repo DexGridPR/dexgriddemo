@@ -37,6 +37,20 @@ export interface User {
       controlHeater: boolean,
       controlWashing: boolean
     }
+    consumption?: {
+
+      historical?: any
+    }
+
+    history?: {
+      any
+    }
+
+    order?: {
+      bid: boolean,
+      ask: boolean,
+      newGen: number
+    }
 }
 
 
