@@ -99,7 +99,9 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     RegBottomSheet,
     CusBottomSheet, 
     CusBottomWarn,
-    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, CommComponent, GridmarketComponent, UsersettingsComponent
+    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, 
+    // CommComponent, 
+    GridmarketComponent, UsersettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -126,7 +128,9 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn, NewUserComponent, CommComponent],
+  entryComponents: [BottomSheet, RegBottomSheet, CusBottomSheet, CusBottomWarn, NewUserComponent, 
+    // CommComponent
+  ],
   providers: [
     AngularFirestore,
   ],
