@@ -102,9 +102,9 @@
         </button>
 
 
-        <button mat-raised-button (click)="opentheMarket()" class="dashbutton">The Market
+        <!-- <button mat-raised-button (click)="opentheMarket()" class="dashbutton">The Market
           <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
-        </button>
+        </button> -->
       </div>
 
       <div *ngIf="should_open_sellrec;">
@@ -133,6 +133,7 @@
   <ng-template #default>
     <div id="customer" *ngFor="let _account of account | slice:0:1">
       <h1>Welcome to your Dashboard, {{ _account.Profile.displayName }}</h1>
+      <h4>This is a demo account in case you did not share your email.</h4>
 
       <mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
 
@@ -221,9 +222,9 @@
           </button>
 
 
-          <button mat-raised-button (click)="opentheMarket()" class="dashbutton">The Market
+          <!-- <button mat-raised-button (click)="opentheMarket()" class="dashbutton">The Market
             <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
-          </button>
+          </button> -->
         </div>
 
         <div *ngIf="should_open_sellrec;">

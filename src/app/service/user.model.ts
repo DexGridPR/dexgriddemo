@@ -38,7 +38,10 @@ export interface User {
       controlWashing: boolean
     }
     consumption?: {
-
+      avg12month?: number,
+      avgkWh?: number,
+      prepay30?: number,
+      thirtyDays?: number,
       historical?: any
     }
 

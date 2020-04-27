@@ -26,7 +26,7 @@ export class NewUserComponent implements OnInit {
   }
 
   async googleSignin() {
-    console.log("Logging you in")
+    console.log("Logging you in through Google")
     const newAccount = {
       recs: this.recs, 
       consumption: this.consumption, 
@@ -40,7 +40,6 @@ export class NewUserComponent implements OnInit {
       conID: this.conID,
       createTime: Date.now(),
     };
-    console.log(newAccount)
     // this._submitfire.newAccount(userID, RECs, consumption, credits, profile, solar, appliances, settings)
     await this.auth.googleSignin(newAccount);
 
@@ -154,25 +153,37 @@ export class NewUserComponent implements OnInit {
   // timestamp: FieldValue.serverTimestamp()
 
   async createAccount() {
-    console.log("Creating new Account")
+    console.log("Creating new account")
     const newAccount = {
       recs: this.recs, 
       consumption: this.consumption, 
       credits: this.credits, 
-      profile: this.defaultProfile, 
-      solar: this.solar, 
+      Profile: this.defaultProfile,
+      solar: this.solar,
       appliances: this.appliances,
       activated: this.activated,
       createTime: Date.now(),
     };
-    console.log(newAccount)
     this._submitfire.newAccount(newAccount)
     return this.dialog.closeAll();
     // this.dialogRef.closeAll();
   }
 
   async sendEmailLink(email) {
-    await this.auth.emailSignin(email);
+    const newAccount = {
+      recs: this.recs, 
+      consumption: this.consumption, 
+      credits: this.credits, 
+      solar: this.solar, 
+      appliances: this.appliances,
+      activated: this.activated,
+      address: this.addressDefault,
+      ethereum: this.ethereumDefault,
+      grid: this.gridDefault,
+      conID: this.conID,
+      createTime: Date.now(),
+    };
+    await this.auth.emailSignin(email, newAccount);
     if (email) {
       return this.emailSent = true;
     }

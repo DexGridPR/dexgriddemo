@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DemoComponent } from './demo/demo.component';
-import { LandingComponent } from './landing/landing.component';
+// import { LandingComponent } from './landing/landing.component';
 import { TesterComponent } from './tester/tester.component';
 import { DownloadComponent } from './download/download.component';
 import { SellrecComponent } from './customer/sellrec/sellrec.component';
@@ -19,8 +19,8 @@ import { ThemarketComponent } from './customer/themarket/themarket.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'landing', pathMatch: 'full' },
-  { path: '', component: LandingComponent },
+  { path: '', redirectTo: 'demo', pathMatch: 'full' },
+  { path: '', component: DemoComponent },
   { path: 'tester', component: TesterComponent },
   { path: 'download', component: DownloadComponent },
   { path: 'sellrec', component: SellrecComponent },
@@ -33,7 +33,8 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'themarket', component: ThemarketComponent },
-  { path: 'demo', component: DemoComponent }
+  { path: 'demo', component: DemoComponent },
+  { path: '**', component: DemoComponent }
 ];
 
 @NgModule({

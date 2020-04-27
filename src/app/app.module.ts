@@ -4,7 +4,7 @@ import { NgModule, InjectionToken } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
-import { LandingComponent } from './landing/landing.component';
+// import { LandingComponent } from './landing/landing.component';
 import { DemoComponent } from './demo/demo.component';
 import { RegulatorComponent, RegBottomSheet } from './regulator/regulator.component';
 import { CustomerComponent, CusBottomSheet, CusBottomWarn } from './customer/customer.component';
@@ -52,7 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { HttpModule } from '@angular/http';
 // import { Http, Headers } from '@angular/http';
 import { NewUserComponent } from './customer/new-user/new-user.component';
-import { CommComponent } from './landing/comm/comm.component';
+// import { CommComponent } from './landing/comm/comm.component';
 import { GridmarketComponent } from './goperator/gridmarket/gridmarket.component';
 // import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -79,7 +79,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
   declarations: [
     AppComponent,
     TopbarComponent,
-    LandingComponent,
+    // LandingComponent,
     DemoComponent,
     RegulatorComponent,
     CustomerComponent,

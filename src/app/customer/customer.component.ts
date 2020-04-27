@@ -54,6 +54,7 @@ export class CustomerComponent implements OnInit {
   monthlyGen: number
   creditsLeft: number
   batteryPower: number
+  creditHistory
 
   @Inject(MAT_DIALOG_DATA) private data: any;
 
@@ -65,11 +66,7 @@ export class CustomerComponent implements OnInit {
     private _accounts: FirestoredexService, 
     public auth: AuthService,
     private _gotodemo: GotodemoService
-  ) { 
-    // this.creditsLeft = this.theUser.credits
-    // this.theUser = this.auth.User
-    // this.monthlyGen = this.user$.solar.monthGen
-  }
+  ) { }
 
   ngOnInit() {
     this._accounts.getAccounts().subscribe(Account => {
@@ -87,8 +84,8 @@ export class CustomerComponent implements OnInit {
 
     this.auth.user$.subscribe(user$ => {
       this.theUser = user$;
-      this.creditsLeft = this.theUser.credits
-      this.batteryPower = this.theUser.solar.batteryCharge
+      // this.creditsLeft = this.theUser.credits
+      // this.batteryPower = this.theUser.solar.batteryCharge
     })
 
 

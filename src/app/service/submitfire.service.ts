@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Observable, ObservableLike } from 'rxjs';
+import { Observable, ObservableLike, of } from 'rxjs';
 // import { AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire';
-import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 // import { Projects } from './models/projects';
 import { NgForm } from '@angular/forms';
+import { User } from 'src/app/service/user.model';
+import { Router } from '@angular/router';
+import { auth } from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { switchMap } from 'rxjs/operators';
 
 
 export class Account {
@@ -23,9 +28,22 @@ export class Account {
 export class SubmitfireService {
 
   Account: Observable<Account[]>;
+  user$: Observable<any>;
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
+    private router: Router) {
     this.Account = this.db.collection('account').valueChanges();
+
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          return this.afs.doc<User>(`account/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    );
   }
 
   checkAC(AC) {
@@ -63,10 +81,14 @@ export class SubmitfireService {
 
   async uploadCredit(credit) {
     let credits = credit;
+    const userInfo = this.afAuth.auth;
+    console.log("User Info:" , userInfo);
+    const Uid = userInfo.currentUser.uid
+    console.log("Uid: ", Uid)
     const increment = firebase.firestore.FieldValue.increment(credits);
 
-    this.db.doc('account/1').update({
-      credits: increment
+    this.db.doc(`account/${Uid}`).update({
+      Credits: increment
     })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef);
@@ -80,7 +102,7 @@ export class SubmitfireService {
   newAccount(newAccount) {
     console.log("New account from SubmitFire Service");
     console.log("newProfile: " , newAccount);
-    this.db.collection('account').add({newAccount})
+    this.db.collection('account').add(newAccount)
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef);
         console.log(docRef);
@@ -99,6 +121,19 @@ export class SubmitfireService {
       comments: comment,
       timestamp: time
     })
+  }
+
+  private updateUserSettings(addSettings) {
+    console.log("Update User Settings")
+    const userInfo = this.afAuth.auth;
+    console.log("User Info:" , userInfo);
+    const Uid = userInfo.currentUser.uid
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${Uid}`);
+    console.log("User Ref: " , userRef)
+
+    const data: User = addSettings;
+
+    return userRef.set(data, { merge: true });
   }
 
 }

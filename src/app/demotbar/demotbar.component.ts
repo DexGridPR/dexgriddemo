@@ -37,4 +37,9 @@ export class DemotbarComponent implements OnInit {
     this._gotodemo.gop();
   }
 
+  navigate() {
+    console.log("Opening Signup Page")
+    window.open("https://dexgrid.io")
+  }
+
 }
