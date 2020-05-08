@@ -55,6 +55,14 @@ export class AuthService {
     return this.updateUserData(credential.user, newAccount);
   }
 
+  async googleLogin() {
+    console.log("Logging in using Google account");
+    const provider = new auth.GoogleAuthProvider();
+    const credential = await this.afAuth.auth.signInWithPopup(provider);
+    const user = credential.user;
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);
+  }
+
   async emailSignin(email, newAccount) {
     const actionCodeSettings = {
       // Your redirect URL

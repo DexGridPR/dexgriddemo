@@ -83,6 +83,12 @@ export class LoginComponent implements OnInit {
     return this.router.navigate(['/demo']);
   }
 
+  async googleLogin() {
+    await this.auth.googleLogin();
+
+    return this.router.navigate(['/demo']);
+  }
+
   async sendEmailLink(email, name) {
     const newAccount = {
       name: name,
