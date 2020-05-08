@@ -1,0 +1,104 @@
+.main {
+    margin: 0;
+    height: 100vh;
+}
+
+.login {
+    float: left;
+    background-color: rgb(238, 238, 238);
+    padding: 3rem 5rem 5rem 3rem;
+    width: 200px;
+    height: 100vh;
+
+    .login-top {
+        top: 0;
+        padding: 0 0 5rem 0;
+
+        img {
+            float: left;
+            width: 5rem;
+            height: auto;
+        }
+
+        h2 {
+            float: right;
+            color: #F2950E;
+        }
+    }
+}
+
+.entry-space {
+    padding: 2rem 0;
+
+    // .entry {
+    //     padding: 1rem 0 1rem 0;
+    // }
+}
+
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+
+.checkbox {
+    // display: flex;
+    // align-content: center;
+    // align-items: center;
+    // height: 60px;
+    width: 10rem;
+    padding: 0 0 2rem;
+
+    mat-checkbox {
+        // margin: 0 10px;
+    }
+
+    .checkbox-under {
+        margin: 1.5rem 0 0;
+        display: inline-block;
+        width: 5rem;
+        overflow-wrap: break-word;
+
+        label {
+            word-wrap: break-word;
+
+            span {
+                word-wrap: break-word;
+                height:inherit;
+                width:inherit;
+                overflow:inherit;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+
+.demo-panel {
+    padding: 2rem 2rem;
+    text-align: center;
+
+    @media only screen and (min-width: 600px) {
+        width: calc(100% - 400px);
+        float: right;
+    }
+
+    .demo-title {
+        padding: 2rem 4rem;
+    }
+
+    .demo-image {
+        margin: 3rem auto 0;
+        display: block;
+        // height: 14rem;
+        // width: auto;
+
+        img {
+            height: 18rem;
+            width: auto;
+        }
+    }
+}

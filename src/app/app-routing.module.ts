@@ -14,13 +14,15 @@ import { AccountComponent } from './goperator/account/account.component';
 import { CreditsComponent } from './customer/credits/credits.component';
 import { SettingsComponent } from './customer/settings/settings.component';
 import { ThemarketComponent } from './customer/themarket/themarket.component';
+import { LoginComponent } from 'src/app/login/login.component';
 
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'demo', pathMatch: 'full' },
-  { path: '', component: DemoComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'tester', component: TesterComponent },
   { path: 'download', component: DownloadComponent },
   { path: 'sellrec', component: SellrecComponent },

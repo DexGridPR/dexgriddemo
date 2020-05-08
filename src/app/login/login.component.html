@@ -1,0 +1,63 @@
+<div class="main">
+    <div class="login">
+        <div class="login-top">
+            <img class="logo" src="../../assets/DexGrid_FullLogo.png" alt="">
+
+            <h2>Sign In</h2>
+        </div>
+
+        <h1>Sign Up for DexGrid</h1>
+        <p>Free demo trial</p>
+
+        <div class="entry-space">
+            <div class="entry">
+                <form class="form">
+                    <mat-form-field class="full-width">
+                      <mat-label>Name</mat-label>
+                      <p>Name</p>
+                      <input type="string" name="name" matInput placeholder="Ex. Hernando Manchego">
+                    </mat-form-field>
+                  </form>
+            </div>
+
+            <form class="form">
+                <mat-form-field class="full-width">
+                  <mat-label>Email</mat-label>
+                  <p>Email</p>
+                  <input type="email" name="email" ngModel [email]="true" matInput placeholder="Ex. pat@example.com">
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </form>
+              
+
+            <div class="checkbox-space">
+                <div class="checkbox">
+                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Subscribe to our newsletter</mat-checkbox>
+                    <mat-checkbox class="checkbox-under" [(ngModel)]="indeterminate">I have read and agree to the <br>
+                        DexGrid Demo Terms of Service</mat-checkbox>
+                </div>
+            </div>
+
+            <button mat-raised-button color="primary">Signup</button>
+        </div>
+    </div>
+
+    <div class="demo-panel">
+        <div class="demo-title">
+            <h1>Wholesale Pricing for Everyone</h1>
+            <p>On a DexGrid system, you are on the same playing field as the generators, 
+                distribution owners, and consumers. Electricity is exchanged just like an old
+                fashioned grid but the payments are not.</p>
+                <button mat-raised-button color="primary">Learn more</button>
+        </div>
+
+        <div class="demo-image">
+            <img src="../../assets/DexGrid Market.png" alt="">
+        </div>
+    </div>
+</div>

@@ -146,5 +146,10 @@
   "defaultProject": "dexgrid",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@nrwl/schematics:component": {
+      "styleext": "scss"
+    }
   }
 }

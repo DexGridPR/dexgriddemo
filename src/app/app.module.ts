@@ -33,6 +33,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts';
@@ -57,6 +58,7 @@ import { GridmarketComponent } from './goperator/gridmarket/gridmarket.component
 // import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UsersettingsComponent } from './customer/usersettings/usersettings.component';
+import { LoginComponent } from './login/login.component';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -101,7 +103,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     CusBottomWarn,
     ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, 
     // CommComponent, 
-    GridmarketComponent, UsersettingsComponent
+    GridmarketComponent, UsersettingsComponent, LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -121,6 +123,7 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatCheckboxModule,
     HttpClientModule,
     // HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
