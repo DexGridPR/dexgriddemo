@@ -4,11 +4,16 @@
 }
 
 .login {
-    float: left;
     background-color: rgb(238, 238, 238);
-    padding: 3rem 5rem 5rem 3rem;
-    width: 200px;
-    height: 100vh;
+    // width: 100%;
+    padding: 3rem 3rem;
+
+    @media only screen and (min-width: 600px) {
+        padding: 3rem 5rem 5rem 3rem;
+        width: 250px;
+        height: 100%;
+        float: left;
+    }
 
     .login-top {
         top: 0;
@@ -18,11 +23,16 @@
             float: left;
             width: 5rem;
             height: auto;
+            cursor: pointer;
         }
 
         h2 {
             float: right;
             color: #F2950E;
+        }
+
+        a {
+            cursor: pointer;
         }
     }
 }
@@ -33,6 +43,13 @@
     // .entry {
     //     padding: 1rem 0 1rem 0;
     // }
+
+    button {
+
+        @media only screen and (max-width: 360px) {
+            margin: 0.5rem 0 0 1rem;
+        }
+    }
 }
 
 .form {
@@ -44,6 +61,10 @@
   .full-width {
     width: 100%;
   }
+
+.google-button {
+    margin: 0.5rem 0 0 0.5rem;
+}
 
 .checkbox {
     // display: flex;
@@ -78,11 +99,11 @@
 }
 
 .demo-panel {
-    padding: 2rem 2rem;
     text-align: center;
 
     @media only screen and (min-width: 600px) {
-        width: calc(100% - 400px);
+        padding: 2rem 2rem;
+        width: calc(100% - 450px);
         float: right;
     }
 
@@ -91,14 +112,21 @@
     }
 
     .demo-image {
-        margin: 3rem auto 0;
         display: block;
         // height: 14rem;
         // width: auto;
+        @media only screen and (min-width: 600px) {
+            margin: 3rem auto 0;
+        }
 
         img {
-            height: 18rem;
-            width: auto;
+            height: auto;
+            width: 80%;
+
+            @media only screen and (min-width: 600px) {
+                height: 18rem;
+                width: auto;
+            }
         }
     }
 }

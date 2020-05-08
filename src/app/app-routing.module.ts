@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'themarket', component: ThemarketComponent },
   { path: 'demo', component: DemoComponent },
-  { path: '**', component: DemoComponent }
+  { path: '**', component: LoginComponent }
 ];
 
 @NgModule({

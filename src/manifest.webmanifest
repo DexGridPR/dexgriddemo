@@ -5,7 +5,7 @@
   "background_color": "#2158B0",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/market",
+  "start_url": "/login",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
