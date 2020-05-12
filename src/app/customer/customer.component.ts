@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, InjectionToken, Injectable, Inject, Input } from '@angular/core';
+import { Component, OnInit, HostListener, InjectionToken, Injectable, Inject, Input, ViewChild } from '@angular/core';
 import { SellrecComponent } from './sellrec/sellrec.component';
 import { HistoryComponent } from './history/history.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
@@ -8,7 +8,7 @@ import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-shee
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
+import { Color, Label, BaseChartDirective } from 'ng2-charts';
 // import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ConsumptionComponent } from 'src/app/customer/consumption/consumption.component';
 import { TermsComponent } from 'src/app/customer/terms/terms.component';
@@ -54,11 +54,14 @@ export class CustomerComponent implements OnInit {
   monthlyGen: number
   creditsLeft: number
   batteryPower: number
-  creditHistory
+  creditHistory = [99, 95.2, 91.0, 76.3, 70.1, 64]
 
   @Inject(MAT_DIALOG_DATA) private data: any;
 
   @Input() account: Accounts[];
+
+  @ViewChild(BaseChartDirective)
+  public chart: BaseChartDirective;
 
   constructor( 
     private _bottomSheet: MatBottomSheet, 
@@ -86,9 +89,16 @@ export class CustomerComponent implements OnInit {
       this.theUser = user$;
       // this.creditsLeft = this.theUser.credits
       // this.batteryPower = this.theUser.solar.batteryCharge
+      this.creditHistory = this.theUser.dailyCredits;
+      console.log(typeof this.creditHistory)
+      // this.creditHistory = this.creditHistory.toString();
+      console.log(this.creditHistory)
     })
-
-
+// Refresh chart to show backend data on credit balances
+setTimeout(() => {
+    this.chart.chart.data.datasets[0].data = this.creditHistory
+    this.chart.chart.update()
+}, 2000);
   }
 
   signOut() {
@@ -195,13 +205,14 @@ export class CustomerComponent implements OnInit {
     this._bottomSheet.open(CusBottomWarn);
   }
   
-
   //Array for Charts
   lineChartData: ChartDataSets[] = [
-    { data: [99, 95.2, 91.0, 76.3, 70.1, 64], label: 'Prepayment Credit Balance' },
+    { data: this.creditHistory, 
+      label: 'Prepayment Credit Balance' },
   ];
   //Chart Labels
-  lineChartLabels: Label[] = ['1st', '3rd', '5th', '7th', '9th', '11th'];
+  lineChartLabels: Label[] = ['1st', '', '3rd', '', '5th', '', '7th', '', '9th', '', '11th', '', '13th', '', 
+  '15th', '', '17th', '', '19th', '', '21st', '', '23rd', '', '25th', '', '27th', '',  '29th', '', '31st' ];
 
   //Settings of Chart
   lineChartOptions = {
