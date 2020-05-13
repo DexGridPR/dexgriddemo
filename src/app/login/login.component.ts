@@ -224,5 +224,9 @@ export class CusBottomSheet {
     this._bottomSheetRef.dismiss();
     event.preventDefault();
   }
+
+  closeDialog(): void {
+    this._bottomSheetRef.dismiss();
+  }
   
 }
