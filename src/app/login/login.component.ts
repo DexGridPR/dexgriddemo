@@ -6,6 +6,8 @@ import { SubmitfireService } from 'src/app/service/submitfire.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,8 @@ export class LoginComponent implements OnInit {
   emailSent = false;
   email: string;
   errorMessage: string;
+  accepted = false;
+  notAccepted = false;
 
   checked = false;
   indeterminate = false;
@@ -29,7 +33,8 @@ export class LoginComponent implements OnInit {
     private _submitfire: SubmitfireService,
     public dialog: MatDialog,
     public auth: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit(): void {
   }
@@ -61,26 +66,31 @@ export class LoginComponent implements OnInit {
   }
 
   async googleSignin(email, name) {
-    console.log("Logging you in through Google")
-    const newAccount = {
-      email: email,
-      name: name,
-      recs: this.recs, 
-      consumption: this.consumption, 
-      credits: this.credits, 
-      solar: this.solar, 
-      appliances: this.appliances,
-      activated: this.activated,
-      address: this.addressDefault,
-      ethereum: this.ethereumDefault,
-      grid: this.gridDefault,
-      conID: this.conID,
-      createTime: Date.now(),
-    };
-    // this._submitfire.newAccount(userID, RECs, consumption, credits, profile, solar, appliances, settings)
-    await this.auth.googleSignin(newAccount);
 
-    return this.router.navigate(['/demo']);
+    if (this.accepted == false) {
+      this.notAccepted = true;
+    } else {
+      console.log("Logging you in through Google")
+      const newAccount = {
+        email: email,
+        name: name,
+        recs: this.recs, 
+        consumption: this.consumption, 
+        credits: this.credits, 
+        solar: this.solar, 
+        appliances: this.appliances,
+        activated: this.activated,
+        address: this.addressDefault,
+        ethereum: this.ethereumDefault,
+        grid: this.gridDefault,
+        conID: this.conID,
+        createTime: Date.now(),
+      };
+      // this._submitfire.newAccount(userID, RECs, consumption, credits, profile, solar, appliances, settings)
+      await this.auth.googleSignin(newAccount);
+  
+      return this.router.navigate(['/demo']);
+    }
   }
 
   async googleLogin() {
@@ -90,25 +100,30 @@ export class LoginComponent implements OnInit {
   }
 
   async sendEmailLink(email, name) {
-    const newAccount = {
-      name: name,
-      recs: this.recs, 
-      consumption: this.consumption, 
-      credits: this.credits, 
-      solar: this.solar, 
-      appliances: this.appliances,
-      activated: this.activated,
-      address: this.addressDefault,
-      ethereum: this.ethereumDefault,
-      grid: this.gridDefault,
-      conID: this.conID,
-      createTime: Date.now(),
-    };
-    await this.auth.emailSignin(email, newAccount);
-    if (email) {
-      return this.emailSent = true;
+
+    if (this.accepted == false) {
+      this.notAccepted = true;
+    } else {
+      const newAccount = {
+        name: name,
+        recs: this.recs, 
+        consumption: this.consumption, 
+        credits: this.credits, 
+        solar: this.solar, 
+        appliances: this.appliances,
+        activated: this.activated,
+        address: this.addressDefault,
+        ethereum: this.ethereumDefault,
+        grid: this.gridDefault,
+        conID: this.conID,
+        createTime: Date.now(),
+      };
+      await this.auth.emailSignin(email, newAccount);
+      if (email) {
+        return this.emailSent = true;
+      }
     }
-  }
+  };
 
   consumedDefault = 0;
   purchasedDefault = 100;
@@ -117,7 +132,7 @@ export class LoginComponent implements OnInit {
   avgkWhDefault = 65;
   prepay30Default = 100;
   thirtyDaysDefault = 68;
-  creditsDefault = 64;
+  creditsDefault = 0;
   addressDefault = "100 Calle San Francisco, San Juan, PR 00901";
   ethereumDefault = "0xtT....oP7E";
   gridDefault = "San Juan";
@@ -187,4 +202,27 @@ export class LoginComponent implements OnInit {
     photoURL: null,
     uid: null
   }
+
+  //Opens Bottom bar when clicking information icon
+  openBottomSheet(): void {
+    this._bottomSheet.open(CusBottomSheet);
+    this.notAccepted = false;
+  };
+  
+}
+
+//Terms Component for Bottom Bar
+@Component({
+  selector: 'bottom-sheet',
+  templateUrl: 'sheet.html',
+  styleUrls: ['./login.component.scss']
+})
+export class CusBottomSheet {
+  constructor(private _bottomSheetRef: MatBottomSheetRef<CusBottomSheet>) {}
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
+  
 }

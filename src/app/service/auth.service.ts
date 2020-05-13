@@ -176,7 +176,7 @@ export class AuthService {
     const data = {
       Profile: Profile,
       activated: false,
-      Credits: 60,
+      Credits: 0,
       solar: solar,
       appliances: appliances,
       consumption: consumption,
@@ -225,6 +225,9 @@ export class AuthService {
       order: {
         ask: true,
         bid: true,
+      },
+      solar: {
+        currentCapacity: 1
       }
     };
     // const userRef: AngularFirestoreDocument<User> = this.afs.doc(`account/${user.uid}`);

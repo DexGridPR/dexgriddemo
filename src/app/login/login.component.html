@@ -39,7 +39,7 @@
       <div class="checkbox-space">
         <div class="checkbox">
           <mat-checkbox class="example-margin" [(ngModel)]="checked">Subscribe to our newsletter</mat-checkbox>
-          <mat-checkbox class="checkbox-under" [(ngModel)]="indeterminate">I have read and agree to the
+          <mat-checkbox (click)="openBottomSheet()" class="checkbox-under" [(ngModel)]="accepted">I have read and agree to the
             <br> DexGrid Demo Terms of Service</mat-checkbox>
         </div>
       </div>
@@ -48,6 +48,19 @@
 
       <button class="google-button" mat-raised-button color="primary" (click)="googleSignin(email, name)">Google Signup</button>
 
+      <div *ngIf="emailSent" class="notification is-info">
+          We sent you an email with your login link to {{ email }}.
+          <br>
+          <br>
+          Please click the link on the incoming email to log in.
+        </div>
+        <div *ngIf="errorMessage" class="notification is-danger">
+          {{ errorMessage }}
+        </div>
+
+        <div *ngIf="notAccepted" class="notification is-info">
+            Please accept the terms and conditions to sign up.
+          </div>
     </div>
   </div>
 

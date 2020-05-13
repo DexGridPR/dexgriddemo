@@ -1,4 +1,5 @@
 export interface User {
+    Credits?: number;
     dailyCredits?: any;
     uid?: string;
     email?: string;

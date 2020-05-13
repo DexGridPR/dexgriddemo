@@ -87,8 +87,8 @@ export class CustomerComponent implements OnInit {
 
     this.auth.user$.subscribe(user$ => {
       this.theUser = user$;
-      // this.creditsLeft = this.theUser.credits
-      // this.batteryPower = this.theUser.solar.batteryCharge
+      this.creditsLeft = this.theUser.Credits;
+      this.batteryPower = this.theUser.solar.batteryCharge;
       this.creditHistory = this.theUser.dailyCredits;
       console.log(typeof this.creditHistory)
       // this.creditHistory = this.creditHistory.toString();
@@ -227,7 +227,7 @@ setTimeout(() => {
     xAxes: [{
       scaleLabel: {
          display: true,
-         labelString: 'Day of the Month [April]'
+         labelString: 'Day of the Month [May]'
       }
    }]
  }//END scales

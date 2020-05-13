@@ -10,7 +10,7 @@ import { GotodemoService } from '../service/gotodemo.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { MatDialogModule, MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
+// import { NewUserComponent } from 'src/app/customer/new-user/new-user.component';
 import { AuthService } from '../service/auth.service';
 
 
@@ -74,17 +74,17 @@ export class DemoComponent implements OnInit {
     this._gotodemo.gop();
   }
 
-  openNewUser(): void {
-    console.log("Open Onboarding");
-    const dialog = this.dialog.open( NewUserComponent, {
-      // width: '90%', 
-      maxWidth: '90%'
-    });
-    dialog.afterClosed().subscribe(result => {
-      this._gotodemo.cus();
-      console.log("Result: " , result);
-      console.log('The dialog was closed');
-    });
-  }
+  // openNewUser(): void {
+  //   console.log("Open Onboarding");
+  //   const dialog = this.dialog.open( NewUserComponent, {
+  //     // width: '90%', 
+  //     maxWidth: '90%'
+  //   });
+  //   dialog.afterClosed().subscribe(result => {
+  //     this._gotodemo.cus();
+  //     console.log("Result: " , result);
+  //     console.log('The dialog was closed');
+  //   });
+  // }
 
 }
