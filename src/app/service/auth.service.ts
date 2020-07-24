@@ -86,6 +86,29 @@ export class AuthService {
     }
   };
 
+  async emailSigninGen(email, newAccount) {
+    const actionCodeSettings = {
+      // Your redirect URL
+      url: 'http://dexgriddemo.web.app/generatordemo',
+      handleCodeInApp: true
+    };
+    console.log(actionCodeSettings, email)
+
+    try {
+      await this.afAuth.auth.sendSignInLinkToEmail(
+        email,
+        actionCodeSettings
+      );
+      window.localStorage.setItem('emailForSignIn', email);
+      console.log("Storing in localStore: ", email);
+      this.emailSent = true;
+      this.newAccount = newAccount;
+    } catch (err) {
+      this.errorMessage = err.message;
+      console.log("Error: ", this.errorMessage)
+    }
+  };
+
   async confirmSignIn(url) {
     try {
       if (this.afAuth.auth.isSignInWithEmailLink(url)) {

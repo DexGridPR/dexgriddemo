@@ -1,0 +1,30 @@
+<app-demotbar></app-demotbar>
+
+<div id="general">
+
+  <div id="cover" *ngIf="nothing">
+    <h1>The DexGrid Generator Portal</h1>
+    <hr>
+      <div class="button-row">
+          <!-- <button mat-fab color="primary" (click)="reg()">Regulator</button> -->
+          <!-- <button mat-fab color="primary" (click)="cus()">Customer</button> -->
+          <button mat-fab color="primary" (click)="gop()">Generator Portal</button>
+      </div>
+  </div>
+
+  <div id="market">  
+    <!-- <div *ngIf="should_open_reg;">
+      <app-regulator></app-regulator>
+    </div> -->
+  
+    <!-- <div *ngIf="should_open_cus;">
+      <app-customer></app-customer>
+    </div> -->
+
+    <div *ngIf="should_open_gop;">
+      <app-generator></app-generator>
+    </div>
+  </div>
+
+  <!-- <ng-template #nothing>Nothing Opened</ng-template> -->
+</div>

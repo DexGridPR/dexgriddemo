@@ -1,0 +1,236 @@
+
+<section class="main">
+    <!-- auth.user$ is used here because of the ngIf need for an immediat instance of the object. The remainder
+    of the data used is subscribed to through TS and available from the service. -->
+    <div *ngIf="auth.user$ | async as user; else default">
+  
+      <h1>Welcome to your Dashboard, {{ user.Profile.displayName }}</h1>
+  
+      <div class="photo_logout">
+        <img src="{{ user.Profile.photoURL }}" alt="" class="profile-photo">
+        <button class="signout" color="primary" mat-fab (click)="signOut()">Log Out</button>
+      </div>
+  
+      <mat-icon class="cursor-button" (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
+  
+      <!-- <mat-icon class="settings" (click)="openUserSettings()" aria-hidden="false" aria-label="info icon">settings
+      </mat-icon> -->
+      <div id="dashboard">
+  
+        <mat-card id="cus-info">
+          <p>Your Local Grid- {{ user.Profile.grid }} MicroGrid</p>
+          <div id="bill">
+            <p id="billing">Customer Number- #{{ user.Profile.conID }}</p>
+            <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
+          </div>
+          <p>My Blockchain Profile #- {{ user.Profile.ethereum }}</p>
+        </mat-card>
+  
+        <section class="basicGrid">
+          <mat-card class="infocard">
+            <p>Earnings</p>
+            <hr>
+            <mat-card-content>
+              <p>Revenue, Last 30 Days: {{ user.consumption.prepay30 }} Credits</p>
+              <p>Credit Balance: {{ user.Credits}}</p>
+              <mat-progress-bar mode="determinate" [value]="creditsLeft"></mat-progress-bar>
+              <hr>
+              <p>Estimated revenue next 30 days:</p>
+              <p id="credits-left">4,557 Credits</p>
+              <mat-icon class="cursor-button" (click)="openBottomWarning()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
+            </mat-card-content>
+          </mat-card>
+  
+          <mat-card class="infocard">
+            <p>DER Performance</p>
+            <hr>
+            <mat-card-content>
+              <p>Generated, last 30 days: {{ user.solar.monthGen }} kWh</p>
+              <p>Today's Generation: {{ genToday }} kWh</p>
+              <p>Battery: {{ user.solar.batteryCharge }}% charged</p>
+              <mat-progress-bar mode="determinate" [value]="batteryPower"></mat-progress-bar>
+              <br>
+              <p>Credits Earned, last 30 days: {{ creditsEarned }} Credits</p>
+  
+            </mat-card-content>
+          </mat-card>
+  
+          <mat-card class="infocard">
+            <p>Consumers</p>
+            <hr>
+            <mat-card-content>
+              <p>Last 30 days: {{ user.consumption.thirtyDays }} kWh</p>
+              <p>Last 12 months, monthly: {{ user.consumption.avg12month }} kWh</p>
+              <p style="font-weight: bold; display: inline-block; margin-right: 0.3em;">Average kWh rate: ${{ user.consumption.avgkWh }}</p>
+              <mat-icon class="cursor-button" (click)="openDialog()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
+  
+            </mat-card-content>
+          </mat-card>
+  
+          <mat-card class="infocard">
+            <p>Renewable Energy Credits</p>
+            <hr>
+            <mat-card-content>
+              <p>Generated, past 12 months: {{ user.recs.twelveMonth }} RECs</p>
+              <p>Consumed / Purchased: {{ user.recs.consumed }} RECs</p>
+            </mat-card-content>
+          </mat-card>
+        </section>
+  
+        <div class="chart-wrapper">
+          <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+            [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+  
+        <!-- <div id="buttons">
+
+        </div> -->
+        
+  
+        <div *ngIf="should_open_sellrec;">
+          <app-sellrec></app-sellrec>
+          <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+        </div>
+  
+        <div *ngIf="should_open_history;">
+          <app-history></app-history>
+          <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+        </div>
+  
+  
+        <div *ngIf="should_open_settings;">
+          <app-settings></app-settings>
+          <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+        </div>
+  
+        <div *ngIf="should_open_market">
+          <app-themarket></app-themarket>
+        </div>
+  
+      </div>
+    </div>
+  
+    <ng-template #default>
+      <div id="customer" *ngFor="let _account of account | slice:0:1">
+        <h1>Welcome to your Dashboard, {{ _account.Profile.displayName }}</h1>
+        <h4>This is a demo account in case you did not share your email.</h4>
+  
+        <mat-icon (click)="openBottomSheet()" aria-hidden="false" aria-label="info icon">info</mat-icon>
+  
+        <mat-icon class="settings" (click)="openNewUser()" aria-hidden="false" aria-label="info icon">account_circle
+        </mat-icon>
+    
+        <div id="dashboard">
+          <mat-card id="cus-info">
+            <p>Address- {{ _account.Profile.address }}</p>
+            <div id="bill">
+              <p id="billing">Customer Number- #{{ _account.Profile.userID }}</p>
+              <button (click)="onCreate()" class="billbutton">Terms and Conditions</button>
+            </div>
+            <p>My Blockchain Profile #- {{ _account.Profile.ethereum }}</p>
+          </mat-card>
+  
+          <section class="basicGrid">
+            <mat-card class="infocard">
+              <p>Billing</p>
+              <hr>
+              <mat-card-content>
+                <p>Prepayment, Last 30 Days: {{ _account.consumption.prepay30 }} Credits</p>
+                <p>Credits Left: {{_account.credits}}</p>
+                <mat-progress-bar mode="determinate" value="63"></mat-progress-bar>
+                <hr>
+                <p>Estimated duration of credits:</p>
+                <p id="credits-left">20 days</p>
+                <mat-icon (click)="openBottomWarning()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
+              </mat-card-content>
+            </mat-card>
+  
+            <mat-card class="infocard">
+              <p>DER Performance</p>
+              <hr>
+              <mat-card-content>
+                <p>Solar System: {{ _account.solar.monthGen }} kWh [February]</p>
+                <p>Battery: {{ _account.solar.batteryCharge }} kWh charged</p>
+                <mat-progress-bar mode="determinate" value=fill></mat-progress-bar>
+              </mat-card-content>
+            </mat-card>
+  
+            <mat-card class="infocard">
+              <p>Consumption</p>
+              <hr>
+              <mat-card-content>
+                <p>Last 30 days: {{ _account.consumption.thirtyDays }} kWh</p>
+                <p>Last 12 months, monthly: {{ _account.consumption.avg12month }} kWh</p>
+                <p style="font-weight: bold; display: inline-block; margin-right: 0.3em;">Average kWh rate: ${{ _account.consumption.avgkWh }}</p>
+                <mat-icon (click)="openDialog()" aria-hidden="false" aria-label="warning icon" style="color:#AC4500;">warning</mat-icon>
+  
+              </mat-card-content>
+            </mat-card>
+  
+            <mat-card class="infocard">
+              <p>Renewable Energy Credits</p>
+              <hr>
+              <mat-card-content>
+                <p>Generated, past 12 months: {{ _account.recs.twelveMonth }} RECs</p>
+                <p>Consumed / Purchased: {{ _account.recs.consumed }} RECs</p>
+              </mat-card-content>
+            </mat-card>
+          </section>
+  
+          <div class="chart-wrapper">
+            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+              [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+            </canvas>
+          </div>
+  
+          <div id="buttons">
+  
+            <button mat-raised-button (click)="openCredits()" class="dashbutton">Purchase Electric Credits
+              <mat-icon aria-hidden="false" aria-label="add_circle_outline icon">add_circle_outline</mat-icon>
+            </button>
+  
+            <button mat-raised-button (click)="history()" class="dashbutton">Previous Consumption
+              <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
+            </button>
+  
+            <button mat-raised-button (click)="sellrec()" class="dashbutton">Sell Your RECs
+              <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
+            </button>
+  
+            <button mat-raised-button (click)="openSettings()" class="dashbutton">Energy Settings
+              <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
+            </button>
+  
+  
+            <!-- <button mat-raised-button (click)="opentheMarket()" class="dashbutton">The Market
+              <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down icon">keyboard_arrow_down</mat-icon>
+            </button> -->
+          </div>
+  
+          <div *ngIf="should_open_sellrec;">
+            <app-sellrec></app-sellrec>
+            <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+          </div>
+  
+          <div *ngIf="should_open_history;">
+            <app-history></app-history>
+            <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+          </div>
+  
+  
+          <div *ngIf="should_open_settings;">
+            <app-settings></app-settings>
+            <!-- <ng-template #empty>Nothing Opened</ng-template> -->
+          </div>
+  
+          <div *ngIf="should_open_market">
+            <app-themarket></app-themarket>
+          </div>
+  
+        </div>
+      </div>
+    </ng-template>
+  
+  </section>
+  

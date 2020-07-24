@@ -1,0 +1,93 @@
+h1 {
+    margin: 0.5em 1rem;
+}
+
+#drawer {
+    width: 15em;
+    display: flex;
+    grid-row: 2/4;
+    grid-column: 1;
+    z-index: 1;
+    height: 100%;
+}
+
+#cover {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+#market_photo {
+    width: 80vw;
+    height: auto;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media only screen and (min-width: 600px) {
+        width: 50vw;
+    }
+}
+
+#market {
+    margin-bottom: 2em;
+}
+
+#options {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#regulator {
+    margin-top: 3rem;
+    margin-right: 2rem;
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 2rem;
+    padding: 0rem;
+    border: 0.1rem,rgb(144, 138, 138);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(78, 235, 57);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#customer {
+    margin-top: 3rem;
+    margin-right: 2rem;
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 2rem;
+    padding: 0rem;
+    border: 0.1rem,rgb(144, 138, 138);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(78, 235, 57);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+app-footer {
+    margin-top: 2em;
+}
+
+.button-row {
+    display: inline-block;
+    padding-top: 9em;
+
+    button {
+        margin: 0.3em 0.4em;
+        width: 9em;
+        height: 9em;
+    }
+}
+
+#welcome {
+    margin: 1rem 0;
+}

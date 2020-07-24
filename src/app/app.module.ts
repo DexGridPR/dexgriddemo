@@ -59,6 +59,10 @@ import { GridmarketComponent } from './goperator/gridmarket/gridmarket.component
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UsersettingsComponent } from './customer/usersettings/usersettings.component';
 import { LoginComponent } from './login/login.component';
+import { LoginProducerComponent } from './login-producer/login-producer.component';
+import { DemoProducerComponent } from './demo-producer/demo-producer.component';
+import { GeneratorComponent } from './generator/generator.component';
+import { GenerationmixComponent } from './generator/generationmix/generationmix.component';
 
 
 // import { WEB3PROVIDER } from './web3-provider';
@@ -101,9 +105,10 @@ const WEB3PROVIDER = new InjectionToken('Web3 provider', {
     RegBottomSheet,
     CusBottomSheet, 
     CusBottomWarn,
-    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, SettingsComponent, ThemarketComponent, NewUserComponent, 
+    ConsumptionComponent, RegcontrolComponent, AccountComponent, CreditsComponent, 
+    SettingsComponent, ThemarketComponent, NewUserComponent, 
     // CommComponent, 
-    GridmarketComponent, UsersettingsComponent, LoginComponent
+    GridmarketComponent, UsersettingsComponent, LoginComponent, LoginProducerComponent, DemoProducerComponent, GeneratorComponent, GenerationmixComponent
   ],
   imports: [
     BrowserModule,

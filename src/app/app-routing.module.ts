@@ -15,6 +15,9 @@ import { CreditsComponent } from './customer/credits/credits.component';
 import { SettingsComponent } from './customer/settings/settings.component';
 import { ThemarketComponent } from './customer/themarket/themarket.component';
 import { LoginComponent } from 'src/app/login/login.component';
+import { LoginProducerComponent } from 'src/app/login-producer/login-producer.component';
+import { DemoProducerComponent } from 'src/app/demo-producer/demo-producer.component';
+import { GeneratorComponent } from 'src/app/generator/generator.component';
 
 
 
@@ -23,6 +26,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'logingenerator', component: LoginProducerComponent },
   { path: 'tester', component: TesterComponent },
   { path: 'download', component: DownloadComponent },
   { path: 'sellrec', component: SellrecComponent },
@@ -36,6 +40,8 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'themarket', component: ThemarketComponent },
   { path: 'demo', component: DemoComponent },
+  { path: 'generatordemo', component: DemoProducerComponent },
+  { path: 'generator', component: GeneratorComponent },
   { path: '**', component: LoginComponent }
 ];
 

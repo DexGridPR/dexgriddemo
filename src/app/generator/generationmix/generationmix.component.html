@@ -1,0 +1,18 @@
+<div class="chart-wrapper">
+    <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend"
+    [colors]="pieChartColor">
+  </canvas>
+</div>
+
+<div class="explain">
+    <p>This is your daily generation income broken down, by average total revenue per time of day, for this month.</p>
+    <p>It looks like half or more of your revenue is in the afternoon. This aligns with many others in 
+        your grid.
+    </p>
+</div>

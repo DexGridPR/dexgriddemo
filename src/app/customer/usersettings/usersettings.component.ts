@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { SubmitfireService } from 'src/app/service/submitfire.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { SettingsComponent } from 'src/app/customer/settings/settings.component';
 
 @Component({
   selector: 'app-usersettings',
@@ -62,6 +63,10 @@ export class UsersettingsComponent implements OnInit {
     console.log(addSettings)
 
     this.auth.inputCredits(addSettings);
+    return this.dialog.closeAll();
+  }
+
+  closeDia() {
     return this.dialog.closeAll();
   }
 

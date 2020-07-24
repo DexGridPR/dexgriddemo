@@ -1,7 +1,7 @@
 <mat-dialog-content>
   <h1 style="text-align: center;">User Settings</h1>
 
-  <mat-form-field class="settings-form-one">
+  <!-- <mat-form-field class="settings-form-one">
     <div class="ngInput">
       <label>Your Solar PV System Size:
         <input class="form-control" type="number" min="0" max="999" matInput #pvsystem="ngModel" [(ngModel)]="pvsystem.value" ng-pattern="onlyNumbers"
@@ -80,12 +80,19 @@
         <input class="form-control" matInput #displayName="ngModel" [(ngModel)]="displayName.value" id="displayName">
       </label>
     </div>
-  </mat-form-field>
+  </mat-form-field> -->
+
+  <app-settings></app-settings>
 
 
-  <button mat-raised-button ng-pattern="onlyNumbers" color="primary" class="submit" (click)="submitCreditAmount(pvsystem.value, email.value, grid.value, displayName.value)">Submit
+  <!-- <button mat-raised-button ng-pattern="onlyNumbers" color="primary" class="submit" (click)="submitCreditAmount(pvsystem.value, email.value, grid.value, displayName.value)">Submit
+    <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
+  </button> -->
+
+  <button mat-raised-button ng-pattern="onlyNumbers" color="primary" class="submit" (click)="closeDia()">Submit
     <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
   </button>
+
 
   <button mat-raised-button color="warn" (click)="closeDialog()" class="close-button">Close
     <mat-icon aria-hidden="false" aria-label="done icon">close</mat-icon>

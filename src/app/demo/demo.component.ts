@@ -35,7 +35,6 @@ export class DemoComponent implements OnInit {
 
   get should_open_reg(): boolean {
     return this._gotodemo.should_open_reg;
-
   }
 
   get should_open_cus(): boolean {
