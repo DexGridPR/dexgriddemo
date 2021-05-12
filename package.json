@@ -30,7 +30,7 @@
     "@material/switch": "^5.1.0",
     "buffer": "^5.5.0",
     "canvasjs": "^1.8.3",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "core-js": "^3.6.4",
     "ethers": "^4.0.46",
     "firebase": "^7.13.1",
